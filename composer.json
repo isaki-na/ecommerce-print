@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.2",
         "barryvdh/laravel-dompdf": "^3.0",
-        "filament/filament": "^3.2",
+        "filament/filament": "3.3",
         "filament/infolists": "^3.2",
         "inertiajs/inertia-laravel": "^1.0",
         "laravel/framework": "^11.9",
