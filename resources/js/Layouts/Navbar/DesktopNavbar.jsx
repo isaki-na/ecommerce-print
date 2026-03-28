@@ -24,14 +24,8 @@ export default function DesktopNavbar({ navigation }) {
         })
     }
     return (
-        <nav className="border-b  hidden lg:block">
-            {settings.rates.freeShipping && (
-                <p className="flex h-10 items-center justify-center gradient-primary px-4 text-sm text-white sm:px-6 lg:px-8">
-                    Obtenga envío gratuito en pedidos superiores a {formatCurrency(settings.rates.freeShipping)}
-                </p>
-            )}
-
-            <div className="container pt-4 text-neutral-700 text-sm">
+        <nav className="border-b  hidden lg:block"> 
+*       <div className="container pt-4 text-neutral-700 text-sm">
                 <div className='relative  grid grid-cols-12 gap-x-5  items-center'>
                     <div className='col-span-3'>
                         <ApplicationLogo />
