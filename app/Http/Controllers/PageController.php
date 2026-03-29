@@ -55,7 +55,7 @@ class PageController extends Controller
             'page' => new PageResource($page),
             'productsBestSeller' => ProductCardResource::collection($bestSeller),
             'newProducts' => ProductCardResource::collection($newProducts),
-            'carouselTop' => ImageResource::collection($carousel_top),
+            # 'carouselTop' => ImageResource::collection($carousel_top),
             'bannersTop' => ImageResource::collection($banners_top),
             'bannersMedium' => ImageResource::collection($banners_medium),
             'bannersBottom' => ImageResource::collection($banners_bottom),

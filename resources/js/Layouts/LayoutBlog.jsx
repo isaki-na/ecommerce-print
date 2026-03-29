@@ -6,7 +6,6 @@ import PrimaryButton from '@/Components/PrimaryButton'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { Head, Link, useForm, usePage } from '@inertiajs/react'
 import Breadcrumb from '@/Components/Breadcrumb'
-import BannerText from '@/Components/Carousel/BannerText'
 import Hero from '@/Components/Hero/Hero'
 
 export default function LayoutBlog({ children, breadcrumb = [], bannerText = null }) {
