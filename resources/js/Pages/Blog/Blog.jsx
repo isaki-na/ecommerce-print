@@ -7,6 +7,7 @@ import Pagination from '@/Components/Pagination'
 
 import LayoutBlog from '@/Layouts/LayoutBlog'
 import SectionList from "@/Components/Sections/SectionList"
+import BannerText from '@/Components/Carousel/BannerText'
 import Breadcrumb from '@/Components/Breadcrumb'
 import Hero from '@/Components/Hero/Hero'
 import MetaTag from '@/Components/MetaTag'

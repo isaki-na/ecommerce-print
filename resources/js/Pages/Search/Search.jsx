@@ -8,6 +8,7 @@ import React, { createContext } from "react";
 import { useState, useEffect, useRef } from "react";
 
 import Filters from "./Filters/Filters";
+import CarouselBanner from "@/Components/Carousel/CarouselBanner";
 import Breadcrumb from "@/Components/Breadcrumb";
 import BreadcrumbFilters from "./BreadcrumbFilters";
 import MetaTag from "@/Components/MetaTag";

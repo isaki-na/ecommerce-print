@@ -3,7 +3,7 @@ import Layout from '@/Layouts/Layout'
 import { Head, Link } from '@inertiajs/react'
 import React from 'react'
 import Dashboard from '../Pages/Profile/Dashboard'
-
+import BannerWithTitle from '@/Components/Carousel/BannerWithTitle'
 import { ArrowRightOnRectangleIcon, HomeIcon, IdentificationIcon, LockClosedIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 import SectionTitle from '@/Components/Sections/SectionTitle'
 import Hero from '@/Components/Hero/Hero'
