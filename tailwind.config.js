@@ -27,18 +27,18 @@ export default {
         extend: {
             // Custom colors
             colors: {
-                primary: {
-                    50: '#eff6ff',
-                    100: '#dbeafe',
-                    200: '#bfdbfe',
-                    300: '#93c5fd',
-                    400: '#60a5fa',
-                    500: '#3b82f6',
-                    600: '#2563eb',
-                    700: '#1d4ed8',
-                    800: '#1e40af',
-                    900: '#1e3a8a',
-                    950: '#172554',
+                   primary: {
+                    50: '#ffffff',  // white
+                    100: '#f9f9f9',
+                    200: '#f0f0f0',
+                    300: '#e0e0e0',
+                    400: '#c0c0c0',
+                    500: '#a0a0a0',
+                    600: '#808080',  // middle gray
+                    700: '#606060',
+                    800: '#404040',
+                    900: '#202020',
+                    950: '#000000',  // black
                 },
             },
             // Font families

@@ -25,7 +25,7 @@ export default function DesktopNavbar({ navigation }) {
     }
     return (
         <nav className="border-b  hidden lg:block"> 
-*       <div className="container pt-4 text-neutral-700 text-sm">
+        <div className="container pt-4 text-neutral-700 text-sm">
                 <div className='relative  grid grid-cols-12 gap-x-5  items-center'>
                     <div className='col-span-3'>
                         <ApplicationLogo />
