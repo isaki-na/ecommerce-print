@@ -41,6 +41,13 @@ class PageController extends Controller
             ->limit(10)
             ->get();
 
+        $allProducts = Product::activeInStock()
+            ->variant()
+            ->card()
+            ->inRandomOrder()
+            ->limit(20)
+            ->get();
+
         // dd($bestSeller[0]);
         $banners = $page->banners->where('active', 1);
         $carousel_top = $banners->where('position', 'top')->where('type', 'carousel')->sortBy('sort');
@@ -55,6 +62,7 @@ class PageController extends Controller
             'page' => new PageResource($page),
             'productsBestSeller' => ProductCardResource::collection($bestSeller),
             'newProducts' => ProductCardResource::collection($newProducts),
+            'allProducts' => ProductCardResource::collection($allProducts),
             'carouselTop' => ImageResource::collection($carousel_top),
             'bannersTop' => ImageResource::collection($banners_top),
             'bannersMedium' => ImageResource::collection($banners_medium),
