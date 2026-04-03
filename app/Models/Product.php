@@ -232,7 +232,7 @@ class Product extends Model
                 $sorBy = $filters['sortBy'] == 'price_desc' ? 'desc' : 'asc';
                 $query->orderBy('price', $sorBy);
             }, function (Builder $query) {
-                $query->orderBy('created_at', 'desc');
+                $query->orderBy('products.created_at', 'desc');
             })
         ;
     }

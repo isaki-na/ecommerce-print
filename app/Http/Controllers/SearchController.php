@@ -60,7 +60,7 @@ class SearchController extends Controller
                     'departments' => []
                 ]);
             }
-        )->get();
+        )->get(); 
 
 
         $listCategories = Category::active()->whereHas(
@@ -71,7 +71,7 @@ class SearchController extends Controller
                     'categories' => []
                 ]);
             }
-        )->get();
+        )->get(); 
 
         $listColors = Color::whereHas(
             'products',
@@ -81,7 +81,7 @@ class SearchController extends Controller
                     'colors' => []
                 ]);
             }
-        )->orderBy('slug')->get();
+        )->orderBy('slug')->get(); 
 
         $listSizes = Size::select('sizes.id', 'slug', 'name')->whereHas(
             'products',
