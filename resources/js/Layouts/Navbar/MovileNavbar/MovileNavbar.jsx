@@ -12,7 +12,6 @@ import { UserCircleIcon } from '@heroicons/react/24/outline';
 const navigation_profile = [
     { name: 'Perfil', href: route('profile.orders'), current: route().current('profile.orders') },
     { name: 'Ordenes', href: route('profile.index'), current: route().current('profile.index') },
-
 ]
 
 const navigation_sing = [
@@ -25,8 +24,8 @@ function classNames(...classes) {
 }
 
 export default function MovileNavbar({ navigation }) {
-    const { auth, departments } = usePage().props
-
+    const { auth, categories = [] } = usePage().props // Changed from departments to categories
+    
     return (
         <Disclosure as="nav" className="shadow text-white lg:hidden bg-primary-600">
             {({ open }) => (
@@ -57,12 +56,11 @@ export default function MovileNavbar({ navigation }) {
                     <Disclosure.Panel >
                         <>
                             <div className="space-y-1 px-2 pb-3 pt-2">
-                                {departments.map((item) => (
-                                    <Link key={item.slug} href={route('department', item.slug)}
+                                {categories.map((item) => ( // Changed from departments to categories
+                                    <Link key={item.slug} href={route('category', item.slug)} // Changed route from 'department' to 'category'
                                         className={"block rounded-md px-3 py-2 text-base font-medium " +
                                             classNames(
-
-                                                route().current('department', item.slug) ? 'bg-primary-700' : ' hover:bg-primary-500 ',
+                                                route().current('category', item.slug) ? 'bg-primary-700' : ' hover:bg-primary-500 ', // Changed route check
                                                 ''
                                             )}
                                         aria-current={item.current ? 'page' : undefined}
@@ -70,8 +68,6 @@ export default function MovileNavbar({ navigation }) {
                                         {item.name}
                                     </Link>
                                 ))}
-
-
                             </div>
                             <div className="border-t border-primary-700/40  pb-3 pt-4">
                                 {auth.user ? (
@@ -121,16 +117,13 @@ export default function MovileNavbar({ navigation }) {
                                                 {item.name}
                                             </Link>
                                         ))}
-
                                     </div>
                                 )}
                             </div>
                         </>
-
                     </Disclosure.Panel>
                 </>
-            )
-            }
-        </Disclosure >
+            )}
+        </Disclosure>
     )
 }

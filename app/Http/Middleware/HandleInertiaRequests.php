@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Brand;
 use App\Models\Department;
+use App\Models\Category; 
 use App\Services\CartService;
 use App\Services\SettingService;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        Cache::flush();
+        // Cache::flush();
 
 
         return [
@@ -46,7 +47,7 @@ class HandleInertiaRequests extends Middleware
                 ] : null,
                 'shoppingCartCount' => count(CartService::session())
             ],
-            'departments' => function () {
+/*            'departments' => function () {
                 return Cache::remember('categories', 3600, function () {
                     return Department::select('id', 'name', 'slug', 'img')
                         ->active()
@@ -56,6 +57,15 @@ class HandleInertiaRequests extends Middleware
                             }
                         ])
 
+                        ->get();
+                });
+            }, */
+            'categories' => function () {
+                return Cache::remember('categories', 3600, function () {
+                    return Category::select('id', 'name', 'slug', 'img', 'entry')
+                        ->active()
+                        ->whereHas('products') // Only categories that have products
+                        ->withCount('products')
                         ->get();
                 });
             },

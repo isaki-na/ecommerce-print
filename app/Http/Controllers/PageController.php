@@ -67,7 +67,7 @@ class PageController extends Controller
             'bannersTop' => ImageResource::collection($banners_top),
             'bannersMedium' => ImageResource::collection($banners_medium),
             'bannersBottom' => ImageResource::collection($banners_bottom),
-            'categoriesProductCount' => CategoryResource::collection($categories),
+            'categories' => CategoryResource::collection($categories),
             // 'brands' => $brands,
         ]);
     }

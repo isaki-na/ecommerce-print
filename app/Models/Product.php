@@ -20,7 +20,8 @@ class Product extends Model
 {
 
     use HasFactory;
-
+       
+   
     protected $casts = [
         'price' => 'float',
     ];
@@ -33,6 +34,16 @@ class Product extends Model
     {
         return $this->belongsTo(Department::class);
     }
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    // If you also have a single category relationship (legacy)
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
     public function sku()
     {
         return $this->hasOne(Sku::class);
@@ -42,11 +53,6 @@ class Product extends Model
     {
         return $this->hasMany(Sku::class);
     }
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
-
     public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'model');

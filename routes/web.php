@@ -5,6 +5,7 @@ use App\Http\Controllers\Checkout\CheckoutController;
 use App\Http\Controllers\Checkout\DiscountCheckoutController;
 use App\Http\Controllers\Checkout\PaymentCheckoutController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Profile\ProfileController;
@@ -36,6 +37,12 @@ Route::controller(BlogController::class)->group(function () {
 
 Route::get('/department/{department}', [DepartmentController::class, 'department'])->name('department');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+// Single category route (similar to department)
+Route::get('/category/{category}', [CategoryController::class, 'category'])->name('category');
+
+// Optional: Route for filtered products in a category
+Route::get('/category/{category}/products', [CategoryController::class, 'products'])->name('category.products');
 
 Route::post('/subscribe', [NewsletterController::class, 'newsletter'])->name('subscribe');
 

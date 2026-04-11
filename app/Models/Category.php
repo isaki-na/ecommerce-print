@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Category extends Model
 {
@@ -26,6 +27,11 @@ class Category extends Model
         'type' => CategoryTypeEnum::class,
     ];
 
+        // Add the metaTag relationship
+    public function metaTag(): MorphOne
+    {
+        return $this->morphOne(MetaTag::class, 'model');
+    }
     public function products(): HasMany
     {
         return $this->hasMany(Product::class)->whereNotNull('parent_id');
