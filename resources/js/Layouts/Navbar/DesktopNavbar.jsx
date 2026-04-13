@@ -111,9 +111,9 @@ function LinkNavbar({ children, active, ...props }) {
         <Link {...props}
             className={
                 (active
-                    ? 'border-primary-600/50 text-primary-600 font-medium border-b-2'
+                    ? 'border-primary-950 text-primary-950 font-medium border-b-2'
                     : '') +
-                ' whitespace-nowrap block '
+                'text-primary-600 whitespace-nowrap block '
             }>
             {children}
         </Link>
