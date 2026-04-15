@@ -19,11 +19,11 @@ class Category extends Model
         'name',
         'slug',
         'img',
-        'specifications',
+        // 'specifications',
     ];
 
     protected $casts = [
-        'specifications' => 'array',
+        // 'specifications' => 'array',
         'type' => CategoryTypeEnum::class,
     ];
 

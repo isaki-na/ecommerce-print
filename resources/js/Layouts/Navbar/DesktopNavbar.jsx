@@ -56,6 +56,12 @@ export default function DesktopNavbar({ navigation }) {
                     <div className="flex items-center">
                         <div className='hidden xl:block'>
                             <div className='ml-5 flex gap-x-4'>
+                                <LinkNavbar 
+                                    href={route('home')}
+                                    active={route().current('home')}
+                                    >
+                                    Inicio
+                                </LinkNavbar>
                                 {categories.map((category) => ( // Changed from departments to categories
                                     <LinkNavbar 
                                         key={category.slug} 
@@ -113,7 +119,7 @@ function LinkNavbar({ children, active, ...props }) {
                 (active
                     ? 'border-primary-950 text-primary-950 font-medium border-b-2'
                     : '') +
-                'text-primary-600 whitespace-nowrap block '
+                ' text-primary-600 whitespace-nowrap block '
             }>
             {children}
         </Link>

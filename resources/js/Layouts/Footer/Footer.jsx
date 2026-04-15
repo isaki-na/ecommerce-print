@@ -18,8 +18,7 @@ const Footer = () => {
             <footer className="pt-content">
                 <div className="border-t ">
                     <div className="container   text-sm">
-                        
-                        HOLA TEST
+                         <ApplicationLogo/>
                     </div>
                 </div>
             </footer>

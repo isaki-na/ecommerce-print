@@ -16,7 +16,7 @@ class CategoryController extends Controller
             ->with('metaTag')
             ->where('slug', $slug)
             ->firstOrFail();
-
+         $categories = Category::with(['products', 'metaTag'])->get();
         // Get offer products
         $offers_product = Product::variant()
             ->where('category_id', $category->id)
@@ -51,6 +51,7 @@ class CategoryController extends Controller
 
         return Inertia::render('Category/Category', [
             'category' => new CategoryResource($category),
+            'categories' => CategoryResource::collection($categories),
             'offertProducts' => ProductCardResource::collection($offers_product),
             'bestSellersProducts' => ProductCardResource::collection($best_sellers_product),
             // 'subcategories' => CategoryResource::collection($subcategories), // Remove this

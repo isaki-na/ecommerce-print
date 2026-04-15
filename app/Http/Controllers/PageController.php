@@ -119,7 +119,7 @@ class PageController extends Controller
         $product = Product::where('slug', $slug)
             ->where('ref', $ref)
             ->variant()
-            ->with('images', 'category', 'department', 'brand', 'specifications.specification_values', 'skus.size', 'metaTag')
+            ->with('images', 'category', 'brand', 'specifications.specification_values', 'skus.size', 'metaTag')
             ->activeInstock()
             ->withSum('skus', 'stock')
             ->firstOrFail();
