@@ -16,7 +16,11 @@ class CategoryController extends Controller
             ->with('metaTag')
             ->where('slug', $slug)
             ->firstOrFail();
-         $categories = Category::with(['products', 'metaTag'])->get();
+         $categories = Category::active()
+            ->where('type', 'product')
+            ->where('in_home', 1)
+            ->with(['products', 'metaTag'])
+            ->get();
         // Get offer products
         $offers_product = Product::variant()
             ->where('category_id', $category->id)

@@ -52,10 +52,10 @@ export default function DesktopNavbar({ navigation }) {
                     </div>
                 </div>
                 
-                <div className='h-14 pt-2 flex justify-between items-center'>
-                    <div className="flex items-center">
-                        <div className='hidden xl:block'>
-                            <div className='ml-5 flex gap-x-4'>
+                <div className='py-2 flex justify-between items-center'>
+                    <div className="flex items-center flex-none min-w-0 overflow-hidden pr-8 basis-4/5 max-w-[80%]">
+                        <div className='hidden xl:block w-full'>
+                            <div className='ml-5 flex gap-x-4 overflow-x-auto flex-nowrap scroll-smooth scrollbar-hide w-full pr-5'>
                                 <LinkNavbar 
                                     href={route('home')}
                                     active={route().current('home')}

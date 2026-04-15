@@ -27,15 +27,10 @@ function Category({ category: categoryProp, categories: categoriesProp = [] }) {
                     title: category.name,
                 }
             ]} />
-
-            <BannerText title={category.name}
-                entry={category.entry} />
-
             <div className="container">
                 <div className='space-y-10'>
                     {/* Single section with all products */}
-                    <div>
-                        <SectionTitle title="Todos los Productos" />
+                    <div>                   
                         <div className="mt-6">
                             <GridProduct>
                                 {visibleProducts.map((product) => (
