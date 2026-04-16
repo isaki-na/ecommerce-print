@@ -147,7 +147,6 @@ class PageController extends Controller
             ->card()
             ->where('id', '!=', $product->id)
             ->where('category_id', $product->category_id)
-            ->where('department_id', $product->department_id)
             ->inRandomOrder()->limit(12)->get();
 
         return Inertia::render('Product/Product', [

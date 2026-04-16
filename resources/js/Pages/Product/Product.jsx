@@ -19,12 +19,8 @@ export default function Product({ product, variants, relatedProducts }) {
     // console.log(product)
     let breadcrumb = [
         {
-            title: product.department.name,
-            path: route("search", { 'departments[]': product.department.id })
-        },
-        {
             title: product.category.name,
-            path: route("search", { 'categories[]': product.category.id, 'departments[]': product.department.id })
+            path: route("search", { 'categories[]': product.category.id })
         },
 
         {
