@@ -41,12 +41,12 @@ class StatsOverview extends BaseWidget
             return $item->count();
         });
 
-        $productBestSeller = OrderProduct::select('id', 'name', 'price', 'product_id', 'order_id', DB::raw('count(*) as products_count'))
+        $productBestSeller = OrderProduct::select('product_id', DB::raw('count(*) as products_count'), DB::raw('MAX(id) as id'), DB::raw('MAX(name) as name'), DB::raw('MAX(price) as price'), DB::raw('MAX(order_id) as order_id'))
             ->groupBy('product_id')
             // ->having('product_id')
             ->orderBy('products_count', 'desc')
             ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth))
-            // ->whereRelation('order', 'status', '=', OrderStatusEnum::SUCCESSFUL->value)
+            ->whereRelation('order', 'status', '=', OrderStatusEnum::SUCCESSFUL->value)
             ->first();
 
 
