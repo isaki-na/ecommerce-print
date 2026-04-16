@@ -63,7 +63,7 @@ class CategorySeeder extends Seeder
                     'slug' => $slug,
                     'entry' => fake()->text(250),
                     'type' => 'product',
-                    'img' => "/img/categories/$slug.png",
+                    'img' => file_exists(public_path("img/categories/$slug.png")) ? "/img/categories/$slug.png" : "/img/placeholder.png",
                 ]);
         }
 

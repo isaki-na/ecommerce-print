@@ -19,7 +19,7 @@ class CategoryController extends Controller
          $categories = Category::active()
             ->where('type', 'product')
             ->where('in_home', 1)
-            ->with(['products', 'metaTag'])
+            ->select('id', 'name', 'slug', 'img', 'entry')
             ->get();
         // Get offer products
         $offers_product = Product::variant()
@@ -27,8 +27,8 @@ class CategoryController extends Controller
             ->card()
             ->activeInStock()
             ->inOffer()
+            ->orderBy('updated_at', 'desc')
             ->limit(15)
-            ->inRandomOrder()
             ->get();
 
         // Get best sellers
@@ -36,8 +36,8 @@ class CategoryController extends Controller
             ->where('category_id', $category->id)
             ->card()
             ->activeInStock()
+            ->orderBy('updated_at', 'desc')
             ->limit(10)
-            ->inRandomOrder()
             ->get();
 
         // Remove subcategories query since there's no parent_id

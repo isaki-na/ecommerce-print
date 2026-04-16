@@ -29,8 +29,8 @@ class DepartmentController extends Controller
             ->card()
             ->activeInStock()
             ->inOffer()
+            ->orderBy('updated_at', 'desc')
             ->limit(15)
-            ->inRandomOrder()
             ->get();
 
         $best_sellers_product = Product::variant()
@@ -38,14 +38,19 @@ class DepartmentController extends Controller
             ->card()
             ->activeInStock()
             ->inOffer()
+            ->orderBy('updated_at', 'desc')
             ->limit(10)
-            ->inRandomOrder()
             ->get();
 
         $categories = Category::active()
-            ->withWhereHas('products', function ($query) use ($department) {
+            ->whereHas('products', function ($query) use ($department) {
                 $query->variant()->card()->activeInStock()->inRandomOrder()->where('department_id', $department->id)->limit(10);
-            })->get();
+            })
+            ->with(['products' => function ($query) use ($department) {
+                $query->variant()->card()->activeInStock()->inRandomOrder()->where('department_id', $department->id)->limit(10);
+            }])
+            ->select('id', 'name', 'slug', 'img', 'entry')
+            ->get();
 
         return Inertia::render('Department/Department', [
             'department' => new DepartmentResource($department),
