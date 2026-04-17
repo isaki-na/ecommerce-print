@@ -52,14 +52,14 @@ class CartService
 
                 $quantity = $skuIdQuantity[$sku->id];
                 return [
-                    ...$sku->product->toArray(),
+                    ...($sku->product?->toArray() ?? []),
                     'skuId' => $sku->id,
                     'stock' => $sku->stock,
                     'quantity' => $quantity,
-                    'total' => round($sku->product->price * $quantity),
+                    'total' => $sku->product ? round($sku->product->price * $quantity) : 0,
                     'size' => $sku->size?->only(['id', 'name']),
-                    'color' => $sku->product->color->only(['id', 'name']),
-                    'thumb' => $sku->product->thumb,
+                    'color' => $sku->product?->color?->only(['id', 'name']) ?? null,
+                    'thumb' => $sku->product?->thumb ?? null,
                 ];
             });;
 

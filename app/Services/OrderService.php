@@ -82,6 +82,25 @@ class OrderService
     {
         $product = $sku->product;
 
+        if (!$product) {
+            return [
+                'name' => 'Producto no encontrado',
+                'ref' => 'N/A',
+                'thumb' => null,
+                'old_price' => 0,
+                'offer' => 0,
+                'price' => 0,
+                'category_id' => null,
+                'department_id' => null,
+                'color' => 'N/A',
+                'size' => $sku->size?->name ?? 'N/A',
+                'total' => 0,
+                'quantity' => $quantity,
+                'sku_id' => $sku->id,
+                'product_id' => null,
+            ];
+        }
+
         return [
             ...$product->only([
                 'name',
@@ -93,8 +112,8 @@ class OrderService
                 'category_id',
                 'department_id',
             ]),
-            'color' => $product->color->name,
-            'size' => $sku->size->name,
+            'color' => $product->color?->name ?? 'N/A',
+            'size' => $sku->size?->name ?? 'N/A',
             'total' => round($product->price * $quantity, 2),
             'quantity' => $quantity,
             'sku_id' => $sku->id,

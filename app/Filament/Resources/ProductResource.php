@@ -79,7 +79,10 @@ class ProductResource extends Resource
                     ->relationship('color', 'name')
                     ->required()
                     ->columnSpan(2)
-                    ->disableOptionWhen(function (Product $record, string $value) {
+                    ->disableOptionWhen(function (?Product $record, string $value) {
+                        if (!$record) {
+                            return false;
+                        }
                         $colors_id = $record->product->variants()->whereNot('color_id', $record->color_id)->pluck('color_id')->toArray();
                         return in_array($value, $colors_id);
                     })
@@ -292,7 +295,10 @@ class ProductResource extends Resource
                                     ->label('Color')
                                     ->required()
                                     ->options(Color::query()->pluck('name', 'id'))
-                                    ->disableOptionWhen(function (Product $record, string $value) {
+                                    ->disableOptionWhen(function (?Product $record, string $value) {
+                                        if (!$record || !$record->product) {
+                                            return false;
+                                        }
                                         $colors_id = $record->product->variants()->pluck('color_id')->toArray();
                                         return in_array($value, $colors_id);
                                     })

@@ -33,12 +33,12 @@ class CheckoutService implements CheckoutInterface
 	{
 		$cart_products = $cart_products->map(function ($cart_product) {
 			return new OrderProduct([
-				'name' => $cart_product->product->name,
+				'name' => $cart_product->product?->name ?? 'Producto no encontrado',
 				'price' => $cart_product->price,
 				'quantity_selected' => $cart_product->quantity_selected,
 				'price_quantity' => $cart_product->price_quantity,
 				'product_id' => $cart_product->product_id,
-				'data' => $cart_product->product->only('name', 'slug', 'img'),
+				'data' => $cart_product->product ? $cart_product->product->only('name', 'slug', 'img') : [],
 			]);
 		});
 

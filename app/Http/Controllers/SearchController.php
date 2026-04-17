@@ -18,6 +18,7 @@ use App\Models\Department;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\Size;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -93,9 +94,46 @@ class SearchController extends Controller
             }
         )->orderBy('slug')->get();
 
-        // $products = Product::card()->withFilters($filters)->paginate(24)->withQueryString();
+        // Paginate by unique parent product so totals and visible cards match.
+        $parentsPaginator = Product::query()
+            ->variant()
+            ->withFilters($filters)
+            ->select('parent_id')
+            ->distinct()
+            ->paginate(20, ['parent_id'])
+            ->withQueryString();
 
-        $products = Product::variant()->card()->withFilters($filters)->paginate(20)->withQueryString();
+        $parentIds = collect($parentsPaginator->items())
+            ->pluck('parent_id')
+            ->filter()
+            ->values();
+
+        $variantsByParent = Product::query()
+            ->variant()
+            ->card()
+            ->withFilters($filters)
+            ->whereIn('parent_id', $parentIds)
+            ->orderBy('id')
+            ->get()
+            ->groupBy('parent_id')
+            ->map(fn($variants) => $variants->first());
+
+        $productsForPage = $parentIds
+            ->map(fn($parentId) => $variantsByParent->get($parentId))
+            ->filter()
+            ->values();
+
+        $products = new LengthAwarePaginator(
+            $productsForPage,
+            $parentsPaginator->total(),
+            $parentsPaginator->perPage(),
+            $parentsPaginator->currentPage(),
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+                'pageName' => $parentsPaginator->getPageName(),
+            ],
+        );
 
         // dd($products);
 

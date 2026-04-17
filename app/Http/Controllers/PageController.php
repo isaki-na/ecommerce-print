@@ -16,6 +16,7 @@ use App\Models\Page;
 
 use App\Models\Product;
 
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -48,6 +49,10 @@ class PageController extends Controller
             ->limit(20)
             ->get();
 
+        $bestSeller = $this->uniqueByParent($bestSeller);
+        $newProducts = $this->uniqueByParent($newProducts);
+        $allProducts = $this->uniqueByParent($allProducts);
+
         // dd($bestSeller[0]);
         $banners = $page->banners->where('active', 1);
         $carousel_top = $banners->where('position', 'top')->where('type', 'carousel')->sortBy('sort');
@@ -78,8 +83,12 @@ class PageController extends Controller
         $page = Page::with('banners', 'metaTag')->where('type', 'offers')->firstOrFail();
         $banners = $page->banners->where('active', 1);
         $banners_top = $banners->where('position', 'top')->where('type', 'banner');
-        $offer_products = Product::activeInStock()->card()
+        $offer_products = Product::activeInStock()
+            ->variant()
+            ->card()
             ->inOffer()->orderBy('offer', 'desc')->limit(16)->get();
+
+        $offer_products = $this->uniqueByParent($offer_products);
 
         $categories = Category::active()
             ->withCount([
@@ -144,15 +153,45 @@ class PageController extends Controller
         // });
 
         $related_products = Product::activeInStock()
+            ->variant()
             ->card()
             ->where('id', '!=', $product->id)
             ->where('category_id', $product->category_id)
             ->inRandomOrder()->limit(12)->get();
+
+        $related_products = $this->uniqueByParent($related_products);
 
         return Inertia::render('Product/Product', [
             'product' => new ProductResource($product),
             'variants' => $variants,
             'relatedProducts' => ProductCardResource::collection($related_products),
         ]);
+    }
+
+    private function uniqueByParent(Collection $products): Collection
+    {
+        $parentIds = $products
+            ->pluck('parent_id')
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($parentIds->isEmpty()) {
+            return collect();
+        }
+
+        $representativesByParent = Product::query()
+            ->variant()
+            ->card()
+            ->whereIn('parent_id', $parentIds)
+            ->orderBy('id')
+            ->get()
+            ->unique('parent_id')
+            ->keyBy('parent_id');
+
+        return $parentIds
+            ->map(fn($parentId) => $representativesByParent->get($parentId))
+            ->filter()
+            ->values();
     }
 }

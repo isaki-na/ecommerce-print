@@ -17,6 +17,7 @@ class ProductCardResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'parent_id' => $this->parent_id,
             'name' => $this->name,
             'slug' => $this->slug,
             'ref' => $this->ref,
@@ -26,7 +27,7 @@ class ProductCardResource extends JsonResource
             'price' => $this->price,
             'color_id' => $this->color_id,
             // 'color' => new ColorResource($this->color),
-            'colors' => ColorResource::collection($this->product->variants->pluck('color')),
+            'colors' => $this->product ? ColorResource::collection($this->product->variants->pluck('color')) : [],
 
         ];
     }

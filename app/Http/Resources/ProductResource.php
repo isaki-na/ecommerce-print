@@ -37,7 +37,7 @@ class ProductResource extends JsonResource
             'variants' => VariantResource::collection($this->whenLoaded('variants')),
             'category' => $this->whenLoaded('category'),
             'brand' => $this->whenLoaded('brand'),
-            'metaTag' => new MetaTagResource($this->whenLoaded('metaTag')),
+            'metaTag' => $this->whenLoaded('metaTag') ? new MetaTagResource($this->metaTag) : null,
         ];
     }
 }

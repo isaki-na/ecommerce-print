@@ -10,13 +10,14 @@ import BannerText from '@/Components/Carousel/BannerText'
 import Breadcrumb from '@/Components/Breadcrumb'
 import SectionTitle from '@/Components/Sections/SectionTitle'
 import MetaTag from '@/Components/MetaTag'
+import { uniqueProductsByParent } from '@/Helpers/helpers'
 
 function Category({ category: categoryProp, categories: categoriesProp = [] }) { // Renamed params to avoid conflict
     const { categories, products, category } = usePage().props
     
     const [visibleCount, setVisibleCount] = useState(12); // Show 12 initially
     
-    const allProducts = products.data || []; // Use the products for this category
+    const allProducts = uniqueProductsByParent(products.data || []); // Render one card per parent product
     const visibleProducts = allProducts.slice(0, visibleCount);
     const hasMore = visibleCount < allProducts.length;
 

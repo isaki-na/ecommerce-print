@@ -6,6 +6,7 @@ import Layout from "@/Layouts/Layout";
 import GridProduct from "@/Components/Grids/GridProduct";
 // import CarouselSection from "./CarouselSection";
 import MetaTag from "@/Components/MetaTag";
+import { uniqueProductsByParent } from "@/Helpers/helpers";
 
 export default function Home({
     page,
@@ -15,6 +16,8 @@ export default function Home({
 
 }) {
     // console.log(productsBestSeller[0]);
+    const uniqueAllProducts = uniqueProductsByParent(allProducts);
+
     return (
         <>
             <MetaTag metaTag={page.metaTag} />
@@ -24,7 +27,7 @@ export default function Home({
                     <SectionList title={"Todos los productos"}>
                         <div className="py-2 relative">
                             <GridProduct>
-                                {allProducts.map((product) => (
+                                {uniqueAllProducts.map((product) => (
                                     <CardProduct key={product.id} product={product} productNew={true} />
                                 ))}
                             </GridProduct>

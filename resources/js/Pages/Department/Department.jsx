@@ -10,6 +10,7 @@ import BannerText from '@/Components/Carousel/BannerText'
 import Breadcrumb from '@/Components/Breadcrumb'
 import SectionTitle from '@/Components/Sections/SectionTitle'
 import MetaTag from '@/Components/MetaTag'
+import { uniqueProductsByParent } from '@/Helpers/helpers'
 
 function Department({ department, offertProducts, bestSellersProducts, categories }) {
     // console.log(offertProducts[0])
@@ -42,7 +43,7 @@ function Department({ department, offertProducts, bestSellersProducts, categorie
                             <SectionTitle title={category.name} />
                             <div className="mt-6">
                                 <GridProduct>
-                                    {category.products.map((product) => (
+                                    {uniqueProductsByParent(category.products).map((product) => (
                                         <CardProduct
                                             key={product.ref}
                                             product={product}

@@ -40,7 +40,7 @@ const CardProduct = ({ product, productNew = false }) => {
                                 className={"size-6 p-[2px] border rounded-full flex items-center " +
                                     (product.color_id == color.id ? 'border-gray-700' : 'border-gray-300')}
                             >
-                                <span style={{ backgroundImage: "url(" + color.img + ")" }} aria-hidden="true" className="w-full h-full rounded-full  inline-block "></span>
+                                <span style={color.img ? { backgroundImage: "url(" + color.img + ")" } : undefined} aria-hidden="true" className="w-full h-full rounded-full  inline-block "></span>
                             </div>
                         ))}
                     </div>

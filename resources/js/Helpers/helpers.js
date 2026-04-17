@@ -31,3 +31,18 @@ export const formatDateRelative = (date) => {
     let dateRelative = dtfr.format(daysDifference, 'day');
     return dateRelative;
 };
+
+export const uniqueProductsByParent = (products = []) => {
+    const parentIds = new Set();
+
+    return products.filter((product) => {
+        const key = product.parent_id ?? product.id;
+
+        if (parentIds.has(key)) {
+            return false;
+        }
+
+        parentIds.add(key);
+        return true;
+    });
+};
