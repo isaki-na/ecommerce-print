@@ -40,9 +40,6 @@ export default function Search({ page, products, filters, breadcrumb, banner }) 
                         <SearchContext.Provider value={form}>
                             <Filters />
                         </SearchContext.Provider>
-                        <div className="py-6 mt-4">
-                            <CarouselBanner images={banner} />
-                        </div>
                     </div>
                     
                     <div className="w-full lg:w-9/12 xl:w-10/12 2xl:w-10/12  ">

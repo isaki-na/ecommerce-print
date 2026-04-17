@@ -190,7 +190,7 @@ class Product extends Model
                 $query->where(function ($query) use ($filters) {
                     $query->orWhere('name', 'like', '%' . $filters['q'] . '%');
                     $query->orWhere('slug', 'like', '%' . $filters['q'] . '%');
-                    $query->orWhere('description_min', 'like', '%' . $filters['q'] . '%');
+                    $query->orWhere('description', 'like', '%' . $filters['q'] . '%');
                 });
             })
             ->when($filters['departments'], function (Builder $query) use ($filters) {

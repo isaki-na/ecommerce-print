@@ -98,8 +98,10 @@ class SearchController extends Controller
         $parentsPaginator = Product::query()
             ->variant()
             ->withFilters($filters)
+            ->reorder()
             ->select('parent_id')
             ->distinct()
+            ->orderBy('parent_id', 'desc')
             ->paginate(20, ['parent_id'])
             ->withQueryString();
 

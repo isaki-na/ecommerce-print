@@ -34,7 +34,7 @@ export default function DesktopNavbar({ navigation }) {
 
                     <div className="w-full md:col-span-7">
                         <div>
-                            <form onSubmit={handleSubmit} className="overflow-hidden border-2 border-primary-600 bg-primary-600 flex rounded-lg shadow-sm">
+                            <form onSubmit={handleSubmit} className="overflow-hidden border-2 bg-primary-50 flex rounded-lg shadow-sm">
                                 <input
                                     id="search-main"
                                     type="text"
@@ -44,7 +44,7 @@ export default function DesktopNavbar({ navigation }) {
                                     autoComplete="search"
                                     required
                                 />
-                                <button type="submit" className="inline-flex items-center px-3 text-sm text-white">
+                                <button type="submit" className="inline-flex items-center px-3 text-sm text-gray">
                                     <MagnifyingGlassIcon className="w-6 h-6" />
                                 </button>
                             </form>
