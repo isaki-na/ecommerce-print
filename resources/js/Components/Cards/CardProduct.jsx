@@ -14,14 +14,12 @@ const CardProduct = ({ product, productNew = false }) => {
             className="w-full relative block max-w-md mx-auto group h-full overflow-hidden rounded-md transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow "
         >
             <div className="h-full flex flex-col">
-                <div >
-                    <div className="flex justify-center">
-                        <img
-                            src={product.thumb}
-                            alt={product.slug}
-                            className="w-full object-cover object-top rounded-md group-hover:rounded-none "
-                        />
-                    </div>
+                <div className="aspect-square overflow-hidden rounded-md">
+                    <img
+                        src={product.thumb}
+                        alt={product.slug}
+                        className="w-full h-full object-cover object-top group-hover:rounded-none"
+                    />
                 </div>
                 <div className="grow flex flex-col px-4 pt-4 pb-3 space-y-3">
                     <h2

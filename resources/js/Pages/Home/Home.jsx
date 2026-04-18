@@ -24,7 +24,7 @@ export default function Home({
 
             <Layout>
                 <div className="container">
-                    <SectionList title={"Todos los productos"}>
+                    <SectionList title={"Todos los productos"} hideMobileTitle>
                         <div className="py-2 relative">
                             <GridProduct>
                                 {uniqueAllProducts.map((product) => (

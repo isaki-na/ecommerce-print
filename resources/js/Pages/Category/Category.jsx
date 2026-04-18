@@ -23,7 +23,7 @@ function Category({ category: categoryProp, categories: categoriesProp = [] }) {
 
     return (
         <Layout>
-            <Breadcrumb data={[
+            <Breadcrumb hideMobile data={[
                 {
                     title: category.name,
                 }

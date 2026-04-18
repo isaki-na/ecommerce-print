@@ -55,7 +55,7 @@ export default function MovileNavbar({ navigation }) {
 
     return (
         <>
-            {!hideSearchOnMobile && <nav className="border-b bg-primary-50 lg:hidden">
+            {!hideSearchOnMobile && <nav className="border-b bg-primary-50 lg:hidden sticky top-0 z-30">
                 <div className="px-3 py-3">
                     <form onSubmit={handleSubmit} className="overflow-hidden border-2 bg-white flex rounded-lg shadow-sm">
                         <input
@@ -78,7 +78,7 @@ export default function MovileNavbar({ navigation }) {
                 <div className="border-t border-primary-100 px-2 pb-2">
                     <div className="flex gap-x-4 overflow-x-auto flex-nowrap scroll-smooth scrollbar-hide w-full pt-2">
                         <LinkNavbar href={route('home')} active={route().current('home')}>
-                            Inicio
+                            Todos
                         </LinkNavbar>
 
                         {categories.map((category) => (
