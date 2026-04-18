@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react'
 import React from 'react'
 
 
-const ColorVariants = ({ product, variants }) => {
+const ColorVariants = ({ product, variants, returnTo = null, source = null, sourceCategory = null }) => {
     // console.log(variants)
     return (
         <div>
@@ -14,7 +14,13 @@ const ColorVariants = ({ product, variants }) => {
                         <Link
                             preserveScroll
                             key={variant.id}
-                            href={route("product", { slug: variant.slug, ref: variant.ref })}
+                            href={route("product", {
+                                slug: variant.slug,
+                                ref: variant.ref,
+                                return_to: returnTo,
+                                source,
+                                source_category: sourceCategory,
+                            })}
                             className={"rounded-md overflow-hidden  " +
                                 (
                                     product.id == variant.id

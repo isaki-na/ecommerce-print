@@ -51,7 +51,7 @@ export default function MovileNavbar({ navigation }) {
         },
     ]
 
-    const hideSearchOnMobile = route().current('profile.orders') || route().current('shopping-cart.index') || route().current('profile.account-details') || route().current('profile.index')
+    const hideSearchOnMobile = route().current('profile.orders') || route().current('shopping-cart.index') || route().current('profile.account-details') || route().current('profile.index') || route().current('product')
 
     return (
         <>

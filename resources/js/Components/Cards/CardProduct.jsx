@@ -1,16 +1,42 @@
 import { formatCurrency } from "@/Helpers/helpers";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import Badge from "../Badge";
 import ProductPriceOffer from "../ProductPriceOffer";
 
 const CardProduct = ({ product, productNew = false }) => {
+    const { url } = usePage();
+
+    const currentQuery = new URLSearchParams((url.split("?")[1] || ""));
+    const propagatedReturnTo = currentQuery.get("return_to");
+    const propagatedSource = currentQuery.get("source");
+    const propagatedCategory = currentQuery.get("source_category");
+
+    const source = route().current("category")
+        ? "category"
+        : route().current("home")
+            ? "home"
+            : (propagatedSource || "home");
+
+    const sourceCategory = route().current("category")
+        ? (route().params?.category || "")
+        : (propagatedCategory || "");
+
+    const returnTo = route().current("product")
+        ? (propagatedReturnTo || route("home"))
+        : url;
 
 
     // console.log(product)
     return (
         <Link
 
-            href={route("product", { slug: product.slug, ref: product.ref })}
+            href={route("product", {
+                slug: product.slug,
+                ref: product.ref,
+                return_to: returnTo,
+                source,
+                source_category: sourceCategory,
+            })}
             className="w-full relative block max-w-md mx-auto group h-full overflow-hidden rounded-md transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow "
         >
             <div className="h-full flex flex-col">

@@ -173,7 +173,7 @@ class ProductResource extends Resource
                     ->numeric()
 
                     ->placeholder(0)
-                    ->prefix('$')
+                    ->prefix('MXN')
                     ->live(debounce: 500)
                     ->afterStateUpdated(function (Set $set, Get $get) {
                         self::changePrice($set, $get);
@@ -195,7 +195,7 @@ class ProductResource extends Resource
                     ->afterStateUpdated(function (Set $set, Get $get) {
                         self::changePrice($set, $get);
                     })
-                    ->prefix('$')
+                    ->prefix('MXN')
                     ->placeholder(0)
                     ->minValue(fn(Get $get, $state) => $state ? $get('price') : 0)
                     ->label('Precio de comparacion'),
