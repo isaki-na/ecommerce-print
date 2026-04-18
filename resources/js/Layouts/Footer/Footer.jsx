@@ -9,13 +9,15 @@ const Footer = () => {
 
     const footerItems = [
         ];
+    const hideFooterOnMobile = route().current('profile.orders') || route().current('shopping-cart.index') || route().current('profile.account-details') || route().current('profile.index')
+
     return (
         <>
             {/* <div className="container py-content">
                 <Suscribe />
             </div> */}
 
-            <footer className="pt-content">
+            <footer className={'pt-content' + (hideFooterOnMobile ? ' hidden lg:block' : '')}>
                 <div className="border-t ">
                     <div className="container   text-sm">
                          <ApplicationLogo/>

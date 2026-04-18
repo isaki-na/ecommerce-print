@@ -10,7 +10,7 @@ import Hero from '@/Components/Hero/Hero'
 import Breadcrumb from '@/Components/Breadcrumb'
 
 
-export default function Profile({ title, children, breadcrumb = [] }) {
+export default function Profile({ title, children, breadcrumb = [], hideSidebarOnMobile = false, hideBreadcrumbOnMobile = false }) {
     const links = [
         {
             title: 'Dashboard',
@@ -36,7 +36,7 @@ export default function Profile({ title, children, breadcrumb = [] }) {
 
     return (
         <Layout>
-            <Breadcrumb data={[
+            <Breadcrumb hideMobile={hideBreadcrumbOnMobile} data={[
                 {
                     title: 'Perfil'
                 },
@@ -47,7 +47,7 @@ export default function Profile({ title, children, breadcrumb = [] }) {
                 <div className="py-content">
 
                     <div className="grid grid-cols-12 md:gap-6 gap-y-10 ">
-                        <div className="col-span-12 lg:col-span-3">
+                        <div className={(hideSidebarOnMobile ? 'hidden lg:block' : 'col-span-12') + ' lg:col-span-3'}>
                             <div className="flex flex-col space-y-1">
 
                                 {links.map((item) => (

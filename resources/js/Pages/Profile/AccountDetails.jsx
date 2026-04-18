@@ -29,7 +29,7 @@ const AccountDetails = () => {
 		})
 	}
 	return (
-		<LayoutProfile title="Detalles de Cuenta" breadcrumb={[
+		<LayoutProfile hideSidebarOnMobile hideBreadcrumbOnMobile title="Detalles de Cuenta" breadcrumb={[
 			{
 				title: "Detalles de cuenta",
 				path: route("profile.account-details")
