@@ -5,7 +5,7 @@ import { usePage } from "@inertiajs/react";
 import FilterContainer from "./FilterContainer";
 
 import FilterCheckbox from "./FilterCheckbox";
-import { SearchContext } from "../Search";
+import { SearchContext } from "../SearchContext";
 import FilterPrice from "./FilterPrice";
 
 

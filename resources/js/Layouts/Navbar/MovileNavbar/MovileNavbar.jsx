@@ -1,20 +1,41 @@
 import { Link, useForm, usePage } from '@inertiajs/react'
 import {
     ClipboardDocumentListIcon,
+    FunnelIcon,
     HomeIcon,
     MagnifyingGlassIcon,
     ShoppingBagIcon,
     UserCircleIcon,
+    XMarkIcon,
 } from '@heroicons/react/24/outline'
+import { useEffect, useRef, useState } from 'react'
+import Modal from '@/Components/Modal'
+import Filters from '@/Pages/Search/Filters/Filters'
+import { SearchContext } from '@/Pages/Search/SearchContext'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function MovileNavbar({ navigation }) {
-    const { filters, categories = [] } = usePage().props
+    const pageProps = usePage().props
+    const { filters, categories = [] } = pageProps
+    const [openFilters, setOpenFilters] = useState(false)
+    const firstFilterRender = useRef(true)
     const { data, setData, get } = useForm({
         q: filters?.q || '',
+    })
+    const filtersForm = useForm({
+        q: filters?.q || '',
+        sortBy: filters?.sortBy || '',
+        departments: filters?.departments || [],
+        categories: filters?.categories || [],
+        colors: filters?.colors || [],
+        sizes: filters?.sizes || [],
+        attributes: filters?.attributes || {},
+        price_min: filters?.price_min || '',
+        price_max: filters?.price_max || '',
+        offer: filters?.offer || null,
     })
 
     function handleSubmit(e) {
@@ -23,6 +44,43 @@ export default function MovileNavbar({ navigation }) {
             preserveScroll: true,
         })
     }
+
+    const isSearchRoute = route().current('search')
+    const isHomeRoute = route().current('home')
+    const isCategoryRoute = route().current('category')
+    const hasFilterData =
+        Array.isArray(pageProps.listDepartments) &&
+        Array.isArray(pageProps.listCategories) &&
+        Array.isArray(pageProps.listColors) &&
+        Array.isArray(pageProps.listSizes)
+    const showMobileFilterButton = isSearchRoute || isHomeRoute || isCategoryRoute
+
+    const handleMobileFilters = () => {
+        if (hasFilterData) {
+            setOpenFilters(true)
+            return
+        }
+
+        get('/search', {
+            preserveScroll: true,
+        })
+    }
+
+    useEffect(() => {
+        if (!isSearchRoute) {
+            return
+        }
+
+        if (firstFilterRender.current) {
+            firstFilterRender.current = false
+            return
+        }
+
+        filtersForm.get('/search', {
+            preserveScroll: true,
+            preserveState: true,
+        })
+    }, [filtersForm.data, isSearchRoute])
 
     const bottomNavigation = [
         {
@@ -58,22 +116,35 @@ export default function MovileNavbar({ navigation }) {
         <>
             {!hideSearchOnMobile && <nav className="border-b bg-primary-50 lg:hidden sticky top-0 z-30">
                 <div className="px-3 py-3">
-                    <form onSubmit={handleSubmit} className="overflow-hidden border-2 bg-white flex rounded-lg shadow-sm">
-                        <input
-                            id="search-mobile"
-                            type="text"
-                            name="q"
-                            value={data.q}
-                            onChange={e => setData('q', e.target.value)}
-                            className="block w-full border-none bg-transparent ring-0 focus:ring-0 text-sm"
-                            autoComplete="search"
-                            placeholder="Buscar"
-                            required
-                        />
-                        <button type="submit" className="inline-flex items-center px-3 text-primary-500">
-                            <MagnifyingGlassIcon className="w-5 h-5" />
-                        </button>
-                    </form>
+                    <div className="flex items-stretch gap-2">
+                        <form onSubmit={handleSubmit} className="overflow-hidden border-2 bg-white flex rounded-lg shadow-sm flex-1">
+                            <input
+                                id="search-mobile"
+                                type="text"
+                                name="q"
+                                value={data.q}
+                                onChange={e => setData('q', e.target.value)}
+                                className="block w-full border-none bg-transparent ring-0 focus:ring-0 text-sm"
+                                autoComplete="search"
+                                placeholder="Buscar"
+                                required
+                            />
+                            <button type="submit" className="inline-flex items-center px-3 text-primary-500">
+                                <MagnifyingGlassIcon className="w-5 h-5" />
+                            </button>
+                        </form>
+
+                        {showMobileFilterButton && (
+                            <button
+                                type="button"
+                                onClick={handleMobileFilters}
+                                className="inline-flex items-center justify-center rounded-lg border-2 border-primary-200 bg-white px-3 text-primary-600 shadow-sm"
+                                aria-label="Abrir filtros"
+                            >
+                                <FunnelIcon className="h-5 w-5" />
+                            </button>
+                        )}
+                    </div>
                 </div>
 
                 <div className="border-t border-primary-100 px-2 pb-2">
@@ -94,6 +165,30 @@ export default function MovileNavbar({ navigation }) {
                     </div>
                 </div>
             </nav>}
+
+            {isSearchRoute && hasFilterData && (
+                <Modal show={openFilters} onClose={() => setOpenFilters(false)} maxWidth="lg">
+                    <div className="p-4">
+                        <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+                            <h3 className="text-base font-semibold text-gray-900">Filtros</h3>
+                            <button
+                                type="button"
+                                onClick={() => setOpenFilters(false)}
+                                className="rounded-md p-1 text-gray-500 hover:bg-gray-100"
+                                aria-label="Cerrar filtros"
+                            >
+                                <XMarkIcon className="h-5 w-5" />
+                            </button>
+                        </div>
+
+                        <div className="mt-2 max-h-[70vh] overflow-y-auto pr-1">
+                            <SearchContext.Provider value={filtersForm}>
+                                <Filters />
+                            </SearchContext.Provider>
+                        </div>
+                    </div>
+                </Modal>
+            )}
 
             {!hideBottomNavigationOnMobile && (
                 <div className="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-white/95 backdrop-blur lg:hidden">

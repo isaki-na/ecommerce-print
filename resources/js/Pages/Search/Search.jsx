@@ -1,18 +1,15 @@
 import CardProduct from "@/Components/Cards/CardProduct";
 import Pagination from "@/Components/Pagination";
 import Layout from "@/Layouts/Layout";
-import { Transition } from "@headlessui/react";
-import { Head, router, useForm, usePage } from "@inertiajs/react";
-import React, { createContext } from "react";
+import { Head, useForm } from "@inertiajs/react";
+import React from "react";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import Filters from "./Filters/Filters";
 import Breadcrumb from "@/Components/Breadcrumb";
-import BreadcrumbFilters from "./BreadcrumbFilters";
 import MetaTag from "@/Components/MetaTag";
-
-export const SearchContext = createContext();
+import { SearchContext } from "./SearchContext";
 
 export default function Search({ page, products, filters, breadcrumb, banner }) {
 
@@ -36,7 +33,7 @@ export default function Search({ page, products, filters, breadcrumb, banner }) 
 
             <div className="container py-content">
                 <div className="flex lg:flex-row flex-col-reverse lg:gap-x-10 ">
-                    <div className="w-full lg:w-3/12 xl:w-2/12 2xl:w-2/12 ">
+                    <div className="hidden lg:block lg:w-3/12 xl:w-2/12 2xl:w-2/12 ">
                         <SearchContext.Provider value={form}>
                             <Filters />
                         </SearchContext.Provider>

@@ -1,5 +1,8 @@
 <?php
 
+$mailFromAddress = trim((string) env('MAIL_FROM_ADDRESS', ''));
+$mailFromName = trim((string) env('MAIL_FROM_NAME', ''));
+
 return [
 
     /*
@@ -109,8 +112,9 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        // Use explicit fallbacks when env values are blank to avoid missing headers.
+        'address' => $mailFromAddress !== '' ? $mailFromAddress : 'hello@example.com',
+        'name' => $mailFromName !== '' ? $mailFromName : env('APP_NAME', 'Laravel'),
     ],
 
 ];
