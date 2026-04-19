@@ -27,7 +27,7 @@ class ProductService
                 'order_code' => $order->code,
                 'quantity_products' => $order->quantity,
             ],
-            'currency' => 'cop',
+            'currency' => 'mxn',
             'description' => "Compra Por internet $order->code - $user->email",
         ]);
     }

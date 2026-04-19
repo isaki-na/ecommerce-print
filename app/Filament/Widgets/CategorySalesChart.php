@@ -25,9 +25,10 @@ class CategorySalesChart extends ChartWidget
     {
 
         $filterMonth = Dashboard::filterDateSelected($this->filters['select_month']);
+        $saleStatuses = [OrderStatusEnum::SUCCESSFUL->value, OrderStatusEnum::DELIVERED->value];
 
-        $categories = Category::select('id', 'name')->withCount(['order_products' => function (Builder $query2) use ($filterMonth) {
-            $query2->whereRelation('order', 'status', '=', OrderStatusEnum::SUCCESSFUL->value)
+        $categories = Category::select('id', 'name')->withCount(['order_products' => function (Builder $query2) use ($filterMonth, $saleStatuses) {
+            $query2->whereHas('order', fn(Builder $query) => $query->whereIn('status', $saleStatuses))
                 ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth));
         }])->orderBy('order_products_count', 'desc')->limit(10)->pluck('order_products_count', 'name');
 

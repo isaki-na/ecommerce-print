@@ -29,9 +29,10 @@ class StatsOverview extends BaseWidget
     {
 
         $filterMonth = Dashboard::filterDateSelected($this->filters['select_month']);
+        $saleStatuses = [OrderStatusEnum::SUCCESSFUL->value, OrderStatusEnum::DELIVERED->value];
 
         $orders = Order::select('id', 'status', 'created_at', 'total')
-            ->where('status', OrderStatusEnum::SUCCESSFUL)
+            ->whereIn('status', $saleStatuses)
             ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth))
             ->orderBy('created_at', 'desc')->get();
 
@@ -46,7 +47,7 @@ class StatsOverview extends BaseWidget
             // ->having('product_id')
             ->orderBy('products_count', 'desc')
             ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth))
-            ->whereRelation('order', 'status', '=', OrderStatusEnum::SUCCESSFUL->value)
+            ->whereHas('order', fn(Builder $query) => $query->whereIn('status', $saleStatuses))
             ->first();
 
 
@@ -75,7 +76,7 @@ class StatsOverview extends BaseWidget
             $statProductBestSeller,
 
 
-            Stat::make('Precio medio de ventas', Number::currency($orders->avg('total') ?: 0, 'COP', locale: 'es'))
+            Stat::make('Precio medio de ventas', Number::currency($orders->avg('total') ?: 0, 'MXN', locale: 'es'))
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Enums\OrderStatusEnum;
 use App\Filament\Resources\OrderResource;
 use App\Filament\Resources\SaleResource;
 use App\Filament\Resources\SaleResource\Pages\ViewSale;
@@ -32,6 +33,10 @@ class LatestSalesWidget extends BaseWidget
         return $table
             ->query(Order::query()
                 ->with('payment')
+                ->whereIn('status', [
+                    OrderStatusEnum::SUCCESSFUL->value,
+                    OrderStatusEnum::DELIVERED->value,
+                ])
                 ->when($startDate, fn(Builder $query) => $query->whereDate('created_at', '>=', $startDate))
                 ->when($endDate, fn(Builder $query) => $query->whereDate('created_at', '<=', $endDate))
                 ->withCount('order_products')->latest())

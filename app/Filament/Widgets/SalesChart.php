@@ -21,10 +21,11 @@ class SalesChart extends ChartWidget
     protected function getData(): array
     {
         $filterMonth = Dashboard::filterDateSelected($this->filters['select_month']);
+        $saleStatuses = [OrderStatusEnum::SUCCESSFUL->value, OrderStatusEnum::DELIVERED->value];
 
 
         $sales = Order::select('id', 'created_at', 'status')
-            ->where('status', OrderStatusEnum::SUCCESSFUL)
+            ->whereIn('status', $saleStatuses)
             ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth))
             ->orderBy('created_at')
             ->get();
