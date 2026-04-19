@@ -19,41 +19,47 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::controller(PageController::class)->group(function () {
+Route::middleware('auth')->group(function () {
+    Route::controller(PageController::class)->group(function () {
 
-    Route::get('/', 'home')->name('home');
-    Route::get('/offers', 'offers')->name('offers');
-    Route::get('/contact-us', 'contact')->name('contact');
-    // Route::get('/promotions', 'home')->name('promotions');
-    Route::get('/product/{slug}/ref/{ref}', 'product')->name('product');
-    //Route::get('/gift-card', 'home')->name('gift-card');
+        Route::get('/', 'home')->name('home');
+        Route::get('/offers', 'offers')->name('offers');
+        Route::get('/contact-us', 'contact')->name('contact');
+        // Route::get('/promotions', 'home')->name('promotions');
+        Route::get('/product/{slug}/ref/{ref}', 'product')->name('product');
+        //Route::get('/gift-card', 'home')->name('gift-card');
+    });
+
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/blog', 'blog')->name('blog');
+        Route::get('/post/{slug}', 'post')->name('post');
+        Route::get('/author/{slug}', 'post')->name('post.author');
+    });
+
+    Route::get('/department/{department}', [DepartmentController::class, 'department'])->name('department');
+    Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+    // Single category route (similar to department)
+    Route::get('/category/{category}', [CategoryController::class, 'category'])->name('category');
+
+    // Optional: Route for filtered products in a category
+    Route::get('/category/{category}/products', [CategoryController::class, 'products'])->name('category.products');
+
+    Route::post('/subscribe', [NewsletterController::class, 'newsletter'])->name('subscribe');
+
+    Route::post('/contact-form', function () {
+
+        return Redirect::back()->with('success', 'Formulario  completado con exito');
+    })->name('contact-form');
+
+    Route::get('/dashboard', function () {
+        if (auth()->user()->hasAnyRole(['admin', 'operator'])) {
+            return redirect('/admin');
+        }
+
+        return redirect()->route('home');
+    })->name('dashboard');
 });
-
-Route::controller(BlogController::class)->group(function () {
-    Route::get('/blog', 'blog')->name('blog');
-    Route::get('/post/{slug}', 'post')->name('post');
-    Route::get('/author/{slug}', 'post')->name('post.author');
-});
-
-Route::get('/department/{department}', [DepartmentController::class, 'department'])->name('department');
-Route::get('/search', [SearchController::class, 'search'])->name('search');
-
-// Single category route (similar to department)
-Route::get('/category/{category}', [CategoryController::class, 'category'])->name('category');
-
-// Optional: Route for filtered products in a category
-Route::get('/category/{category}/products', [CategoryController::class, 'products'])->name('category.products');
-
-Route::post('/subscribe', [NewsletterController::class, 'newsletter'])->name('subscribe');
-
-Route::post('/contact-form', function () {
-
-    return Redirect::back()->with('success', 'Formulario  completado con exito');
-})->name('contact-form');
-
-Route::get('/dashboard', function () {
-    return redirect()->route('home');
-})->name('dashboard');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
