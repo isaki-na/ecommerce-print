@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Services\SettingService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -30,7 +31,10 @@ class OrderResource extends JsonResource
             'total' => $this->total,
             'user' => $this->data->user,
             'created_at' => $this->created_at,
-            'createdAtRelative' => $this->created_at->locale('es_ES')->diffForHumans(['parts' => 1])
+            'createdAtRelative' => $this->created_at->locale('es_ES')->diffForHumans(['parts' => 1]),
+            'pickup_at' => $this->pickup_at?->setTimezone('America/Mexico_City')->toIso8601String(),
+            'maps_link' => data_get(SettingService::data(), 'store.maps_link') ?: null,
         ];
     }
 }
+

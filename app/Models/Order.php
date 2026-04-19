@@ -21,6 +21,8 @@ class Order extends Model
         'tax' => 'object',
         'shipping' => 'float',
         'status' => OrderStatusEnum::class,
+        'pickup_at' => 'datetime',
+        'ready_at' => 'datetime',
     ];
 
     protected $guarded = [];
