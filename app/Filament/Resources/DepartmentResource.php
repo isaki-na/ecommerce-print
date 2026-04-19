@@ -8,6 +8,7 @@ use App\Models\Department;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
+use App\Filament\Traits\AdminOnlyResource;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\MaxWidth;
 use Filament\Tables;
@@ -18,6 +19,7 @@ use Illuminate\Support\Str;
 
 class DepartmentResource extends Resource
 {
+    use AdminOnlyResource;
     protected static ?int $navigationSort = 1;
     protected static ?string $model = Department::class;
 

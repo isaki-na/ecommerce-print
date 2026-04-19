@@ -10,6 +10,7 @@ use App\Models\Department;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
+use App\Filament\Traits\AdminOnlyResource;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
@@ -20,6 +21,7 @@ use Illuminate\Support\Str;
 
 class CategoryResource extends Resource
 {
+    use AdminOnlyResource;
     protected static ?string $model = Category::class;
     protected static ?int $navigationSort = 1;
     public static ?string $label = 'Categoria';

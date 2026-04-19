@@ -8,6 +8,7 @@ use App\Models\Attribute;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
+use App\Filament\Traits\AdminOnlyResource;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -15,6 +16,7 @@ use Illuminate\Support\Str;
 
 class AttributeResource extends Resource
 {
+    use AdminOnlyResource;
     protected static ?string $model = Attribute::class;
     protected static ?int $navigationSort = 5;
     public static ?string $label = 'Atributo';

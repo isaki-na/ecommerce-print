@@ -25,6 +25,11 @@ class StoreSettings extends Page implements HasForms
 
     protected static string $view = 'filament.pages.store-settings';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     public ?array $data = [];
 
     public function mount(): void

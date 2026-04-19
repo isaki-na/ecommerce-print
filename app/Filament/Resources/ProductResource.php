@@ -14,6 +14,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Notifications\Notification;
+use App\Filament\Traits\AdminOnlyResource;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
@@ -27,6 +28,7 @@ use Illuminate\Support\Str;
 
 class ProductResource extends Resource
 {
+    use AdminOnlyResource;
     protected static ?string $model = Product::class;
 
     public static ?string $label = 'Producto';
