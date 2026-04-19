@@ -1,8 +1,8 @@
-import GuestLayout from '@/Layouts/GuestLayout';
+import AuthLayout from '@/Layouts/AuthLayout';
 import InputError from '@/Components/Form/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/Form/TextInput';
-import { Head, useForm } from '@inertiajs/react';
+import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function ForgotPassword({ status }) {
 	const { data, setData, post, processing, errors } = useForm({
@@ -16,8 +16,14 @@ export default function ForgotPassword({ status }) {
 	};
 
 	return (
-		<GuestLayout>
-			<Head title="Forgot Password" />
+		<AuthLayout>
+			<Head title="Recuperar contraseña" />
+
+			<div className="mb-6">
+				<h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+					Recuperar contraseña
+				</h2>
+			</div>
 
 			<div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
 				¿Olvidaste tu contraseña? Ningún problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace de restablecimiento de contraseña que le permitirá elegir una nueva.
@@ -39,11 +45,23 @@ export default function ForgotPassword({ status }) {
 				<InputError message={errors.email} className="mt-2" />
 
 				<div className="flex items-center justify-end mt-4">
-					<PrimaryButton className="ml-4" disabled={processing} isLoading={processing}>
-						Email Password Reset Link
+					<PrimaryButton 
+						className="w-full bg-black text-primary-50 shadow-none border border-primary-50 rounded-none hover:bg-gray-850" 
+						disabled={processing} 
+						isLoading={processing}>
+						Enviar enlace de recuperación
 					</PrimaryButton>
 				</div>
 			</form>
-		</GuestLayout>
+
+			<div className="mt-6 text-center text-sm text-gray-600">
+				<Link
+					href={route('login')}
+					className="font-medium text-primary-600 hover:text-primary-500 underline"
+				>
+					Volver al inicio de sesión
+				</Link>
+			</div>
+		</AuthLayout>
 	);
 }

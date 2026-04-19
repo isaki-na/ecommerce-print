@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import AuthLayout from '@/Layouts/AuthLayout';
 import InputError from '@/Components/Form/InputError';
 import InputLabel from '@/Components/Form/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -27,8 +27,14 @@ export default function Register() {
 	};
 
 	return (
-		<GuestLayout title="Registro">
+		<AuthLayout>
 			<Head title="Registro" />
+
+			<div className="mb-6">
+				<h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+					Crear una nueva cuenta
+				</h2>
+			</div>
 
 			<form onSubmit={submit}>
 				<div>
@@ -100,18 +106,23 @@ export default function Register() {
 				</div>
 
 				<div className="flex items-center justify-end mt-4">
-					<Link
-						href={route('login')}
-						className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-800"
-					>
-						¿Ya registrado?
-					</Link>
-
-					<PrimaryButton className="ml-4" disabled={processing}>
-						Registrar
+					<PrimaryButton 
+						className="w-full bg-black text-primary-50 shadow-none border border-primary-50 rounded-none hover:bg-gray-850" 
+						disabled={processing}>
+							Registrar
 					</PrimaryButton>
 				</div>
 			</form>
-		</GuestLayout>
+
+			<div className="mt-6 text-center text-sm text-gray-600">
+				¿Ya tienes una cuenta?{' '}
+				<Link
+					href={route('login')}
+					className="font-medium text-primary-600 hover:text-primary-500"
+				>
+					Inicia sesión aquí
+				</Link>
+			</div>
+		</AuthLayout>
 	);
 }
