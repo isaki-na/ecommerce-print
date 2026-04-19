@@ -42,19 +42,39 @@ class ViewOrder extends ViewRecord
                 Grid::make(3)
                     ->schema([
                         ComponentsActions::make([
+                            Action::make('mark-successful')->label('Marcar como aceptado')
+                                ->color('success')
+                                ->link()
+                                ->icon('heroicon-o-check-circle')
+                                ->visible(fn($record) => ($record->status == OrderStatusEnum::PENDING))
+                                ->requiresConfirmation()
+                                ->action(function (Order $record) {
+                                    $record->status = OrderStatusEnum::SUCCESSFUL;
+                                    $record->save();
+
+                                    Notification::make()
+                                        ->title("La venta {$record->code} fue marcada como aceptada")
+                                        ->success()
+                                        ->send();
+                                }),
+
                             Action::make('status-change')->label('Cancelar Compra')
                                 ->color('danger')
                                 ->link()
                                 ->icon('heroicon-o-x-circle')
-                                ->visible(fn($record) => ($record->status == OrderStatusEnum::SUCCESSFUL))
+                                ->visible(fn($record) => in_array($record->status, [OrderStatusEnum::PENDING, OrderStatusEnum::SUCCESSFUL], true))
 
                                 ->requiresConfirmation()
                                 ->modalIcon('heroicon-o-x-circle')
                                 ->form([
-                                    Toggle::make('refund')->label(fn(Order $record) => 'Rembolsar dinero ' . Number::currency($record->total))->onColor('danger')->required(),
+                                    Toggle::make('refund')
+                                        ->label(fn(Order $record) => 'Rembolsar dinero ' . Number::currency($record->total))
+                                        ->onColor('danger')
+                                        ->visible(fn(Order $record) => $record->status == OrderStatusEnum::SUCCESSFUL)
+                                        ->default(false),
                                 ])
                                 ->action(function (array $data, Order $record) {
-                                    if ($data['refund']) {
+                                    if (($data['refund'] ?? false) === true) {
                                         $record->status = OrderStatusEnum::REFUNDED;
                                     } else {
                                         $record->status = OrderStatusEnum::CANCELLED;

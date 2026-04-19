@@ -23,6 +23,8 @@ export default function DesktopNavbar({ navigation }) {
             //onSuccess: () => reset('q'),
         })
     }
+
+    const isCheckoutRoute = route().current('checkout')
     
     return (
         <nav className="border-b hidden lg:block"> 
@@ -32,7 +34,7 @@ export default function DesktopNavbar({ navigation }) {
                         <ApplicationLogo />
                     </div>
 
-                    <div className="w-full md:col-span-7">
+                    {!isCheckoutRoute && <div className="w-full md:col-span-7">
                         <div>
                             <form onSubmit={handleSubmit} className="overflow-hidden border-2 bg-primary-50 flex rounded-lg shadow-sm">
                                 <input
@@ -49,11 +51,11 @@ export default function DesktopNavbar({ navigation }) {
                                 </button>
                             </form>
                         </div>
-                    </div>
+                    </div>}
                 </div>
                 
                 <div className='py-2 flex justify-between items-center'>
-                    <div className="flex items-center flex-none min-w-0 overflow-hidden pr-8 basis-4/5 max-w-[80%]">
+                    {!isCheckoutRoute && <div className="flex items-center flex-none min-w-0 overflow-hidden pr-8 basis-4/5 max-w-[80%]">
                         <div className='hidden xl:block w-full'>
                             <div className='ml-5 flex gap-x-4 overflow-x-auto flex-nowrap scroll-smooth scrollbar-hide w-full pr-5'>
                                 <LinkNavbar 
@@ -73,7 +75,7 @@ export default function DesktopNavbar({ navigation }) {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </div>}
                     
                     <div className="flex gap-x-5 items-center">
                         {auth.user ? (
@@ -119,7 +121,7 @@ function LinkNavbar({ children, active, ...props }) {
                 (active
                     ? 'border-primary-950 text-primary-950 font-medium border-b-2'
                     : '') +
-                ' text-primary-600 whitespace-nowrap block '
+                ' text-primary-600 whitespace-nowrap block text-sm font-medium '
             }>
             {children}
         </Link>

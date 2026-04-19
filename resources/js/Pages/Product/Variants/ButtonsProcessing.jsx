@@ -26,13 +26,13 @@ const ButtonsProcessing = ({ form }) => {
     return (
         <>
             <div className="flex flex-row items-center space-x-2 mt-8">
-                <SecondaryButton disabled={!form.data.skuId} type="button" Icon={ShoppingCartIcon} isLoading={processing == "shoppingCart"} onClick={handleClickAddProductToCart}>
-                    Agregar al Carrito
+                <SecondaryButton className="font-medium" disabled={!form.data.skuId} type="button" Icon={ShoppingCartIcon} isLoading={processing == "shoppingCart"} onClick={handleClickAddProductToCart}>
+                    <span className="text-sm font-medium">Agregar al Carrito</span>
                 </SecondaryButton>
 
-                <PrimaryButton disabled={!form.data.skuId} isLoading={processing == "checkout"} onClick={handleClickBuyProduct}>
+                <PrimaryButton className="font-medium" disabled={!form.data.skuId} isLoading={processing == "checkout"} onClick={handleClickBuyProduct}>
                     <div className="inline-flex ">
-                        <span className=" text-sm font-semibold">Comprar ahora </span>
+                        <span className=" text-sm font-medium">Comprar ahora </span>
                     </div>
                 </PrimaryButton>
             </div>

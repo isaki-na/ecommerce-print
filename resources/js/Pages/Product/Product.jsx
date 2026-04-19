@@ -202,12 +202,18 @@ export default function Product({ product, variants, relatedProducts }) {
 
                     <div className="pt-1 border-t border-gray-200">
                         <SelectQuantity maxQuantity={mobileMaxQuantity} selectedSkuSize={selectedSkuSize} form={mobileForm} />
+                        {selectedSkuSize && (
+                            <p className="mt-2 text-sm font-light text-gray-400">( {selectedSkuSize.stock} disponibles )</p>
+                        )}
                         <InputError className="mt-3" message={mobileForm.errors.quantity} />
                         <InputError className="mt-3" message={mobileForm.errors.product_id} />
                     </div>
 
                     <div className="pt-2 border-t border-gray-200">
-                        <p className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: product.description }} />
+                        <div
+                            className="text-gray-700 leading-relaxed break-words [overflow-wrap:anywhere] [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5"
+                            dangerouslySetInnerHTML={{ __html: product.description }}
+                        />
                     </div>
                 </div>
             </div>
@@ -217,7 +223,7 @@ export default function Product({ product, variants, relatedProducts }) {
                     type="button"
                     onClick={handleMobileAddToCart}
                     disabled={!mobileForm.data.skuId || mobileForm.processing}
-                    className="w-full bg-gray-900 text-white font-semibold py-3 uppercase tracking-wide disabled:opacity-40"
+                    className="w-full bg-gray-900 text-white font-medium py-3 uppercase tracking-wide disabled:opacity-40"
                 >
                     Añadir al pedido
                 </button>

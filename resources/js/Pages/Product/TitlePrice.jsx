@@ -6,7 +6,7 @@ const TitlePrice = ({ product }) => {
         <>
 
             <span className="text-sm text-gray-400">Nuevo | {product.stock} disponibles</span>
-            <h2 className="font-bold text-3xl mt-2">
+            <h2 className="font-semibold text-3xl mt-2 text-gray-900">
                 {product.name}
             </h2>
 

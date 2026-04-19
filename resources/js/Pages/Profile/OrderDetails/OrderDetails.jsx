@@ -1,10 +1,10 @@
 
 
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import { Head, usePage } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import LayoutProfile from "../../../Layouts/LayoutProfile";
 import SectionTitle from "@/Components/Sections/SectionTitle";
-import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
+import { ArrowDownTrayIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import BuyerDetails from "./BuyerDetails";
 import OrderItemsList from "./OrderItemsList";
 import OrderTotalPrice from "./OrderTotalPrice";
@@ -15,18 +15,29 @@ const OderDetails = ({ order }) => {
     const { flash } = usePage().props
 
     return (
-        <LayoutProfile>
+        <LayoutProfile hideSidebarOnMobile hideBreadcrumbOnMobile>
             <Head title={"Pedido #" + order.code} />
 
             <div className="space-y-8">
-                <div className="flex items-center justify-between ">
-                    <SectionTitle className="flex items-center">
-                        <span>Pedido: #  {order.code}</span>
-                        <Badge className="ml-3" color={order.status_color}>{order.status}</Badge>
+                <div className="sm:hidden">
+                    <Link
+                        preserveScroll
+                        href={route('profile.orders')}
+                        className="btn btn-secondary inline-flex items-center gap-2"
+                    >
+                        <ArrowLeftIcon className="h-4 w-4" />
+                        Volver a pedidos
+                    </Link>
+                </div>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <SectionTitle className="flex flex-wrap items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-gray-900">
+                        <span>Pedido: # {order.code}</span>
+                        <Badge color={order.status_color}>{order.status}</Badge>
                     </SectionTitle>
                     <div className="inline-flex gap-x-2">
 
-                        <a className="btn btn-secondary flex items-center gap-x-2" target="_black" href={route('profile.invoice', order.code)}>
+                        <a className="btn btn-secondary inline-flex w-full justify-center items-center gap-x-2 sm:w-auto" target="_black" href={route('profile.invoice', order.code)}>
                             <ArrowDownTrayIcon className="w-4 h-4" />
                             Descargar factura
                         </a>

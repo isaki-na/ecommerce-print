@@ -70,7 +70,7 @@ export default function Profile({ title, children, breadcrumb = [], hideSidebarO
                         </div>
                         <div className="col-span-12 lg:col-span-9 md:pl-10 pb-24 lg:pb-0">
                             {title && (
-                                <h3 className="title-section mb-8">{title}</h3>
+                                <h3 className="mb-8 text-sm font-semibold uppercase tracking-[0.16em] text-gray-900">{title}</h3>
                             )}
 
                             <div>

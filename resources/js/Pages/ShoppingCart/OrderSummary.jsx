@@ -13,14 +13,6 @@ const OrderSummary = ({ total }) => {
                     <div className="text-gray-600 ">Sub total</div>
                     <div className=" font-medium">{formatCurrency(total.sub_total)}</div>
                 </div>
-                <div className=" grid grid-cols-2 gap-x-4">
-                    <div className="text-gray-600 ">Impuestos {total.tax_rate}%</div>
-                    <div className=" font-medium">{formatCurrency(total.tax_value)}</div>
-                </div>
-                <div className=" grid grid-cols-2 gap-x-4">
-                    <div className="text-gray-600 ">Envio</div>
-                    <div className=" font-medium">{formatCurrency(total.shipping)}</div>
-                </div>
                 <div className="grid grid-cols-2 gap-x-4 ">
                     <div className="text-xl font-semibold mt-4">Total</div>
                     <div className="text-xl font-semibold mt-4">{formatCurrency(total.total)}</div>

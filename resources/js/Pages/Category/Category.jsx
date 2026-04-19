@@ -31,7 +31,16 @@ function Category({ category: categoryProp, categories: categoriesProp = [] }) {
             <div className="container">
                 <div className='space-y-10'>
                     {/* Single section with all products */}
-                    <div>                   
+                    <div>
+                        <div className="flex items-start justify-between">
+                            <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-900">
+                                {category.name}
+                                <span className="block mt-1 text-[11px] font-normal tracking-[0.08em] text-gray-500">
+                                    {allProducts.length} artículos
+                                </span>
+                            </h2>
+                        </div>
+
                         <div className="mt-6">
                             <GridProduct>
                                 {visibleProducts.map((product) => (

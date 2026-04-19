@@ -45,9 +45,9 @@ export default function Search({ page, products, filters, breadcrumb, banner }) 
                     <div className="w-full lg:w-9/12 xl:w-10/12 2xl:w-10/12  ">
                         <div className="relative ">
                             <div className="flex items-start justify-between">
-                                <h2 className="font-bold text-2xl ">
+                                <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-900">
                                     Busqueda
-                                    <label className="text-xs block font-normal whitespace-nowrap w-full mt-1">
+                                    <label className="block mt-1 w-full whitespace-nowrap text-[11px] font-normal tracking-[0.08em] text-gray-500">
                                         {products.meta.total} artículos
                                     </label>
                                 </h2>

@@ -83,7 +83,7 @@ const Order = ({ orders }) => {
                     <Link key={key} href={route('profile.order', item.code)} className="block bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
                         <div className="flex justify-between items-start">
                             <div>
-                                <p className="font-semibold text-primary-600">Pedido #{item.code}</p>
+                                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-900">Pedido #{item.code}</p>
                                 <p className="text-sm text-gray-500">{formatDate(item.created_at)}</p>
                             </div>
                             <Badge color={item.status_color}>{item.status}</Badge>

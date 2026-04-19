@@ -38,10 +38,6 @@ const SelectQuantity = ({ maxQuantity, form, selectedSkuSize }) => {
                             <PlusIcon className="h-4 w-4" />
                         </button>
                     </div>
-
-                    <div className="flex items-center">
-                        <span className=" text-sm font-light text-gray-400">( {selectedSkuSize ? selectedSkuSize.stock : 0} disponibles )</span>
-                    </div>
                 </div>
                 <span className='text-xs text-gray-400'>Max unidades por compra : {maxQuantity}</span>
             </div>

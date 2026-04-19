@@ -49,7 +49,7 @@ const CardProduct = ({ product, productNew = false }) => {
                 </div>
                 <div className="grow flex flex-col px-4 pt-4 pb-3 space-y-3">
                     <h2
-                        className="text-heading text-sm md:text-sm line-clamp-1"
+                        className="text-sm font-medium text-gray-900 line-clamp-1"
                         alt={product.name}
                         title={product.name}
                     >

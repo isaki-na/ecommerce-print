@@ -70,33 +70,31 @@ const Feacture = ({ product, attributesDefault }) => {
 								<Attributes product={product} data={data} setData={setData} />
 							</div>
 						)}
-						<div className="flex space-x-3 items-stretch mt-8">
-							<div className="flex items-center border border-gray-200 rounded-md divide-gray-200 divide-x bg-white  h-10">
+						<div className="flex flex-wrap gap-x-3 gap-y-2 items-center mt-8">
+							<div className="flex items-center border border-gray-200 rounded-md divide-gray-200 divide-x bg-white h-10 shrink-0">
 								<button onClick={() => handleClickQuantity("down")} className=" flex items-center px-4 h-full">
 									<MinusIcon className="h-4 w-4" />
 								</button>
-								<span id="countQuantity" className=" flex items-center  h-full w-14 justify-center">
+								<span id="countQuantity" className=" flex items-center h-full w-14 justify-center">
 									{data.quantity}
 								</span>
 								<button onClick={() => handleClickQuantity("up")} className=" flex items-center px-4 h-full">
 									<PlusIcon className="h-4 w-4" />
 								</button>
 							</div>
-							<div className="flex items-center">
-								<span className=" text-sm font-light text-gray-400">( {product.stock.remaining} disponibles )</span>
-							</div>
+
 						</div>
-						<div className="flex flex-row items-center space-x-2 mt-8">
-							<SecondaryButton isLoading={processing == "shoppingCart"} onClick={handleClickAddProductToCart}>
+						<div className="flex flex-row flex-wrap items-center gap-2 mt-8">
+							<SecondaryButton className="font-medium" isLoading={processing == "shoppingCart"} onClick={handleClickAddProductToCart}>
 								<div className="inline-flex items-center  ">
 									<ShoppingCartIcon className="w-3 h-3 mr-3" />
-									<span className="text-sm font-semibold">Agregar al Carrito </span>
+									<span className="text-sm font-medium">Agregar al Carrito </span>
 								</div>
 							</SecondaryButton>
 
-							<PrimaryButton isLoading={processing == "checkout"} onClick={handleClickBuyProduct}>
+							<PrimaryButton className="font-medium" isLoading={processing == "checkout"} onClick={handleClickBuyProduct}>
 								<div className="inline-flex ">
-									<span className=" text-sm font-semibold">Comprar ahora </span>
+									<span className=" text-sm font-medium">Comprar ahora </span>
 								</div>
 							</PrimaryButton>
 						</div>

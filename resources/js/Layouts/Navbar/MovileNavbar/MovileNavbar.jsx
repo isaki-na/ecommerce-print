@@ -51,7 +51,8 @@ export default function MovileNavbar({ navigation }) {
         },
     ]
 
-    const hideSearchOnMobile = route().current('profile.orders') || route().current('shopping-cart.index') || route().current('profile.account-details') || route().current('profile.index') || route().current('product')
+    const hideSearchOnMobile = route().current('profile.orders') || route().current('shopping-cart.index') || route().current('profile.account-details') || route().current('profile.index') || route().current('profile.order') || route().current('product') || route().current('checkout')
+    const hideBottomNavigationOnMobile = route().current('profile.order')
 
     return (
         <>
@@ -94,24 +95,26 @@ export default function MovileNavbar({ navigation }) {
                 </div>
             </nav>}
 
-            <div className="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-white/95 backdrop-blur lg:hidden">
-                <div className="grid grid-cols-4">
-                    {bottomNavigation.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className={classNames(
-                                'flex flex-col items-center justify-center py-2 text-[11px] gap-y-1',
-                                item.current ? 'text-primary-700' : 'text-neutral-400'
-                            )}
-                            aria-current={item.current ? 'page' : undefined}
-                        >
-                            <item.icon className="h-5 w-5" />
-                            <span>{item.name}</span>
-                        </Link>
-                    ))}
+            {!hideBottomNavigationOnMobile && (
+                <div className="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-white/95 backdrop-blur lg:hidden">
+                    <div className="grid grid-cols-4">
+                        {bottomNavigation.map((item) => (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className={classNames(
+                                    'flex flex-col items-center justify-center py-2 text-[11px] gap-y-1',
+                                    item.current ? 'text-primary-700' : 'text-neutral-400'
+                                )}
+                                aria-current={item.current ? 'page' : undefined}
+                            >
+                                <item.icon className="h-5 w-5" />
+                                <span>{item.name}</span>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
         </>
     )
 }
@@ -123,7 +126,7 @@ function LinkNavbar({ children, active, ...props }) {
             className={
                 (active
                     ? 'border-primary-950 text-primary-950 font-semibold border-b-2'
-                    : 'text-primary-600') +
+                    : 'text-primary-600 font-medium') +
                 ' whitespace-nowrap block pb-1 text-sm'
             }
         >

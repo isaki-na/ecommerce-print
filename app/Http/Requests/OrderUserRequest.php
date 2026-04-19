@@ -23,10 +23,10 @@ class OrderUserRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'address' => 'required|max:255',
+            'address' => 'nullable|max:255',
             'phone' => 'required|max:255',
             'email' => 'required|max:255|email',
-            'city' => 'required|max:255',
+            'city' => 'nullable|max:255',
             'postalCode' => 'nullable|max:255',
             'note' => 'nullable|max:255',
         ];

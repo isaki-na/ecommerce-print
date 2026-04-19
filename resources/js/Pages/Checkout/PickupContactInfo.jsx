@@ -9,7 +9,7 @@ import { CheckoutContext } from "@/Components/Context/CheckoutProvider"
 import { usePage } from "@inertiajs/react"
 import InputError from "@/Components/Form/InputError"
 
-const ShippingAddress = () => {
+const PickupContactInfo = () => {
     const { userForm } = useContext(CheckoutContext);
     const { errors } = usePage().props
     return (
@@ -66,4 +66,4 @@ const ShippingAddress = () => {
     )
 }
 
-export default ShippingAddress
+export default PickupContactInfo

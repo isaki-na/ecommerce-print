@@ -9,7 +9,7 @@ const Footer = () => {
 
     const footerItems = [
         ];
-    const hideFooterOnMobile = route().current('profile.orders') || route().current('shopping-cart.index') || route().current('profile.account-details') || route().current('profile.index') || route().current('home') || route().current('category')
+    const hideFooterOnMobile = route().current('profile.orders') || route().current('profile.order') || route().current('shopping-cart.index') || route().current('profile.account-details') || route().current('profile.index') || route().current('home') || route().current('category')
 
     return (
         <>
