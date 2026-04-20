@@ -16,6 +16,11 @@ class Dashboard extends \Filament\Pages\Dashboard
 {
     use HasFiltersForm;
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     public function mount(): void
     {
         $message = session()->pull('welcome_admin_message');

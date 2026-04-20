@@ -17,10 +17,12 @@ use Illuminate\Database\Eloquent\Builder;
 class LatestSalesWidget extends BaseWidget
 {
     protected static bool $isLazy = false;
+
     public static function canView(): bool
     {
-        return true;
+        return auth()->user()?->hasRole('admin') ?? false;
     }
+
     protected static ?int $sort = 10;
     protected int|string|array $columnSpan = 'full';
     protected static ?string $heading = 'Ultimas Ventas';

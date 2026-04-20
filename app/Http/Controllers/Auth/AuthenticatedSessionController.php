@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Filament\Resources\OrderResource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Filament\Pages\Dashboard;
@@ -65,13 +66,17 @@ class AuthenticatedSessionController extends Controller
 
             session()->flash('welcome_admin_message', $message);
 
+            $redirectUrl = $user->hasRole('admin')
+                ? Dashboard::getUrl()
+                : OrderResource::getUrl();
+
             // Inertia POST login needs a hard browser navigation to Filament so
             // the admin layout boots in a clean full-page context.
             if ($request->headers->has('X-Inertia')) {
-                return Inertia::location(Dashboard::getUrl());
+                return Inertia::location($redirectUrl);
             }
 
-            return redirect()->to(Dashboard::getUrl());
+            return redirect()->to($redirectUrl);
         }
 
         return to_route('home')->with('success', 'Bienvenido de nuevo a tu perfil.');

@@ -15,6 +15,12 @@ use Illuminate\Database\Eloquent\Builder;
 class SalesChart extends ChartWidget
 {
     use InteractsWithPageFilters;
+
+    public static function canView(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     protected static ?int $sort = 2;
     protected static ?string $heading = 'Ventas por mes';
     protected static bool $isLazy = false;

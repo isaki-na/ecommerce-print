@@ -23,6 +23,11 @@ class StatsOverview extends BaseWidget
 {
     use InteractsWithPageFilters;
 
+    public static function canView(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     protected static bool $isLazy = false;
     protected static ?int $sort = 0;
     protected function getStats(): array
