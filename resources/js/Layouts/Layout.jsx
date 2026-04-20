@@ -4,7 +4,7 @@ import { Link, usePage } from '@inertiajs/react';
 import Footer from './Footer/Footer';
 import NotificationToast from '@/Components/Notification/NotificationToast';
 
-export default function Layout({ children }) {
+export default function Layout({ children, hideFooter = false, hideFooterOnMobile = false }) {
 	const { auth } = usePage().props
 	return (
 		<>
@@ -12,7 +12,11 @@ export default function Layout({ children }) {
 
 			<Navbar auth={auth} />
 			<main>{children}</main>
-			<Footer />
+			{!hideFooter && (
+				<div className={hideFooterOnMobile ? 'hidden lg:block' : ''}>
+					<Footer />
+				</div>
+			)}
 
 		</>
 	);

@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
             return redirect('/admin');
         }
 
-        return redirect()->route('home');
+        return redirect()->route('profile.index');
     })->name('dashboard');
 });
 
@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
 
             Route::get('/my-orders', 'orders')->name('orders');
             Route::get('/order/{code}', 'orderDetails')->name('order');
-            Route::get('/order-pdf/{code}', 'invoicePdf')->name('invoice');
+            Route::get('/order-voucher/{code}', 'voucherPdf')->name('voucher');
         });
     });
 

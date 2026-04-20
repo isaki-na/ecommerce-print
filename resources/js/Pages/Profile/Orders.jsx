@@ -1,21 +1,32 @@
 
-import { useState } from "react";
 import { formatCurrency, formatDate } from "../../Helpers/helpers";
 
 
 import LayoutProfile from "../../Layouts/LayoutProfile";
 import OrderStatuBadges from "@/Components/OrderStatuBadges";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 import Pagination from "@/Components/Pagination";
 import Badge from "@/Components/Badge";
 
-const Order = ({ orders }) => {
+const ORDER_AGE_OPTIONS = [
+    { value: "all", label: "Todos" },
+    { value: "12m", label: "Ultimo año" },
+    { value: "6m", label: "Ultimos 6 meses" },
+    { value: "3m", label: "Ultimos 3 meses" },
+    { value: "1m", label: "Ultimo mes" },
+];
 
-    const [page, setPage] = useState(1);
+const Order = ({ orders, filters = {} }) => {
+    const selectedAge = filters.age || "all";
 
-    const handleClickChangePage = (number) => {
-
-        setPage(number);
+    const handleAgeFilterChange = (e) => {
+        router.get(route("profile.orders"), {
+            age: e.target.value,
+        }, {
+            preserveScroll: true,
+            preserveState: true,
+            replace: true,
+        });
     };
 
     return (
@@ -27,6 +38,27 @@ const Order = ({ orders }) => {
             },
         ]}>
             <Head title="Pedidos" />
+
+            <div className="mb-5 flex justify-end">
+                <div className="w-full lg:w-auto">
+                    <label htmlFor="orders-age-filter" className="mb-1 block text-xs font-medium uppercase tracking-wide text-gray-500">
+                        Antiguedad
+                    </label>
+                    <select
+                        id="orders-age-filter"
+                        name="age"
+                        value={selectedAge}
+                        onChange={handleAgeFilterChange}
+                        className="w-full lg:w-56 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 focus:border-primary-500 focus:ring-primary-500"
+                    >
+                        {ORDER_AGE_OPTIONS.map((option) => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </div>
 
 
             {/* Desktop */}

@@ -73,6 +73,14 @@ const AccountDetails = () => {
 								placeholder={"Confirmar Email *"}
 							/>
 						</div>
+						<div className="lg:hidden sm:col-span-6">
+							<Link
+								href={route('profile.password')}
+								className="w-full flex justify-center px-3.5 py-2.5 text-sm text-primary-400"
+							>
+								Cambiar contraseña
+							</Link>
+						</div>
 						<div className="text-center sm:col-span-6">
 							<PrimaryButton 
 							className="w-full bg-white text-primary-950 shadow-none border border-primary-950 rounded-none hover:bg-gray-50" 
@@ -86,7 +94,7 @@ const AccountDetails = () => {
 			</div>
 
 			{/* Mobile logout */}
-			<div className="lg:hidden mt-4">
+			<div className="lg:hidden mt-4 space-y-2">
 				<Link
 					method="post"
 					as="button"

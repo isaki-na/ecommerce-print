@@ -10,7 +10,7 @@ import Hero from '@/Components/Hero/Hero'
 import Breadcrumb from '@/Components/Breadcrumb'
 
 
-export default function Profile({ title, children, breadcrumb = [], hideSidebarOnMobile = false, hideBreadcrumbOnMobile = false }) {
+export default function Profile({ title, children, breadcrumb = [], hideSidebarOnMobile = false, hideBreadcrumbOnMobile = false, hideFooterOnMobile = false }) {
     const links = [
         {
             title: 'Dashboard',
@@ -35,7 +35,7 @@ export default function Profile({ title, children, breadcrumb = [], hideSidebarO
     ]
 
     return (
-        <Layout>
+        <Layout hideFooterOnMobile={hideFooterOnMobile}>
             <Breadcrumb hideMobile={hideBreadcrumbOnMobile} data={[
                 {
                     title: 'Perfil'

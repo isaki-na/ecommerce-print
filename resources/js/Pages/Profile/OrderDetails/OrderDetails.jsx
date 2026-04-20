@@ -55,9 +55,9 @@ const OderDetails = ({ order }) => {
                     </SectionTitle>
                     <div className="inline-flex gap-x-2">
 
-                        <a className="btn btn-secondary inline-flex w-full justify-center items-center gap-x-2 sm:w-auto" target="_black" href={route('profile.invoice', order.code)}>
+                        <a className="btn btn-secondary inline-flex w-full justify-center items-center gap-x-2 sm:w-auto" target="_black" href={route('profile.voucher', order.code)}>
                             <ArrowDownTrayIcon className="w-4 h-4" />
-                            Descargar factura
+                            Descargar comprobante
                         </a>
 
                     </div>
@@ -110,7 +110,7 @@ const OderDetails = ({ order }) => {
                     </div>
                 )}
 
-                {/* Invoice */}
+                {/* Voucher */}
 
                 <BuyerDetails order={order} />
 

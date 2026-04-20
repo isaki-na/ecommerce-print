@@ -25,7 +25,9 @@ use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Notifications\Notification;
 use Filament\Support\Enums\Alignment;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class ViewOrder extends ViewRecord
@@ -62,22 +64,47 @@ class ViewOrder extends ViewRecord
                                         ->label('Fecha de recogida')
                                         ->required()
                                         ->native(true)
+                                        ->minDate(now('America/Mexico_City')->toDateString())
                                         ->displayFormat('d/m/Y'),
                                     TimePicker::make('pickup_time')
                                         ->label('Hora de recogida (Ciudad de México)')
                                         ->required()
                                         ->native(true)
+                                        ->extraInputAttributes([
+                                            'min' => '08:00',
+                                            'max' => '20:00',
+                                        ])
+                                        ->rules([
+                                            'after_or_equal:08:00',
+                                            'before_or_equal:20:00',
+                                        ])
                                         ->minutesStep(15)
                                         ->seconds(false)
-                                        ->helperText('La hora corresponde a la zona horaria de Ciudad de México.'),
+                                        ->helperText('La hora corresponde a la zona horaria de Ciudad de México (horario permitido: 08:00 a 20:00).'),
                                 ])
                                 ->action(function (array $data, Order $record) {
-                                    $record->status = OrderStatusEnum::SUCCESSFUL;
-                                    $record->pickup_at = \Carbon\Carbon::createFromFormat(
+                                    $pickupAt = Carbon::createFromFormat(
                                         'Y-m-d H:i',
                                         $data['pickup_date'] . ' ' . $data['pickup_time'],
                                         'America/Mexico_City'
-                                    )->utc();
+                                    );
+
+                                    $pickupHour = $pickupAt->format('H:i');
+
+                                    if ($pickupHour < '08:00' || $pickupHour > '20:00') {
+                                        throw ValidationException::withMessages([
+                                            'pickup_time' => 'La hora de recogida debe estar entre 08:00 y 20:00.',
+                                        ]);
+                                    }
+
+                                    if ($pickupAt->lt(now('America/Mexico_City'))) {
+                                        throw ValidationException::withMessages([
+                                            'pickup_date' => 'La fecha y hora de recogida no puede ser anterior al momento actual.',
+                                        ]);
+                                    }
+
+                                    $record->status = OrderStatusEnum::SUCCESSFUL;
+                                    $record->pickup_at = $pickupAt->utc();
                                     $record->save();
 
                                     Notification::make()
@@ -215,17 +242,17 @@ class ViewOrder extends ViewRecord
                             ->columnSpan(1)
                             ->schema([
                                 Section::make([
-                                    TextEntry::make('created_at')->label('Fecha de  la venta')->dateTime(),
-                                    TextEntry::make('refund_at')->visible(fn($state) => $state)->label('Fecha de devolucion')->dateTime(),
+                                    TextEntry::make('created_at')->label('Fecha de  la venta')->dateTime('d/m/Y H:i'),
+                                    TextEntry::make('refund_at')->visible(fn($state) => $state)->label('Fecha de devolucion')->dateTime('d/m/Y H:i'),
                                     TextEntry::make('pickup_at')
                                         ->label('Fecha y hora de recogida')
                                         ->visible(fn($state) => $state)
-                                        ->dateTime(timezone: 'America/Mexico_City')
+                                        ->dateTime('d/m/Y H:i', timezone: 'America/Mexico_City')
                                         ->helperText('Hora de Ciudad de México'),
                                     TextEntry::make('ready_at')
                                         ->label('Fecha en que se marco como listo')
                                         ->visible(fn($state) => $state)
-                                        ->dateTime(),
+                                        ->dateTime('d/m/Y H:i'),
 
                                 ])->columnSpan(1),
 

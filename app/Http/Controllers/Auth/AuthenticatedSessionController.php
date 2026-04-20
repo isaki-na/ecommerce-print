@@ -74,6 +74,6 @@ class AuthenticatedSessionController extends Controller
             return redirect()->to(Dashboard::getUrl());
         }
 
-        return to_route('home')->with('success', 'Bienvenido de nuevo a la tienda.');
+        return to_route('home')->with('success', 'Bienvenido de nuevo a tu perfil.');
     }
 }
