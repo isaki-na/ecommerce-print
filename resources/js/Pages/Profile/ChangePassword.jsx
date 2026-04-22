@@ -81,9 +81,12 @@ const ChangePassword = () => {
 							/>
 							<InputError message={errors.password_confirmation} />
 						</div>
-
-						<div className="w-full bg-white text-primary-950 shadow-none border border-primary-950 rounded-none hover:bg-gray-50">
-							<PrimaryButton isLoading={processing} disabled={processing} >Guardar</PrimaryButton>
+						<div className="sm:col-span-6">
+								<PrimaryButton 
+									className="w-full bg-white text-primary-950 shadow-none border border-primary-950 rounded-none hover:bg-gray-50"
+									isLoading={processing} 
+									disabled={processing} >Guardar</PrimaryButton>
+							
 						</div>
 					</FormGrid>
 
