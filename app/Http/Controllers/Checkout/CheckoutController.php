@@ -12,7 +12,6 @@ use App\Models\Product;
 use App\Services\CartService;
 use App\Services\CheckoutService;
 use App\Services\OrderService;
-use Faker;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -20,21 +19,30 @@ use App\Rules\ValidateProductRule;
 
 class CheckoutController extends Controller
 {
+    protected const PAYMENT_METHODS = [
+        'in_store',
+        'online_pickup',
+    ];
+
     public function checkout(Request $request)
     {
 
         $products = CartService::products(CartEnum::CHECKOUT);
 
         $discountCode = session()->get('discountCode');
+        $paymentMethod = session()->get('checkout_payment_method', 'in_store');
 
-        $total = OrderService::calculateTotal($products, $discountCode);
+        if (!in_array($paymentMethod, self::PAYMENT_METHODS, true)) {
+            $paymentMethod = 'in_store';
+        }
+
+        $total = OrderService::calculateTotal($products, $discountCode, $paymentMethod);
 
         $discount_codes = DiscountCode::whereDate('valid_from', '<=', now())
             ->whereDate('valid_to', '>=', now())
             ->where('active', 1)->inRandomOrder()->limit(5)->get();
 
-        $faker = Faker\Factory::create();
-        $note = $faker->paragraph(2);
+        $note = 'Escribe aqui cualquier detalle adicional para tu pedido.';
 
         return Inertia::render('Checkout/Checkout', [
             'products' => $products,
@@ -53,17 +61,24 @@ class CheckoutController extends Controller
         ]);
 
         session()->forget(CartEnum::CHECKOUT->value);
+        session(['checkout_payment_method' => 'in_store']);
 
         CartService::add(CartEnum::CHECKOUT, $request->skuId, $request->quantity);
 
         return to_route('checkout');
     }
 
-    public function addShoppingCart()
+    public function addShoppingCart(Request $request)
     {
         $products = CartService::session(CartEnum::SHOPPING_CART);
+        $paymentMethod = $request->string('payment_method')->toString() ?: 'in_store';
+
+        if (!in_array($paymentMethod, self::PAYMENT_METHODS, true)) {
+            $paymentMethod = 'in_store';
+        }
 
         session([CartEnum::CHECKOUT->value => $products]);
+        session(['checkout_payment_method' => $paymentMethod]);
 
         return to_route('checkout');
     }

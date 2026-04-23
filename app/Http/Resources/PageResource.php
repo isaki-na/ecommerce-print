@@ -21,7 +21,7 @@ class PageResource extends JsonResource
             'meta_desc' => $this->meta_desc,
             'data' => $this->data,
             'banners' => ImageResource::collection($this->whenLoaded('banners')),
-            'metaTag' => new MetaTagResource($this->whenLoaded('metaTag')),
+            'metaTag' => $this->whenLoaded('metaTag') ? new MetaTagResource($this->metaTag) : null,
         ];
     }
 }

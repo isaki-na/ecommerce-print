@@ -4,7 +4,7 @@ import { AdjustmentsVerticalIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { Link, router, usePage } from "@inertiajs/react";
 
 import { useContext, useEffect, useState } from "react";
-import { SearchContext } from "../Search";
+import { SearchContext } from "../SearchContext";
 
 const FiltersSelected = ({ data, setData, changeFilterAttributes }) => {
     const form = useContext(SearchContext);

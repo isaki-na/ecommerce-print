@@ -49,7 +49,7 @@ class StockAdjustmentResource extends Resource
                                 return [$product->id => "{$product->ref} {$product->name} Color: {$product->color->name}"];
                             })->toArray();
                     })
-                    ->getOptionLabelUsing(fn($value): ?string => Sku::find($value)?->product->name)
+                    ->getOptionLabelUsing(fn($value): ?string => Sku::with('product:id,name')->find($value)?->product?->name ?? 'Producto no encontrado')
                     ->searchable()
 
                     ->columnSpan(3)
@@ -157,11 +157,11 @@ class StockAdjustmentResource extends Resource
                     ->size(40)->circular()->label('Imagen'),
                 Tables\Columns\TextColumn::make('sku.product.name')
                     ->wrap()
-                    ->url(fn($record) => route('product', [$record->sku->product->slug, $record->sku->product->ref]))
+                    ->url(fn($record) => $record->sku?->product ? route('product', [$record->sku->product->slug, $record->sku->product->ref]) : null)
                     ->openUrlInNewTab()
                     ->label('Nombre')
-                    ->description(fn($record) => ("Tamaño " . $record->sku->size->name . " - Color " . $record->sku->product->color->name))
-                    ->formatStateUsing(fn(StockAdjustment $record): string => "{$record->sku->product->ref} {$record->sku->product->name}"),
+                    ->description(fn($record) => $record->sku?->size && $record->sku?->product?->color ? ("Tamaño " . $record->sku->size->name . " - Color " . $record->sku->product->color->name) : '')
+                    ->formatStateUsing(fn(StockAdjustment $record): string => $record->sku?->product ? "{$record->sku->product->ref} {$record->sku->product->name}" : 'Producto no encontrado'),
 
                 Tables\Columns\TextColumn::make('quantity')
                     ->numeric()
@@ -188,10 +188,10 @@ class StockAdjustmentResource extends Resource
                             ->limit(20)
                             ->get()
                             ->mapWithKeys(function ($sku) {
-                                return [$sku->id => "{$sku->product->ref} {$sku->product->name} - Color {$sku->product->color->name} - Talla {$sku->size->name}"];
+                                return [$sku->id => $sku->product ? "{$sku->product->ref} {$sku->product->name} - Color {$sku->product->color->name} - Talla {$sku->size->name}" : "SKU {$sku->id} - Producto no encontrado"];
                             })->toArray();
                     })
-                    ->getOptionLabelUsing(fn($value): ?string => Sku::find($value)?->product->name)
+                    ->getOptionLabelUsing(fn($value): ?string => Sku::with('product:id,name')->find($value)?->product?->name ?? 'Producto no encontrado')
                     ->columnSpan(3)
                     ->searchable()
             ], layout: FiltersLayout::AboveContent)

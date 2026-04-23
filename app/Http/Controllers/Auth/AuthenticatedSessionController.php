@@ -2,24 +2,29 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Filament\Resources\OrderResource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Filament\Pages\Dashboard;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
      */
-    public function create(): Response
+    public function create(): Response|RedirectResponse
     {
+        if (Auth::check()) {
+            return $this->redirectByRole(request(), Auth::user());
+        }
+
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
@@ -35,14 +40,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if (Auth::user()->hasRole('admin')) {
-            // return to_route('home');
-            return Inertia::location(Dashboard::getUrl());
-        } else {
-            return to_route('home');
-        }
-
-        // return redirect()->intended(route('dashboard', absolute: false));
+        return $this->redirectByRole($request, Auth::user());
     }
 
     /**
@@ -56,6 +54,31 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('login');
+    }
+
+    private function redirectByRole(Request $request, $user): Response|RedirectResponse|SymfonyResponse
+    {
+        if ($user->hasAnyRole(['admin', 'operator'])) {
+            $message = $user->hasRole('admin')
+                ? 'Bienvenido administrador.'
+                : 'Bienvenido operador. Puedes gestionar ventas y ajustes de stock.';
+
+            session()->flash('welcome_admin_message', $message);
+
+            $redirectUrl = $user->hasRole('admin')
+                ? Dashboard::getUrl()
+                : OrderResource::getUrl();
+
+            // Inertia POST login needs a hard browser navigation to Filament so
+            // the admin layout boots in a clean full-page context.
+            if ($request->headers->has('X-Inertia')) {
+                return Inertia::location($redirectUrl);
+            }
+
+            return redirect()->to($redirectUrl);
+        }
+
+        return to_route('home')->with('success', 'Bienvenido de nuevo a tu perfil.');
     }
 }

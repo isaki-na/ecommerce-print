@@ -2,12 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Attribute;
-use App\Models\AttributeValue;
-use App\Models\Product;
 use App\Models\Specification;
 use App\Models\SpecificationValue;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
@@ -64,7 +60,7 @@ class SpecificationSeeder extends Seeder
                 }
             }
 
-            if (count($specifications_value_array) > 400) {
+            if (count($specifications_value_array) > 200) { // Reduced chunk size
                 Specification::insert($specifications_array);
                 SpecificationValue::insert($specifications_value_array);
                 $specifications_array = [];

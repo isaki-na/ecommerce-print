@@ -10,7 +10,7 @@ import Hero from '@/Components/Hero/Hero'
 import Breadcrumb from '@/Components/Breadcrumb'
 
 
-export default function Profile({ title, children, breadcrumb = [] }) {
+export default function Profile({ title, children, breadcrumb = [], hideSidebarOnMobile = false, hideBreadcrumbOnMobile = false, hideFooterOnMobile = false }) {
     const links = [
         {
             title: 'Dashboard',
@@ -35,8 +35,8 @@ export default function Profile({ title, children, breadcrumb = [] }) {
     ]
 
     return (
-        <Layout>
-            <Breadcrumb data={[
+        <Layout hideFooterOnMobile={hideFooterOnMobile}>
+            <Breadcrumb hideMobile={hideBreadcrumbOnMobile} data={[
                 {
                     title: 'Perfil'
                 },
@@ -47,7 +47,7 @@ export default function Profile({ title, children, breadcrumb = [] }) {
                 <div className="py-content">
 
                     <div className="grid grid-cols-12 md:gap-6 gap-y-10 ">
-                        <div className="col-span-12 lg:col-span-3">
+                        <div className={(hideSidebarOnMobile ? 'hidden lg:block' : 'col-span-12') + ' lg:col-span-3'}>
                             <div className="flex flex-col space-y-1">
 
                                 {links.map((item) => (
@@ -68,9 +68,9 @@ export default function Profile({ title, children, breadcrumb = [] }) {
                                 </div>
                             </Link>
                         </div>
-                        <div className="col-span-12 lg:col-span-9 md:pl-10">
+                        <div className="col-span-12 lg:col-span-9 md:pl-10 pb-24 lg:pb-0">
                             {title && (
-                                <h3 className="title-section mb-8">{title}</h3>
+                                <h3 className="mb-8 text-sm font-semibold uppercase tracking-[0.16em] text-gray-900">{title}</h3>
                             )}
 
                             <div>

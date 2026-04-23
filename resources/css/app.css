@@ -15,6 +15,51 @@
     height: 5px !important;
 }
 
+/* Keep UI scale consistent across different mobile widths. */
+@media (max-width: 1023px) {
+    html {
+        font-size: clamp(14px, 3.6vw, 16px);
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    .container {
+        padding-left: clamp(0.875rem, 3vw, 1.25rem);
+        padding-right: clamp(0.875rem, 3vw, 1.25rem);
+    }
+}
+
+/* Extra tuning for compact phones so typography and actions do not feel oversized. */
+@media (max-width: 360px) {
+    html {
+        font-size: 13.5px;
+    }
+
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    h1 {
+        font-size: clamp(1.45rem, 7vw, 1.9rem);
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: clamp(1.2rem, 5.8vw, 1.5rem);
+        line-height: 1.2;
+    }
+
+    .title-section {
+        font-size: 1.55rem;
+    }
+
+    .btn,
+    button {
+        font-size: 0.875rem;
+    }
+}
+
 @layer utilities {
     .py-content {
         @apply py-10 md:py-12 lg:py-14 xl:py-16;

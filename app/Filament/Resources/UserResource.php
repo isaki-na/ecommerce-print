@@ -7,6 +7,7 @@ use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
+use App\Filament\Traits\AdminOnlyResource;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
@@ -18,6 +19,7 @@ use Illuminate\Validation\Rules\Password;
 
 class UserResource extends Resource
 {
+    use AdminOnlyResource;
     protected static ?string $model = User::class;
 
     public static ?string $label = 'Cliente';
@@ -73,6 +75,11 @@ class UserResource extends Resource
                     ->wrap()
                     ->searchable(),
 
+                Tables\Columns\TextColumn::make('role')
+                    ->label('Rol')
+                    ->badge()
+                    ->state(fn(User $record): string => $record->getRoleNames()->implode(', ') ?: 'Sin rol'),
+
                 Tables\Columns\TextColumn::make('phone')
                     ->searchable(),
 
@@ -98,9 +105,7 @@ class UserResource extends Resource
                     ->url(fn(User $record): string => UserResource::getUrl('view-orders', ['record' => $record->id]))
                     ->label('Ver ordernes')->color('gray'),
 
-                Tables\Actions\EditAction::make()->mutateFormDataUsing(function (array $data): array {
-                    return self::mutateDataPassword($data);
-                }),
+                Tables\Actions\EditAction::make(),
 
                 Tables\Actions\DeleteAction::make(),
 
@@ -123,8 +128,8 @@ class UserResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            // 'create' => Pages\CreateUser::route('/create'),
-            // 'edit' => Pages\EditUser::route('/{record}/edit'),
+            'create' => Pages\CreateUser::route('/create'),
+            'edit' => Pages\EditUser::route('/{record}/edit'),
             // 'view' => Pages\ViewUser::route('/{record}'),
             'view-orders' => Pages\ViewUserOrders::route('/{record}/orders'),
         ];

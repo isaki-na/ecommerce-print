@@ -15,16 +15,23 @@ use Illuminate\Database\Eloquent\Builder;
 class SalesChart extends ChartWidget
 {
     use InteractsWithPageFilters;
+
+    public static function canView(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     protected static ?int $sort = 2;
     protected static ?string $heading = 'Ventas por mes';
     protected static bool $isLazy = false;
     protected function getData(): array
     {
         $filterMonth = Dashboard::filterDateSelected($this->filters['select_month']);
+        $saleStatuses = [OrderStatusEnum::SUCCESSFUL->value, OrderStatusEnum::DELIVERED->value];
 
 
         $sales = Order::select('id', 'created_at', 'status')
-            ->where('status', OrderStatusEnum::SUCCESSFUL)
+            ->whereIn('status', $saleStatuses)
             ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth))
             ->orderBy('created_at')
             ->get();

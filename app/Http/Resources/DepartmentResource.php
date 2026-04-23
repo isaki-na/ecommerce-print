@@ -24,7 +24,7 @@ class DepartmentResource extends JsonResource
             'active' => $this->active,
             'in_home' => $this->in_home,
             'products' => ProductCardResource::collection($this->whenLoaded('products')),
-            'metaTag' => new MetaTagResource($this->whenLoaded('metaTag')),
+            'metaTag' => $this->whenLoaded('metaTag') ? new MetaTagResource($this->metaTag) : null,
         ];
     }
 }

@@ -28,26 +28,19 @@ class AttributeSeeder extends Seeder
         $attributeOptions = AttributeOption::pluck('id')->toArray();
         // $attributesOptionSelected = $attributeOptions->random(2)->toArray();
         $attribute_option_product = [];
-        foreach (Product::variant()->select('id')->get() as $key => $product) {
+        foreach (Product::variant()->select('id')->cursor() as $key => $product) {
 
             $attributesOptionSelected = array_rand($attributeOptions, rand(3, 5));
 
             foreach ($attributesOptionSelected as $options_id) {
                 array_push($attribute_option_product, [
-                    'product_id' => $product['id'],
+                    'product_id' => $product->id,
                     'attribute_option_id' => $options_id
                 ]);;
             }
 
-            foreach ($product['variants'] as $variant) {
-                foreach ($attributesOptionSelected as $options_id) {
-                    array_push($attribute_option_product, [
-                        'product_id' => $variant['id'],
-                        'attribute_option_id' => $options_id
-                    ]);
-                }
-            }
-            if (count($attribute_option_product) > 500) {
+            // Removed variants loop as variants are not loaded with select('id')
+            if (count($attribute_option_product) > 200) { // Reduced chunk size
                 DB::table('attribute_option_product')->insert($attribute_option_product);
                 $attribute_option_product = [];
                 $this->command->info($key);

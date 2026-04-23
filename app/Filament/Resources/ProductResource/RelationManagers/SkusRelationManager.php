@@ -52,7 +52,6 @@ class SkusRelationManager extends RelationManager
                 Tables\Actions\EditAction::make(),
                 Action::make('view-stock-adjustment')
                     ->url(fn(Sku $record): string => StockAdjustmentResource::getUrl('index', [
-                        'record' => $record->order_id,
                         'tableFilters[sku_id][value]' => $record->id
                     ]))
                     ->label('Historial de entrada de mercancia')->color('info'),

@@ -5,11 +5,11 @@ function BuyerDetails({ order }) {
 
     return (
         <div className="grid lg:grid-cols-4 gap-6 ">
-            <OrderDetailsList title="Facturado a" >
+            <OrderDetailsList title="Cliente" >
                 <div className="block ">{order.user.name}</div>
             </OrderDetailsList>
 
-            <OrderDetailsList title="Serial de factura" >
+            <OrderDetailsList title="Serial de comprobante" >
                 {order.code}
             </OrderDetailsList>
 

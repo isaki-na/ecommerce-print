@@ -1,4 +1,4 @@
-@import "/vendor/filament/filament/resources/css/theme.css";
+@import "/vendor/filament/filament/resources/css/theme.css"; 
 
 @config 'tailwind.config.js';
 
@@ -31,10 +31,10 @@
 .table-list tbody tr td:last-child {
     @apply text-right;
 }
-/* .table-list tr th,
+ .table-list tr th,
 .table-list tr td {
     @apply px-3 py-3.5;
-} */
+} 
 .table-list tr th:first-child,
 .table-list tr td:first-child {
     @apply pl-6;

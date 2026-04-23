@@ -20,18 +20,29 @@ use Inertia\Inertia;
 class ShoppingCartController extends Controller
 {
 
-    public function index()
+    protected const PAYMENT_METHODS = [
+        'in_store',
+        'online_pickup',
+    ];
+
+    public function index(Request $request)
     {
         // sleep(3000);
         //session()->forget(CartEnum::SHOPPING_CART->value);
 
         $products = CartService::products();
+        $selectedPaymentMethod = $request->string('payment_method')->toString() ?: 'in_store';
+
+        if (!in_array($selectedPaymentMethod, self::PAYMENT_METHODS, true)) {
+            $selectedPaymentMethod = 'in_store';
+        }
         // dd($products);
-        $total = OrderService::calculateTotal($products);
+        $total = OrderService::calculateTotal($products, null, $selectedPaymentMethod);
         // dd($products);
         return Inertia::render('ShoppingCart/ShoppingCart', [
             'products' => $products,
             'total' => $total,
+            'selectedPaymentMethod' => $selectedPaymentMethod,
         ]);
     }
 

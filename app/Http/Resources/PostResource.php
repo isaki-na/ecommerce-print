@@ -29,7 +29,7 @@ class PostResource extends JsonResource
             'created_at' => $this->created_at->format('Y-m-d'),
             'date' => $this->created_at->isoFormat('dddd DD MMMM YYYY'),
             'dateRelative' => $this->updated_at->locale('es_ES')->diffForHumans(['parts' => 2]),
-            'metaTag' => new MetaTagResource($this->whenLoaded('metaTag')),
+            'metaTag' => $this->whenLoaded('metaTag') ? new MetaTagResource($this->metaTag) : null,
         ];
     }
 }

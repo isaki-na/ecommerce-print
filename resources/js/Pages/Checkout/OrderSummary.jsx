@@ -60,18 +60,6 @@ const OrderSummary = ({ products, total }) => {
                         </div>
                     )}
 
-                    <div className="flex items-center justify-between ">
-                        <div className="text-gray-600">Envío</div>
-                        <div >{formatCurrency(total.shipping)}</div>
-                    </div>
-
-                    <div className="flex items-center justify-between ">
-                        <div className="text-gray-600">
-                            Estimación de impuestos <span className=" text-gray-400 font-light">({total.tax_rate}%)</span>
-                        </div>
-                        <div >{formatCurrency(total.tax_value)}</div>
-                    </div>
-
                 </div>
 
                 <div className="p-5 md:p-6 flex items-center justify-between pt-6 text-base border-t font-medium">
@@ -82,9 +70,9 @@ const OrderSummary = ({ products, total }) => {
 
             <div className="sm:col-span-6">
                 <PrimaryButton className="w-full mt-4" onClick={handleSubmit} isLoading={userForm.processing} disabled={userForm.processing}>
-                    Pagar {formatCurrency(total.total)}
+                    Pedir en tienda {formatCurrency(total.total)}
                 </PrimaryButton>
-                <span className="text-xs text-gray-400">El metodo de pago fue deshabilitado</span>
+                <span className="text-xs text-gray-400">Tu pedido se enviara al panel de administracion para su gestion.</span>
             </div>
 
         </div>

@@ -2,19 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Enums\CartEnum;
 use App\Enums\OrderStatusEnum;
 use App\Models\DiscountCode;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Payment;
-use App\Models\Presentation;
-use App\Models\Product;
 use App\Models\Sku;
 use App\Models\User;
-use App\Services\CartService;
 use App\Services\OrderService;
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Number;
 
@@ -55,12 +50,13 @@ class OrderSeeder extends Seeder
                     ->with('color:id,name');
             }
         ])
+            ->limit(500) // Limit SKUs to reduce memory
             ->get();
 
 
-        foreach ($users->multiply(10) as $user) {
+        foreach ($users->multiply(5) as $user) { // Reduced multiplier to 5
 
-            $order_products_selected = $order_products->random(10, 20)->map(function ($sku) {
+            $order_products_selected = $order_products->random(5, 10)->map(function ($sku) { // Reduced random count
                 $quantity = rand(1, rand(1, 14));
                 return OrderService::formatOrderProduct($sku, $quantity);
             });
@@ -74,7 +70,7 @@ class OrderSeeder extends Seeder
 
             $order = OrderService::generateOrder($order_products_selected, $discountCode, $user);
 
-            $order->data = [
+            $order->data = (object) [
                 'user' => $user->only('name', 'address', 'phone', 'email', 'city'),
             ];
 

@@ -15,7 +15,10 @@ class OrderStatsOverview extends BaseWidget
 {
     protected function getStats(): array
     {
-        $orders = Order::where("status", OrderStatusEnum::SUCCESSFUL)
+        $orders = Order::whereIn('status', [
+            OrderStatusEnum::SUCCESSFUL->value,
+            OrderStatusEnum::DELIVERED->value,
+        ])
             ->whereMonth('created_at', now()->month)
             ->whereYear('created_at', now()->year)->get();
 

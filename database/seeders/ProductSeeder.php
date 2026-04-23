@@ -2,28 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Helpers\Helpers;
-use App\Models\Attribute;
-use App\Models\AttributeOption;
-use App\Models\AttributeProduct;
-use App\Models\AttributeValue;
-use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Department;
 use App\Models\Image;
 use App\Models\MetaTag;
-use App\Models\Presentation;
 use App\Models\Product;
-use App\Models\ProductAttribute;
-use App\Models\ProductAttributeValue;
-use App\Models\Sku;
-use App\Models\Specification;
-use App\Models\SpecificationValue;
-use App\Models\Stock;
-use Faker;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -99,8 +84,8 @@ class ProductSeeder extends Seeder
                     'old_price' => $old_price,
                     'offer' => $offer,
                     'price' => $price,
-                    'img' => $variant['img'],
-                    'thumb' => $variant['thumb'],
+                    'img' => file_exists(public_path($variant['img'])) ? $variant['img'] : '/img/placeholder.png',
+                    'thumb' => file_exists(public_path($variant['thumb'])) ? $variant['thumb'] : '/img/placeholder.png',
                     'color_id' => $color_id,
                     'parent_id' => $product['id'],
                     'created_at' => fake()->dateTimeBetween('-2 days', 'now'),
@@ -126,7 +111,7 @@ class ProductSeeder extends Seeder
                 ]);
             }
 
-            if (count($products_variant_array) > 50) {
+            if (count($products_variant_array) > 20) { // Reduced chunk size
                 Product::insert($products_array);
                 Product::insert($products_variant_array);
                 Image::insert($images_array);

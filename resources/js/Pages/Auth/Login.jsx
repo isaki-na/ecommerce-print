@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Checkbox from '@/Components/Checkbox';
-import GuestLayout from '@/Layouts/GuestLayout';
+import AuthLayout from '@/Layouts/AuthLayout';
 import InputError from '@/Components/Form/InputError';
 import InputLabel from '@/Components/Form/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -27,8 +27,14 @@ export default function Login({ status, canResetPassword }) {
 	};
 
 	return (
-		<GuestLayout title="Iniciar sesión en su cuenta">
+		<AuthLayout>
 			<Head title="Iniciar sesión" />
+
+			<div className="mb-6">
+				<h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+					Iniciar sesión en su cuenta
+				</h2>
+			</div>
 
 			{status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
@@ -65,38 +71,47 @@ export default function Login({ status, canResetPassword }) {
 
 					<InputError message={errors.password} className="mt-2" />
 				</div>
-
-				<div className="flex items-center justify-between mt-8">
-					<div>
-						<label className="flex items-center">
-							<Checkbox
-								name="remember"
-								checked={data.remember}
-								onChange={(e) => setData('remember', e.target.checked)}
-							/>
-							<span className="ml-2 text-sm text-gray-600 dark:text-gray-400">Acuérdate de mí</span>
-						</label>
-					</div>
-
-					<div>
-						{canResetPassword && (
+				<div className="mt-6 space-y-2">
+					<label className="flex items-center">
+						<Checkbox
+							name="remember"
+							checked={data.remember}
+							onChange={(e) => setData('remember', e.target.checked)}
+						/>
+						<span className="ml-2 text-sm text-gray-600 dark:text-gray-400">Acuérdate de mí</span>
+					</label>
+					{canResetPassword && (
+						<div>
 							<Link
 								href={route('password.request')}
 								className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-800"
 							>
 								¿Olvidaste tu contraseña?
 							</Link>
-						)}
-
-
-					</div>
+						</div>
+					)}
 				</div>
-				<div>
-					<PrimaryButton className="w-full mt-8 flex justify-center" disabled={processing} isLoading={processing}>
-						Iniciar sesión
+
+
+				<div className="mt-8">
+					<PrimaryButton 
+						className="w-full bg-black text-primary-50 shadow-none border border-primary-50 rounded-none hover:bg-gray-850" 
+						disabled={processing} 
+						isLoading={processing}>
+							Iniciar sesión
 					</PrimaryButton>
 				</div>
+
+				<div className="mt-6 text-center text-sm text-gray-600">
+					¿No tienes una cuenta?{' '}
+					<Link
+						href={route('register')}
+						className="font-medium text-primary-600 hover:text-primary-500"
+					>
+						Regístrate aquí
+					</Link>
+				</div>
 			</form>
-		</GuestLayout>
+		</AuthLayout>
 	);
 }

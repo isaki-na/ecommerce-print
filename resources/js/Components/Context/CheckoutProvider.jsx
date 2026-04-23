@@ -8,11 +8,11 @@ export default function CheckoutProvider({ children }) {
     const { auth, note } = usePage().props
     const userForm = useForm({
         name: auth.user.name,
-        address: auth.user.address,
+        address: auth.user.address || '',
         phone: auth.user.phone,
         email: auth.user.email,
-        city: auth.user.city,
-        postalCode: "112233",
+        city: auth.user.city || '',
+        postalCode: '',
         note: note,
         paymentMethodId: null
     })

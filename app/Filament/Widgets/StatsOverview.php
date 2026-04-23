@@ -23,15 +23,21 @@ class StatsOverview extends BaseWidget
 {
     use InteractsWithPageFilters;
 
+    public static function canView(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     protected static bool $isLazy = false;
     protected static ?int $sort = 0;
     protected function getStats(): array
     {
 
         $filterMonth = Dashboard::filterDateSelected($this->filters['select_month']);
+        $saleStatuses = [OrderStatusEnum::SUCCESSFUL->value, OrderStatusEnum::DELIVERED->value];
 
         $orders = Order::select('id', 'status', 'created_at', 'total')
-            ->where('status', OrderStatusEnum::SUCCESSFUL)
+            ->whereIn('status', $saleStatuses)
             ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth))
             ->orderBy('created_at', 'desc')->get();
 
@@ -41,12 +47,12 @@ class StatsOverview extends BaseWidget
             return $item->count();
         });
 
-        $productBestSeller = OrderProduct::select('id', 'name', 'price', 'product_id', 'order_id', DB::raw('count(*) as products_count'))
+        $productBestSeller = OrderProduct::select('product_id', DB::raw('count(*) as products_count'), DB::raw('MAX(id) as id'), DB::raw('MAX(name) as name'), DB::raw('MAX(price) as price'), DB::raw('MAX(order_id) as order_id'))
             ->groupBy('product_id')
             // ->having('product_id')
             ->orderBy('products_count', 'desc')
             ->when($filterMonth, fn(Builder $query) => $query->whereDate('created_at', '>=', $filterMonth))
-            // ->whereRelation('order', 'status', '=', OrderStatusEnum::SUCCESSFUL->value)
+            ->whereHas('order', fn(Builder $query) => $query->whereIn('status', $saleStatuses))
             ->first();
 
 
@@ -75,7 +81,7 @@ class StatsOverview extends BaseWidget
             $statProductBestSeller,
 
 
-            Stat::make('Precio medio de ventas', Number::currency($orders->avg('total') ?: 0, 'COP', locale: 'es'))
+            Stat::make('Precio medio de ventas', Number::currency($orders->avg('total') ?: 0, 'MXN', locale: 'es'))
         ];
     }
 }

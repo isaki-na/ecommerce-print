@@ -2,22 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Attribute;
-use App\Models\Attribute\ColorAttribute;
-use App\Models\Attribute\SizeAttribute;
-use App\Models\AttributeOption;
-use App\Models\AttributeValue;
 use App\Models\Color;
 use App\Models\Image;
-use App\Models\Product;
-use App\Models\Size;
 use App\Models\Sku;
 use App\Models\Variant;
-use Illuminate\Support\Str;
 
 use Illuminate\Database\Seeder;
-use Faker;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class VariantSeeder extends Seeder
@@ -78,7 +68,7 @@ class VariantSeeder extends Seeder
                 }
             }
 
-            if (count($product_variant_array) > 500) {
+            if (count($product_variant_array) > 200) { // Reduced chunk size
                 Variant::insert($product_variant_array);
                 Image::insert($images_array);
                 $product_variant_array = [];

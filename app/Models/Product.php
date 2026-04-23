@@ -20,7 +20,8 @@ class Product extends Model
 {
 
     use HasFactory;
-
+       
+   
     protected $casts = [
         'price' => 'float',
     ];
@@ -33,6 +34,16 @@ class Product extends Model
     {
         return $this->belongsTo(Department::class);
     }
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    // If you also have a single category relationship (legacy)
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
     public function sku()
     {
         return $this->hasOne(Sku::class);
@@ -42,11 +53,6 @@ class Product extends Model
     {
         return $this->hasMany(Sku::class);
     }
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
-
     public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'model');
@@ -184,7 +190,7 @@ class Product extends Model
                 $query->where(function ($query) use ($filters) {
                     $query->orWhere('name', 'like', '%' . $filters['q'] . '%');
                     $query->orWhere('slug', 'like', '%' . $filters['q'] . '%');
-                    $query->orWhere('description_min', 'like', '%' . $filters['q'] . '%');
+                    $query->orWhere('description', 'like', '%' . $filters['q'] . '%');
                 });
             })
             ->when($filters['departments'], function (Builder $query) use ($filters) {
@@ -232,7 +238,7 @@ class Product extends Model
                 $sorBy = $filters['sortBy'] == 'price_desc' ? 'desc' : 'asc';
                 $query->orderBy('price', $sorBy);
             }, function (Builder $query) {
-                $query->orderBy('created_at', 'desc');
+                $query->orderBy('products.created_at', 'desc');
             })
         ;
     }

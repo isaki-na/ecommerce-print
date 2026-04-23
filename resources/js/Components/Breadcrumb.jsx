@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
-const Breadcrumb = ({ data = [] }) => {
+const Breadcrumb = ({ data = [], hideMobile = false }) => {
 
     const breadcrumb = [
         {
@@ -12,7 +12,7 @@ const Breadcrumb = ({ data = [] }) => {
     ]
     return (
         (data.length > 0) && (
-            <nav aria-label="Breadcrumb" className='container py-6'>
+            <nav aria-label="Breadcrumb" className={'container py-6' + (hideMobile ? ' hidden lg:block' : '')}>
                 <ol role="list" className="mx-auto flex items-center space-x-2">
                     {breadcrumb.map((item, key) => (
                         <li key={key} className='text-sm font-medium flex items-center'>

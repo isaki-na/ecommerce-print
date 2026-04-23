@@ -30,6 +30,7 @@ class OrderService
     {
 
         $order_array = self::calculateTotal($order_products, $discountCode);
+        unset($order_array['payment_method']);
 
         return new Order([
             ...$order_array,
@@ -42,12 +43,11 @@ class OrderService
             'discount_code_id' => $discountCode?->id
         ]);
     }
-    public static function calculateTotal($products, $discountCode = null): array
+    public static function calculateTotal($products, $discountCode = null, string $paymentMethod = 'in_store'): array
     {
         $subtotal = $products->sum('total');
-        $taxRate = SettingService::data()['rates']['tax'];
-        $shipping = (float) SettingService::data()['rates']['shipping'];
-        $freeShipping = (float) SettingService::data()['rates']['freeShipping'];
+        $taxRate = 0;
+        $shipping = 0;
 
         if ($discountCode) {
             $discountValue = $discountCode->calculateDiscount($subtotal);
@@ -58,15 +58,9 @@ class OrderService
 
         $subtotalWithDiscount = round($subtotal - $discountValue, 2);
 
-        $tax = round($subtotalWithDiscount * ($taxRate / 100), 2);
+        $tax = 0;
 
-        $subtotalWithTaxes = ($subtotalWithDiscount + $tax);
-
-        if ($subtotalWithTaxes > $freeShipping) {
-            $shipping = 0;
-        }
-
-        $total = round($subtotalWithTaxes + $shipping, 2);
+        $total = round($subtotalWithDiscount + $shipping, 2);
 
         return [
             'sub_total' => $subtotal,
@@ -75,12 +69,32 @@ class OrderService
             'tax_value' => $tax,
             'shipping' => $shipping,
             'total' => $total,
+            'payment_method' => $paymentMethod,
         ];
     }
 
     public static function formatOrderProduct($sku, $quantity)
     {
         $product = $sku->product;
+
+        if (!$product) {
+            return [
+                'name' => 'Producto no encontrado',
+                'ref' => 'N/A',
+                'thumb' => null,
+                'old_price' => 0,
+                'offer' => 0,
+                'price' => 0,
+                'category_id' => null,
+                'department_id' => null,
+                'color' => 'N/A',
+                'size' => $sku->size?->name ?? 'N/A',
+                'total' => 0,
+                'quantity' => $quantity,
+                'sku_id' => $sku->id,
+                'product_id' => null,
+            ];
+        }
 
         return [
             ...$product->only([
@@ -93,8 +107,8 @@ class OrderService
                 'category_id',
                 'department_id',
             ]),
-            'color' => $product->color->name,
-            'size' => $sku->size->name,
+            'color' => $product->color?->name ?? 'N/A',
+            'size' => $sku->size?->name ?? 'N/A',
             'total' => round($product->price * $quantity, 2),
             'quantity' => $quantity,
             'sku_id' => $sku->id,

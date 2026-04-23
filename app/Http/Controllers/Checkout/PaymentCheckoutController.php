@@ -31,7 +31,7 @@ class PaymentCheckoutController extends Controller
 
         DB::transaction(function () use ($order, $order_products, $request) {
 
-            $order->status = OrderStatusEnum::SUCCESSFUL;
+            $order->status = OrderStatusEnum::PENDING;
             $order->data = [
                 'user' => $request->all()
             ];
@@ -52,7 +52,7 @@ class PaymentCheckoutController extends Controller
             session()->forget('discountCode');
         });
 
-        $message = 'Tu pedido llega entre ' . now()->addDays(2)->isoFormat('DD') . ' y el ' . now()->addDays(7)->isoFormat('DD \d\e MMMM');
+        $message = 'Tu pedido fue enviado a tienda. El equipo lo revisara y te avisaremos cuando este listo para recoger.';
 
         return to_route('profile.order', $order->code)->with(['success' => $message]);
     }

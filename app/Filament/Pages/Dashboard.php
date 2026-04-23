@@ -9,11 +9,29 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Filament\Notifications\Notification;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 
 class Dashboard extends \Filament\Pages\Dashboard
 {
     use HasFiltersForm;
+
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
+    public function mount(): void
+    {
+        $message = session()->pull('welcome_admin_message');
+
+        if ($message) {
+            Notification::make()
+                ->title($message)
+                ->success()
+                ->send();
+        }
+    }
 
 
     public static function filterDateSelected($selectMonth)

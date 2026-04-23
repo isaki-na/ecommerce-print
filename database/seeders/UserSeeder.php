@@ -20,13 +20,14 @@ class UserSeeder extends Seeder
         User::truncate();
         Role::truncate();
         Role::create(['name' => 'admin']);
+        Role::create(['name' => 'operator']);
         Role::create(['name' => 'client']);
 
         $user = User::factory()->create([
             'email' => 'user@user.com',
         ]);
 
-        $user->assignRole('admin');
+        $user->syncRoles(['admin']);
 
         User::factory()->count(100)->create([
             'created_at' => fake()->dateTimeBetween('-12 month')

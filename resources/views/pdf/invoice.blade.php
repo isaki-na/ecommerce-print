@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <title>Invoice #{{ $order->code }}</title>
+    <title>Comprobante #{{ $order->code }}</title>
     <style>
         body * {
             font-family: sans-serif;
@@ -288,7 +288,7 @@
                         </h2>
                         <table class="inline-table w-auto mt-4">
                             <tr>
-                                <td>Fecha de la factura:</td>
+                                <td>Fecha del comprobante:</td>
                                 <td class="text-gray-500">{{ $order->created_at->translatedFormat('d/M/Y') }}</td>
                             </tr>
                             <tr>
@@ -309,7 +309,7 @@
             <tr>
                 <td>
                     <div>
-                        <div class="font-semibold">Facturado a:</div>
+                        <div class="font-semibold">Cliente:</div>
                         <div class="mt-2">
                             <div>{{ $order->data->user->name }}</div>
                             <div class="mt-1">{{ $order->data->user->email }}</div>
@@ -391,7 +391,7 @@
         <div>
             <h4 class="text-lg font-semibold title">¡Gracias!</h4>
             <p class="mt-2">
-                Si tiene alguna pregunta sobre esta factura, utilice la siguiente información de contacto:
+                Si tiene alguna pregunta sobre este comprobante, utilice la siguiente informacion de contacto:
             </p>
             <div class="mt-2">
                 <p>{{ $settings['company']['email'] }}</p>

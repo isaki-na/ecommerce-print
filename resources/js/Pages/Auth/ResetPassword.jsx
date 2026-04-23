@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import AuthLayout from '@/Layouts/AuthLayout';
 import InputError from '@/Components/Form/InputError';
 import InputLabel from '@/Components/Form/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/Form/TextInput';
-import { Head, useForm } from '@inertiajs/react';
+import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function ResetPassword({ token, email }) {
 	const { data, setData, post, processing, errors, reset } = useForm({
@@ -27,8 +27,14 @@ export default function ResetPassword({ token, email }) {
 	};
 
 	return (
-		<GuestLayout>
-			<Head title="Reset Password" />
+		<AuthLayout>
+			<Head title="Restablecer contraseña" />
+
+			<div className="mb-6">
+				<h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+					Restablecer contraseña
+				</h2>
+			</div>
 
 			<form onSubmit={submit}>
 				<div>
@@ -48,7 +54,7 @@ export default function ResetPassword({ token, email }) {
 				</div>
 
 				<div className="mt-4">
-					<InputLabel htmlFor="password" value="Password" />
+					<InputLabel htmlFor="password" value="Nueva contraseña" />
 
 					<TextInput
 						id="password"
@@ -65,7 +71,7 @@ export default function ResetPassword({ token, email }) {
 				</div>
 
 				<div className="mt-4">
-					<InputLabel htmlFor="password_confirmation" value="Confirm Password" />
+					<InputLabel htmlFor="password_confirmation" value="Confirmar contraseña" />
 
 					<TextInput
 						type="password"
@@ -80,11 +86,20 @@ export default function ResetPassword({ token, email }) {
 				</div>
 
 				<div className="flex items-center justify-end mt-4">
-					<PrimaryButton className="ml-4" disabled={processing}>
-						Reset Password
+					<PrimaryButton className="w-full flex justify-center" disabled={processing}>
+						Restablecer contraseña
 					</PrimaryButton>
 				</div>
 			</form>
-		</GuestLayout>
+
+			<div className="mt-6 text-center text-sm text-gray-600">
+				<Link
+					href={route('login')}
+					className="font-medium text-primary-600 hover:text-primary-500 underline"
+				>
+					Volver al inicio de sesión
+				</Link>
+			</div>
+		</AuthLayout>
 	);
 }

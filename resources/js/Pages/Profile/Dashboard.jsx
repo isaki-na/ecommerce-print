@@ -7,7 +7,7 @@ const Dashboard = () => {
 	//let { url } = useMatch()
 
 	return (
-		<LayoutProfile title="Dashboard" breadcrumb={[
+		<LayoutProfile hideSidebarOnMobile hideBreadcrumbOnMobile title="Dashboard" breadcrumb={[
 			{
 				title: "Incio",
 				path: route("profile.index")

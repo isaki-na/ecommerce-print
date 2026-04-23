@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Enums\OrderStatusEnum;
 use App\Filament\Resources\OrderResource;
 use App\Filament\Resources\SaleResource;
 use App\Filament\Resources\SaleResource\Pages\ViewSale;
@@ -16,10 +17,12 @@ use Illuminate\Database\Eloquent\Builder;
 class LatestSalesWidget extends BaseWidget
 {
     protected static bool $isLazy = false;
+
     public static function canView(): bool
     {
-        return true;
+        return auth()->user()?->hasRole('admin') ?? false;
     }
+
     protected static ?int $sort = 10;
     protected int|string|array $columnSpan = 'full';
     protected static ?string $heading = 'Ultimas Ventas';
@@ -32,6 +35,10 @@ class LatestSalesWidget extends BaseWidget
         return $table
             ->query(Order::query()
                 ->with('payment')
+                ->whereIn('status', [
+                    OrderStatusEnum::SUCCESSFUL->value,
+                    OrderStatusEnum::DELIVERED->value,
+                ])
                 ->when($startDate, fn(Builder $query) => $query->whereDate('created_at', '>=', $startDate))
                 ->when($endDate, fn(Builder $query) => $query->whereDate('created_at', '<=', $endDate))
                 ->withCount('order_products')->latest())

@@ -1,21 +1,17 @@
 import CardProduct from "@/Components/Cards/CardProduct";
 import Pagination from "@/Components/Pagination";
 import Layout from "@/Layouts/Layout";
-import { Transition } from "@headlessui/react";
-import { Head, router, useForm, usePage } from "@inertiajs/react";
-import React, { createContext } from "react";
+import { Head, useForm } from "@inertiajs/react";
+import React from "react";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import Filters from "./Filters/Filters";
-import CarouselBanner from "@/Components/Carousel/CarouselBanner";
 import Breadcrumb from "@/Components/Breadcrumb";
-import BreadcrumbFilters from "./BreadcrumbFilters";
 import MetaTag from "@/Components/MetaTag";
+import { SearchContext } from "./SearchContext";
 
-export const SearchContext = createContext();
-
-export default function Search({ page, products, filters, breadcrumb, banner, }) {
+export default function Search({ page, products, filters, breadcrumb, banner }) {
 
     const form = useForm(filters || []);
 
@@ -37,21 +33,18 @@ export default function Search({ page, products, filters, breadcrumb, banner, })
 
             <div className="container py-content">
                 <div className="flex lg:flex-row flex-col-reverse lg:gap-x-10 ">
-                    <div className="w-full lg:w-3/12 xl:w-2/12 2xl:w-2/12 ">
+                    <div className="hidden lg:block lg:w-3/12 xl:w-2/12 2xl:w-2/12 ">
                         <SearchContext.Provider value={form}>
                             <Filters />
                         </SearchContext.Provider>
-                        <div className="py-6 mt-4">
-                            <CarouselBanner images={banner} />
-                        </div>
-
                     </div>
+                    
                     <div className="w-full lg:w-9/12 xl:w-10/12 2xl:w-10/12  ">
                         <div className="relative ">
                             <div className="flex items-start justify-between">
-                                <h2 className="font-bold text-2xl ">
+                                <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-900">
                                     Busqueda
-                                    <label className="text-xs block font-normal whitespace-nowrap w-full mt-1">
+                                    <label className="block mt-1 w-full whitespace-nowrap text-[11px] font-normal tracking-[0.08em] text-gray-500">
                                         {products.meta.total} artículos
                                     </label>
                                 </h2>

@@ -3,13 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
     use HasRoles;
@@ -46,6 +49,31 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected static function booted(): void
+    {
+        static::created(function (self $user): void {
+            if ($user->roles()->exists()) {
+                return;
+            }
+
+            if (! Role::query()->where('name', 'client')->exists()) {
+                return;
+            }
+
+            $user->assignRole('client');
+        });
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        if ($panel->getId() !== 'admin') {
+            return true;
+        }
+
+        return $this->hasAnyRole(['admin', 'operator']);
+    }
+
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);

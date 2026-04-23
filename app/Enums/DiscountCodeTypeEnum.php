@@ -19,7 +19,7 @@ enum DiscountCodeTypeEnum: string
     {
         return match ($this) {
             DiscountCodeTypeEnum::PERCENT => '%',
-            DiscountCodeTypeEnum::FIXED => '$',
+            DiscountCodeTypeEnum::FIXED => 'MXN',
         };
     }
 }

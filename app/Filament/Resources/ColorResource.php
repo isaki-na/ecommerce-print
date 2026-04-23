@@ -8,6 +8,7 @@ use App\Models\Color;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
+use App\Filament\Traits\AdminOnlyResource;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\MaxWidth;
 use Filament\Tables;
@@ -19,6 +20,7 @@ use Illuminate\Support\Str;
 
 class ColorResource extends Resource
 {
+    use AdminOnlyResource;
     protected static ?string $model = Color::class;
     protected static ?int $navigationSort = 3;
     public static ?string $label = 'Color';

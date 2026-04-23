@@ -8,8 +8,8 @@ import CarouselProduct from '../Product/CarouselProduct'
 import CarouselSection from '../Home/CarouselSection'
 import BannerText from '@/Components/Carousel/BannerText'
 import Breadcrumb from '@/Components/Breadcrumb'
-import SectionTitle from '@/Components/Sections/SectionTitle'
 import MetaTag from '@/Components/MetaTag'
+import { uniqueProductsByParent } from '@/Helpers/helpers'
 
 function Department({ department, offertProducts, bestSellersProducts, categories }) {
     // console.log(offertProducts[0])
@@ -26,7 +26,10 @@ function Department({ department, offertProducts, bestSellersProducts, categorie
                 entry={department.entry} />
 
             <div className="container">
-                <SectionList title="Top Ofertas">
+                <SectionList
+                    title="Top Ofertas"
+                    titleClassName="text-sm font-semibold uppercase tracking-[0.16em] text-gray-900"
+                >
                     <CarouselProduct products={offertProducts} />
                 </SectionList>
 
@@ -39,10 +42,9 @@ function Department({ department, offertProducts, bestSellersProducts, categorie
                 <div className='space-y-10'>
                     {categories.map((category) => (
                         <div className="">
-                            <SectionTitle title={category.name} />
-                            <div className="mt-6">
+                            <div>
                                 <GridProduct>
-                                    {category.products.map((product) => (
+                                    {uniqueProductsByParent(category.products).map((product) => (
                                         <CardProduct
                                             key={product.ref}
                                             product={product}

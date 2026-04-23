@@ -1,7 +1,7 @@
 
 import Layout from "@/Layouts/Layout"
 import { Head, useForm, } from "@inertiajs/react"
-import ShippingAddress from "./ShippingAddress"
+import PickupContactInfo from "./PickupContactInfo"
 import OrderSummary from "./OrderSummary"
 import CheckoutProvider from "@/Components/Context/CheckoutProvider"
 import PaymentForm from "./PaymentForm";
@@ -23,7 +23,7 @@ const Checkout = ({ products, total }) => {
                                     <div className="pb-8">
 
                                         <div>
-                                            <ShippingAddress />
+                                            <PickupContactInfo />
                                         </div>
                                     </div>
                                     {/* <div className="py-8">

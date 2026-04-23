@@ -1,6 +1,6 @@
 
 import InputLabel from "../../Components/Form/InputLabel"
-import { Head, useForm } from "@inertiajs/react"
+import { Head, Link, useForm } from "@inertiajs/react"
 import PrimaryButton from "@/Components/PrimaryButton"
 import TextInput from "@/Components/Form/TextInput"
 import LayoutProfile from "../../Layouts/LayoutProfile"
@@ -24,7 +24,7 @@ const ChangePassword = () => {
 	}
 
 	return (
-		<LayoutProfile title="Cambiar contraseña" breadcrumb={[
+		<LayoutProfile hideSidebarOnMobile hideBreadcrumbOnMobile hideFooterOnMobile title="Cambiar contraseña" breadcrumb={[
 			{
 				title: "Cambio de contraseña",
 				path: route("profile.password")
@@ -33,6 +33,15 @@ const ChangePassword = () => {
 		]}>
 			<Head title="Cambio de contraseña" />
 			<div className="space-y-2">
+				<div className="lg:hidden sticky top-0 z-20 bg-white border-b border-gray-100 py-2 mb-4">
+					<Link
+						href={route('profile.account-details')}
+						className="inline-flex items-center text-sm font-medium text-primary-700"
+					>
+						Volver al perfil
+					</Link>
+				</div>
+
 				<form onSubmit={handleSubmit}>
 					<FormGrid className="max-w-2xl">
 						<div className="sm:col-span-3">
@@ -72,8 +81,12 @@ const ChangePassword = () => {
 							/>
 							<InputError message={errors.password_confirmation} />
 						</div>
-						<div className="text-right sm:col-span-6">
-							<PrimaryButton isLoading={processing} disabled={processing} >Guardar</PrimaryButton>
+						<div className="sm:col-span-6">
+								<PrimaryButton 
+									className="w-full bg-white text-primary-950 shadow-none border border-primary-950 rounded-none hover:bg-gray-50"
+									isLoading={processing} 
+									disabled={processing} >Guardar</PrimaryButton>
+							
 						</div>
 					</FormGrid>
 

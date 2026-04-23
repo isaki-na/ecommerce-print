@@ -7,10 +7,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import SectionTitle from "@/Components/Sections/SectionTitle";
 import Carousel, { CarouselItem } from "@/Components/Carousel/Carousel";
 import GridProduct from "@/Components/Grids/GridProduct";
+import { uniqueProductsByParent } from "@/Helpers/helpers";
 
 const CarouselProduct = ({ products }) => {
+    const uniqueProducts = uniqueProductsByParent(products);
 
-    return products.length > 5 ? (
+    return uniqueProducts.length > 5 ? (
         <div>
             <Carousel
                 centeredSlides={false}
@@ -39,7 +41,7 @@ const CarouselProduct = ({ products }) => {
 
                 }}
             >
-                {products.map((product,) => (
+                {uniqueProducts.map((product,) => (
                     <CarouselItem className="h-auto pb-1 " key={product.ref}>
                         <CardProduct product={product} />
                     </CarouselItem>
@@ -48,7 +50,7 @@ const CarouselProduct = ({ products }) => {
         </div>
     ) : (
         <GridProduct>
-            {products.map((product,) => (
+            {uniqueProducts.map((product,) => (
                 <CardProduct product={product} key={product.ref} />
             ))}
         </GridProduct>

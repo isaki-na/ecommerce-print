@@ -8,8 +8,11 @@ import { Head, Link } from "@inertiajs/react"
 import React from 'react'
 import Hero from "@/Components/Hero/Hero"
 import MetaTag from "@/Components/MetaTag"
+import { uniqueProductsByParent } from "@/Helpers/helpers"
 
 export default function Offers({ page, offerProducts, offerBrands, bannersTop }) {
+    const uniqueOfferProducts = uniqueProductsByParent(offerProducts)
+
     return (
         <Layout>
             <MetaTag metaTag={page.metaTag} />
@@ -21,7 +24,7 @@ export default function Offers({ page, offerProducts, offerBrands, bannersTop })
                 <SectionList title={"Top ofertas"}>
                     <div className=" py-2 relative">
                         <GridProduct>
-                            {offerProducts.map((item) => (
+                            {uniqueOfferProducts.map((item) => (
                                 <CardProduct key={item.id} product={item} productNew={true} />
                             ))}
                         </GridProduct>

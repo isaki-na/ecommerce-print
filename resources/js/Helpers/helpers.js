@@ -1,10 +1,12 @@
-const currencyFormat = Intl.NumberFormat("de-DE", {
-    //minimumFractionDigits: 2,
-    maximumFractionDigits: 0,
+const currencyFormat = Intl.NumberFormat("es-MX", {
+    style: "currency",
+    currency: "MXN",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
 });
 export const formatCurrency = (n) => {
     n = n ? n : 0; // number NaN = 0
-    return "$ " + currencyFormat.format(parseFloat(n));
+    return currencyFormat.format(parseFloat(n));
 };
 export const formatDate = (date) => {
     const dtf = new Intl.DateTimeFormat("es", {
@@ -30,4 +32,19 @@ export const formatDateRelative = (date) => {
 
     let dateRelative = dtfr.format(daysDifference, 'day');
     return dateRelative;
+};
+
+export const uniqueProductsByParent = (products = []) => {
+    const parentIds = new Set();
+
+    return products.filter((product) => {
+        const key = product.parent_id ?? product.id;
+
+        if (parentIds.has(key)) {
+            return false;
+        }
+
+        parentIds.add(key);
+        return true;
+    });
 };

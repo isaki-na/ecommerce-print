@@ -2,6 +2,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 // import lineClamp from '@tailwindcss/line-clamp';
 import colors from 'tailwindcss/colors'
+
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: 'selector',
@@ -13,11 +14,6 @@ export default {
     ],
 
     theme: {
-        colors: {
-            ...colors,
-            primary: colors.red,
-        },
-
         container: {
             center: true,
             padding: {
@@ -29,14 +25,31 @@ export default {
             },
         },
         extend: {
+            // Custom colors
+            colors: {
+                   primary: {
+                    50: '#ffffff',  // white
+                    100: '#f9f9f9',
+                    200: '#f0f0f0',
+                    300: '#e0e0e0',
+                    400: '#c0c0c0',
+                    500: '#a0a0a0',
+                    600: '#808080',  // middle gray
+                    700: '#606060',
+                    800: '#404040',
+                    900: '#202020',
+                    950: '#000000',  // black
+                },
+            },
+            // Font families
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
-            //accordion search filters
+            // Accordion search filters
             transitionProperty: {
                 'max-height': 'max-height',
             },
-            //animation toast
+            // Animation toast
             animation: {
                 enter: 'enter 200ms ease-out',
                 'slide-in': 'slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)',
