@@ -6,6 +6,7 @@ use App\Http\Controllers\Checkout\DiscountCheckoutController;
 use App\Http\Controllers\Checkout\PaymentCheckoutController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Profile\ProfileController;
@@ -18,6 +19,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+// Health check endpoint (no auth required)
+Route::get('/health', [HealthCheckController::class, 'check'])->name('health');
 
 Route::middleware('auth')->group(function () {
     Route::controller(PageController::class)->group(function () {
