@@ -14,7 +14,6 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Number;
 use Illuminate\Support\ServiceProvider;
 
@@ -38,7 +37,6 @@ class AppServiceProvider extends ServiceProvider
     {
         ini_set('memory_limit', '256M');
 
-        Schema::disableForeignKeyConstraints();
         JsonResource::withoutWrapping();
 
         Number::useLocale('de');
