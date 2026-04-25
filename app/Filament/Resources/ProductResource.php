@@ -342,7 +342,7 @@ class ProductResource extends Resource
             'index' => Pages\ListProducts::route('/'),
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
-            'product-relations' => Pages\ViewProductRelationship::route('/product/{record}/relations'),
+            'product-relations' => Pages\ViewProductSpecifications::route('/product/{record}/relations'),
             'product-stock' => Pages\ViewProductStock::route('/{record}/skus'),
         ];
     }

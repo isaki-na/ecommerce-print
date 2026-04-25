@@ -11,7 +11,7 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\ViewRecord;
 
-class ViewProductRelationship extends ViewRecord
+class ViewProductSpecifications extends ViewRecord
 {
     protected static string $resource = ProductResource::class;
 
