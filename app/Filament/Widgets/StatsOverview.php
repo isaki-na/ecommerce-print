@@ -11,7 +11,7 @@ use App\Models\OrderProduct;
 use App\Models\Payroll;
 use App\Models\Product;
 use App\Models\Sale;
-use Dashboard;
+use App\Filament\Pages\Dashboard;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;

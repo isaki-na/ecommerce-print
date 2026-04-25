@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\Sale;
-use Dashboard;
+use App\Filament\Pages\Dashboard;
 use Filament\Support\RawJs;
 use Filament\Widgets\ChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;

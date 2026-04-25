@@ -7,7 +7,7 @@ use App\Enums\SaleStatuEnum;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Sale;
-use Dashboard;
+use App\Filament\Pages\Dashboard;
 use Filament\Widgets\ChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Illuminate\Database\Eloquent\Builder;
