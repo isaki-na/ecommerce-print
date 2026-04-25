@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Filament\Pages;
+
 use App\Models\Category;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
