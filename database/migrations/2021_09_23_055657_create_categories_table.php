@@ -27,7 +27,7 @@ class CreateCategoriesTable extends Migration
         });
 
         Schema::create('category_department', function (Blueprint $table) {
-            $table->foreignId('department_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('department_id');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
         });
     }
@@ -39,7 +39,7 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
         Schema::dropIfExists('category_department');
+        Schema::dropIfExists('categories');
     }
 }

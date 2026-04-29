@@ -32,9 +32,9 @@ class CreateProductsTable extends Migration
             $table->boolean('active')->default(true);
 
             $table->foreignId('parent_id')->nullable()->constrained('products')->nullOnDelete();
-            $table->foreignId('color_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('department_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('color_id')->nullable();
+            $table->foreignId('department_id')->nullable();
+            $table->foreignId('category_id')->nullable();
             $table->timestamps();
         });
 
@@ -42,7 +42,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->unsignedInteger('stock')->default(0);
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('size_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('size_id')->nullable();
             $table->index(['product_id', 'size_id']);
             $table->timestamps();
         });
@@ -55,7 +55,7 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
         Schema::dropIfExists('skus');
+        Schema::dropIfExists('products');
     }
 }

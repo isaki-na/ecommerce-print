@@ -11,6 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('authors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('position');
+            $table->text('bio');
+            $table->string('img');
+            $table->string('social1');
+            $table->string('social2');
+            $table->timestamps();
+        });
 
         Schema::create('blog', function (Blueprint $table) {
             $table->id();
@@ -23,18 +34,6 @@ return new class extends Migration
             $table->string('thum');
             $table->foreignId('author_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
-            $table->timestamps();
-        });
-
-        Schema::create('authors', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('position');
-            $table->text('bio');
-            $table->string('img');
-            $table->string('social1');
-            $table->string('social2');
             $table->timestamps();
         });
 

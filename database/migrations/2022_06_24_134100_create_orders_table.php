@@ -29,7 +29,7 @@ class CreateOrdersTable extends Migration
             $table->json('discount')->nullable();
             $table->json('data')->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('discount_code_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('discount_code_id')->nullable();
             $table->timestamp('refund_at')->nullable();
             $table->timestamps();
         });
@@ -50,7 +50,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('product_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('sku_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('department_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('department_id')->nullable();
             $table->json('data')->nullable();
             $table->timestamps();
         });
@@ -63,7 +63,7 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
         Schema::dropIfExists('order_products');
+        Schema::dropIfExists('orders');
     }
 }

@@ -37,8 +37,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('attributes');
-        Schema::dropIfExists('attribute_options');
         Schema::dropIfExists('attribute_option_product');
+        Schema::dropIfExists('attribute_options');
+        Schema::dropIfExists('attributes');
     }
 };
