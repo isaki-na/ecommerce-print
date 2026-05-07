@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
 
         $user->syncRoles(['admin']);
 
-        User::factory()->count(100)->create([
+        User::factory()->count(1)->create([
             'created_at' => fake()->dateTimeBetween('-12 month')
         ])
             ->each(function (User $user) {
