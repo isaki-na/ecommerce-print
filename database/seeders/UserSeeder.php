@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
 
         $user = User::firstOrCreate(
             ['email' => 'user@user.com'],
-            User::factory()->make(['email' => 'user@user.com'])->toArray(),
+            ['name' => 'Admin', 'password' => bcrypt('password')],
         );
 
         $user->syncRoles(['admin']);
