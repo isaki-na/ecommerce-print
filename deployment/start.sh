@@ -12,7 +12,7 @@ php artisan migrate:fresh --force
 
 # Ejecutar seeders
 echo "🌱 Ejecutando seeders..."
-php artisan db:seed
+php artisan db:seed --class=UserSeeder
 
 # Optimizar Laravel
 echo "⚡ Optimizando aplicación..."
