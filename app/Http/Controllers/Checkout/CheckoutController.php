@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckoutProductRequest;
 use App\Http\Resources\CartResource;
 use App\Http\Resources\OrderResource;
-use App\Models\DiscountCode;
 use App\Models\Product;
 use App\Services\CartService;
 use App\Services\CheckoutService;
@@ -38,16 +37,11 @@ class CheckoutController extends Controller
 
         $total = OrderService::calculateTotal($products, $discountCode, $paymentMethod);
 
-        $discount_codes = DiscountCode::whereDate('valid_from', '<=', now())
-            ->whereDate('valid_to', '>=', now())
-            ->where('active', 1)->inRandomOrder()->limit(5)->get();
-
         $note = 'Escribe aqui cualquier detalle adicional para tu pedido.';
 
         return Inertia::render('Checkout/Checkout', [
             'products' => $products,
             'total' => $total,
-            'dicountCodes' => $discount_codes,
             'note' => $note,
             //'clientSecret' => auth()->user()->createSetupIntent()->client_secret
         ]);

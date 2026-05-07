@@ -18,25 +18,15 @@ class UserSeeder extends Seeder
     {
         app(PermissionRegistrar::class)->forgetCachedPermissions();
 
-        // Use deletes instead of truncate to respect FK constraints in MySQL.
-        User::query()->delete();
-        Role::query()->delete();
+        Role::firstOrCreate(['name' => 'admin']);
+        Role::firstOrCreate(['name' => 'operator']);
+        Role::firstOrCreate(['name' => 'client']);
 
-        Role::create(['name' => 'admin']);
-        Role::create(['name' => 'operator']);
-        Role::create(['name' => 'client']);
-
-        $user = User::factory()->create([
-            'email' => 'user@user.com',
-        ]);
+        $user = User::firstOrCreate(
+            ['email' => 'user@user.com'],
+            User::factory()->make(['email' => 'user@user.com'])->toArray(),
+        );
 
         $user->syncRoles(['admin']);
-
-        User::factory()->count(1)->create([
-            'created_at' => fake()->dateTimeBetween('-12 month')
-        ])
-            ->each(function (User $user) {
-                $user->assignRole('client');
-            });
     }
 }

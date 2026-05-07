@@ -3,15 +3,12 @@ import InputLabel from '@/Components/Form/InputLabel'
 import InputError from '@/Components/Form/InputError'
 import PrimaryButton from '@/Components/PrimaryButton'
 import TextInput from '@/Components/Form/TextInput'
-import { useForm, usePage } from '@inertiajs/react'
+import { useForm } from '@inertiajs/react'
 import React from 'react'
 import { useContext } from 'react'
 import SecondaryButton from '@/Components/SecondaryButton'
 
 const InputDiscount = () => {
-
-
-    const { dicountCodes } = usePage().props
 
     const { data, setData, post, errors, processing, reset } = useForm({
         discountCode: '',
@@ -41,11 +38,6 @@ const InputDiscount = () => {
                     <PrimaryButton isLoading={processing} disabled={processing} >Aplicar</PrimaryButton>
                 </div>
             </form>
-            <div className="flex gap-x-3 text-xs text-gray-400 mt-2">
-                {dicountCodes.map((item) => (
-                    <span key={item.code}>{item.code}</span>
-                ))}
-            </div>
             <InputError className="mt-1.5" message={errors.discountCode} />
         </>
     )
