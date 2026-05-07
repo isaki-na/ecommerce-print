@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\PermissionRegistrar;
 use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
@@ -16,9 +16,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        app(PermissionRegistrar::class)->forgetCachedPermissions();
 
-        User::truncate();
-        Role::truncate();
+        // Use deletes instead of truncate to respect FK constraints in MySQL.
+        User::query()->delete();
+        Role::query()->delete();
+
         Role::create(['name' => 'admin']);
         Role::create(['name' => 'operator']);
         Role::create(['name' => 'client']);
