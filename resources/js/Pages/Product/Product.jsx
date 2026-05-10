@@ -23,49 +23,46 @@ function MobileColorVariants({ product, variants, returnTo = null, source = null
             <h3 className="text-xs tracking-wide uppercase text-gray-500">Color</h3>
             <div className="mt-3 flex gap-3 flex-wrap">
                 {variants.map((variant) => (
-                    variant.inStock > 0 ? (
-                        <Link
-                            preserveScroll
-                            key={variant.id}
-                            href={route('product', {
-                                slug: variant.slug,
-                                ref: variant.ref,
-                                return_to: returnTo,
-                                source,
-                                source_category: sourceCategory,
-                            })}
-                            className={
-                                'rounded-full size-7 p-[2px] border flex items-center justify-center ' +
-                                (product.id == variant.id ? 'border-gray-900' : 'border-gray-300')
-                            }
-                            aria-label={variant.color.name}
-                            title={variant.color.name}
-                        >
-                            <span
-                                className="w-full h-full rounded-full inline-block border border-gray-200"
-                                style={
-                                    variant.color.img
-                                        ? { backgroundImage: 'url(' + variant.color.img + ')', backgroundSize: 'cover', backgroundPosition: 'center' }
-                                        : { backgroundColor: variant.color.hex || '#e5e7eb' }
+                    (() => {
+                        const variantLabel = variant.color?.name || 'V';
+                        return variant.inStock > 0 ? (
+                            <Link
+                                preserveScroll
+                                key={variant.id}
+                                href={route('product', {
+                                    slug: variant.slug,
+                                    ref: variant.ref,
+                                    return_to: returnTo,
+                                    source,
+                                    source_category: sourceCategory,
+                                })}
+                                className={
+                                    'rounded-full size-7 p-[2px] border flex items-center justify-center ' +
+                                    (product.id == variant.id ? 'border-gray-900' : 'border-gray-300')
                                 }
-                            ></span>
-                        </Link>
-                    ) : (
-                        <div
-                            key={variant.id}
-                            className="rounded-full size-7 p-[2px] border border-gray-200 opacity-40 flex items-center justify-center"
-                            title={variant.color.name}
-                        >
-                            <span
-                                className="w-full h-full rounded-full inline-block border border-gray-200"
-                                style={
-                                    variant.color.img
-                                        ? { backgroundImage: 'url(' + variant.color.img + ')', backgroundSize: 'cover', backgroundPosition: 'center' }
-                                        : { backgroundColor: variant.color.hex || '#e5e7eb' }
-                                }
-                            ></span>
-                        </div>
-                    )
+                                aria-label={variantLabel}
+                                title={variantLabel}
+                            >
+                                <span
+                                    className="w-full h-full rounded-full inline-flex items-center justify-center border border-gray-200 text-[9px] font-semibold text-gray-600 bg-white"
+                                >
+                                    {variantLabel.slice(0, 2)}
+                                </span>
+                            </Link>
+                        ) : (
+                            <div
+                                key={variant.id}
+                                className="rounded-full size-7 p-[2px] border border-gray-200 opacity-40 flex items-center justify-center"
+                                title={variantLabel}
+                            >
+                                <span
+                                    className="w-full h-full rounded-full inline-flex items-center justify-center border border-gray-200 text-[9px] font-semibold text-gray-400 bg-gray-100"
+                                >
+                                    {variantLabel.slice(0, 2)}
+                                </span>
+                            </div>
+                        );
+                    })()
                 ))}
             </div>
         </div>

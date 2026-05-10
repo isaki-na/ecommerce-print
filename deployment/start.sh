@@ -8,11 +8,11 @@ sleep 5
 
 # Ejecutar migraciones
 echo "🗃️ Ejecutando migraciones..."
-php artisan migrate:fresh --force
+php artisan migrate --force
 
 # Ejecutar seeders
 echo "🌱 Ejecutando seeders..."
-php artisan db:seed --class=UserSeeder
+php artisan inventory:import-csv --path=database/import/inventory_csv
 
 # Optimizar Laravel
 echo "⚡ Optimizando aplicación..."
