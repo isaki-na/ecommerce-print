@@ -1,0 +1,309 @@
+id,ref,name,slug,entry,description,img,thumb,max_quantity,old_price,offer,price,featured,active,parent_id,color_id,department_id,category_id
+1,INV-P-000001,Blusa Satin,blusa-satin-1,Producto importado desde inventario.,,/products/image51.png,,100,,,399.0,0,1,,1,1,1
+2,INV-C-000002,Blusa Satin,blusa-satin-morado-2,Producto importado desde inventario.,,/products/image53.png,,100,,,399.0,0,1,1,2,1,1
+3,INV-C-000003,Blusa Satin,blusa-satin-champagne-3,Producto importado desde inventario.,,/products/image52.jpeg,,100,,,399.0,0,1,1,3,1,1
+4,INV-C-000004,Blusa Satin,blusa-satin-perla-4,Producto importado desde inventario.,,/products/image71.jpeg,,100,,,999.0,0,1,1,53,1,1
+5,INV-P-000005,Blusa Halter Rib,blusa-halter-rib-5,Producto importado desde inventario.,,/products/image1.jpeg,,100,,,261.8,0,1,,4,1,1
+6,INV-C-000006,Blusa Halter Rib,blusa-halter-rib-rflor-6,Producto importado desde inventario.,,/products/image2.jpeg,,100,,,261.8,0,1,5,5,1,1
+7,INV-P-000007,Blusa Halter Abe,blusa-halter-abe-7,Producto importado desde inventario.,,/products/image3.jpeg,,100,,,399.0,0,1,,6,1,1
+8,INV-C-000008,Blusa Halter Abe,blusa-halter-abe-vino-8,Producto importado desde inventario.,,/products/image91.jpeg,,100,,,399.0,0,1,7,62,1,1
+9,INV-P-000009,Blusa Halter Vol,blusa-halter-vol-9,Producto importado desde inventario.,,/products/image4.jpeg,,100,,,449.0,0,1,,6,1,1
+10,INV-C-000010,Blusa Halter Vol,blusa-halter-vol-vinilrosa-10,Producto importado desde inventario.,,/products/image78.jpeg,,100,,,449.0,0,1,9,56,1,1
+11,INV-C-000011,Blusa Halter Vol,blusa-halter-vol-vino-11,Producto importado desde inventario.,,/products/image92.jpeg,,100,,,449.0,0,1,9,62,1,1
+12,INV-P-000012,Blusa camisera,blusa-camisera-12,Producto importado desde inventario.,,/products/image57.jpeg,,100,,,299.0,0,1,,7,1,1
+13,INV-P-000013,Blusa camisera con,blusa-camisera-con-13,Producto importado desde inventario.,,/products/image48.jpeg,,100,,,599.0,0,1,,8,1,1
+14,INV-P-000014,Blusa perlas encaje,blusa-perlas-encaje-14,Producto importado desde inventario.,,/products/image5.png,,100,,,399.0,0,1,,9,1,1
+15,INV-P-000015,Blusa cuello alto,blusa-cuello-alto-15,Producto importado desde inventario.,,/products/image50.jpeg,,100,,,449.0,0,1,,10,1,1
+16,INV-P-000016,Blusa chaleco,blusa-chaleco-16,Producto importado desde inventario.,,/products/image6.png,,100,,,749.0,0,1,,11,1,1
+17,INV-P-000017,Blusa Peplum,blusa-peplum-17,Producto importado desde inventario.,,/products/image7.jpeg,,100,,,657.8,0,1,,12,1,1
+18,INV-C-000018,Blusa peplum,blusa-peplum-sfmnest-18,Producto importado desde inventario.,,/products/image14.jpeg,,100,,,547.8,0,1,17,20,1,1
+19,INV-P-000019,Blusa halter,blusa-halter-19,Producto importado desde inventario.,,/products/image9.jpeg,,100,,,371.8,0,1,,13,1,1
+20,INV-C-000020,Blusa halter,blusa-halter-negrob-20,Producto importado desde inventario.,,/products/image13.jpeg,,100,,,371.8,0,1,19,18,1,1
+21,INV-C-000021,Blusa halter,blusa-halter-rosap-21,Producto importado desde inventario.,,/products/image25.jpeg,,100,,,415.8,0,1,19,27,1,1
+22,INV-C-000022,Blusa halter,blusa-halter-rojob-22,Producto importado desde inventario.,,/products/image27.jpeg,,100,,,371.8,0,1,19,29,1,1
+23,INV-C-000023,Blusa Halter,blusa-halter-vinilrosa-23,Producto importado desde inventario.,,/products/image103.jpeg,,100,,,399.0,0,1,19,56,1,1
+24,INV-P-000024,Blusa manga corta,blusa-manga-corta-24,Producto importado desde inventario.,,/products/image56.png,,100,,,200.0,0,1,,14,1,1
+25,INV-P-000025,Blusa MESH GLITTER,blusa-mesh-glitter-25,Producto importado desde inventario.,,/products/image10.png,,100,,,299.0,0,1,,15,1,1
+26,INV-P-000026,Blusa HN Circ,blusa-hn-circ-26,Producto importado desde inventario.,,/products/image11.jpeg,,100,,,437.8,0,1,,16,1,1
+27,INV-C-000027,Blusa HN Circ,blusa-hn-circ-mestrell-27,Producto importado desde inventario.,,/products/image12.jpeg,,100,,,437.8,0,1,26,17,1,1
+28,INV-P-000028,Blusa peplum SF,blusa-peplum-sf-28,Producto importado desde inventario.,,/products/image14.jpeg,,100,,,547.8,0,1,,19,1,1
+29,INV-P-000029,Blusa peplum textu,blusa-peplum-textu-29,Producto importado desde inventario.,,/products/image16.png,,100,,,449.0,0,1,,21,1,1
+30,INV-C-000030,Blusa peplum textu,blusa-peplum-textu-negro-30,Producto importado desde inventario.,,/products/image17.png,,100,,,449.0,0,1,29,10,1,1
+31,INV-C-000031,Blusa peplum textu,blusa-peplum-textu-rosa-31,Producto importado desde inventario.,,/products/image18.png,,100,,,449.0,0,1,29,22,1,1
+32,INV-P-000032,Blusa V lazo saten,blusa-v-lazo-saten-32,Producto importado desde inventario.,,/products/image19.png,,100,,,449.0,0,1,,22,1,1
+33,INV-P-000033,Blusa sin mangas,blusa-sin-mangas-33,Producto importado desde inventario.,,,,100,,,399.0,0,1,,6,1,1
+34,INV-C-000034,Blusa sin mangas,blusa-sin-mangas-corals-34,Producto importado desde inventario.,,/products/image20.jpeg,,100,,,399.0,0,1,33,23,1,1
+35,INV-C-000035,Blusa sin mangas,blusa-sin-mangas-fucsia-35,Producto importado desde inventario.,,/products/image22.jpeg,,100,,,399.0,0,1,33,24,1,1
+36,INV-C-000036,Blusa sin mangas,blusa-sin-mangas-verdea-36,Producto importado desde inventario.,,/products/image21.jpeg,,100,,,399.0,0,1,33,25,1,1
+37,INV-C-000037,Blusa sin mangas,blusa-sin-mangas-verde-37,Producto importado desde inventario.,,/products/image23.jpeg,,100,,,399.0,0,1,33,26,1,1
+38,INV-P-000038,Blusa camisera B/N,blusa-camisera-b-n-38,Producto importado desde inventario.,,/products/image26.png,,100,,,449.0,0,1,,28,1,1
+39,INV-P-000039,Blusa Calada ML,blusa-calada-ml-39,Producto importado desde inventario.,,/products/image59.jpeg,,100,,,460.0,0,1,,30,1,1
+40,INV-C-000040,Blusa Calada ML,blusa-calada-ml-doradotalla-40,Producto importado desde inventario.,,/products/image59.jpeg,,100,,,460.0,0,1,39,31,1,1
+41,INV-C-000041,Blusa Calada ML,blusa-calada-ml-oro-41,Producto importado desde inventario.,,,,100,,,460.0,0,1,39,32,1,1
+42,INV-C-000042,Blusa Calada ML,blusa-calada-ml-plata-42,Producto importado desde inventario.,,/products/image60.jpeg,,100,,,460.0,0,1,39,33,1,1
+43,INV-P-000043,Blusa cobartin,blusa-cobartin-43,Producto importado desde inventario.,,,,100,,,449.0,0,1,,10,1,1
+44,INV-P-000044,Blusa escote V drapeado,blusa-escote-v-drapeado-44,Producto importado desde inventario.,,/products/image28.png,,100,,,349.0,0,1,,34,1,1
+45,INV-C-000045,Blusa escote V drapeado,blusa-escote-v-drapeado-ta-45,Producto importado desde inventario.,,/products/image31.png,,100,,,349.0,0,1,44,36,1,1
+46,INV-C-000046,Blusa escote V drapeado,blusa-escote-v-drapeado-vo-46,Producto importado desde inventario.,,/products/image32.png,,100,,,349.0,0,1,44,37,1,1
+47,INV-P-000047,Blusa alforzas y,blusa-alforzas-y-47,Producto importado desde inventario.,,/products/image29.png,,100,,,399.0,0,1,,8,1,1
+48,INV-P-000048,Blusa Estampado,blusa-estampado-48,Producto importado desde inventario.,,,,100,,,399.0,0,1,,35,1,1
+49,INV-P-000049,Blusa kimono OLIVO,blusa-kimono-olivo-49,Producto importado desde inventario.,,/products/image33.png,,100,,,299.0,0,1,,38,1,1
+50,INV-P-000050,Blusa tejida/mesh CIELO,blusa-tejida-mesh-cielo-50,Producto importado desde inventario.,,/products/image34.png,,100,,,299.0,0,1,,39,1,1
+51,INV-P-000051,Blusa tejida/mesh,blusa-tejida-mesh-51,Producto importado desde inventario.,,/products/image34.png,,100,,,299.0,0,1,,40,1,1
+52,INV-C-000052,Blusa tejida/mesh,blusa-tejida-mesh-ivory-52,Producto importado desde inventario.,,/products/image34.png,,100,,,299.0,0,1,51,11,1,1
+53,INV-P-000053,Blusa Satinada,blusa-satinada-53,Producto importado desde inventario.,,/products/image35.jpeg,,100,,,549.0,0,1,,41,1,1
+54,INV-C-000054,Blusa Satinada,blusa-satinada-verdeo-54,Producto importado desde inventario.,,/products/image37.png,,100,,,549.0,0,1,53,45,1,1
+55,INV-C-000055,Blusa Satinada,blusa-satinada-verdeotalla-55,Producto importado desde inventario.,,/products/image37.png,,100,,,549.0,0,1,53,46,1,1
+56,INV-C-000056,Blusa Satinada,blusa-satinada-estampada-56,Producto importado desde inventario.,,/products/image66.jpeg,,100,,,599.0,0,1,53,52,1,1
+57,INV-C-000057,Blusa Satinada,blusa-satinada-vinot-57,Producto importado desde inventario.,,/products/image89.png,,100,,,549.0,0,1,53,60,1,1
+58,INV-P-000058,Blusa manga,blusa-manga-58,Producto importado desde inventario.,,/products/image39.jpeg,,100,,,349.0,0,1,,42,1,1
+59,INV-P-000059,Blusa sin manga,blusa-sin-manga-59,Producto importado desde inventario.,,,,100,,,349.0,0,1,,32,1,1
+60,INV-C-000060,Blusa sin manga,blusa-sin-manga-oroa-60,Producto importado desde inventario.,,/products/image41.jpeg,,100,,,349.0,0,1,59,44,1,1
+61,INV-C-000061,Blusa sin manga,blusa-sin-manga-verde-61,Producto importado desde inventario.,,/products/image87.png,,100,,,349.0,0,1,59,26,1,1
+62,INV-P-000062,Blusa Hip,blusa-hip-62,Producto importado desde inventario.,,/products/image61.jpeg,,100,,,399.0,0,1,,43,1,1
+63,INV-P-000063,Blusa Champagne Escote V,blusa-champagne-escote-v-63,Producto importado desde inventario.,,,,100,,,599.0,0,1,,,1,1
+64,INV-P-000064,Blusa Encaje,blusa-encaje-64,Producto importado desde inventario.,,/products/image43.jpeg,,100,,,449.0,0,1,,47,1,1
+65,INV-C-000065,Blusa Encaje,blusa-encaje-hueso-65,Producto importado desde inventario.,,/products/image44.jpeg,,100,,,449.0,0,1,64,48,1,1
+66,INV-C-000066,Blusa Encaje,blusa-encaje-negro-66,Producto importado desde inventario.,,/products/image45.jpeg,,100,,,449.0,0,1,64,50,1,1
+67,INV-P-000067,Blusa Forest Green,blusa-forest-green-67,Producto importado desde inventario.,,/products/image46.jpeg,,100,,,599.0,0,1,,,1,1
+68,INV-P-000068,Blusa Forest,blusa-forest-68,Producto importado desde inventario.,,/products/image47.jpeg,,100,,,599.0,0,1,,,1,1
+69,INV-P-000069,Blusa escote cuadrado,blusa-escote-cuadrado-69,Producto importado desde inventario.,,/products/image64.png,,100,,,499.0,0,1,,51,1,1
+70,INV-P-000070,Blusa Guipur Blanco,blusa-guipur-blanco-70,Producto importado desde inventario.,,/products/image65.png,,100,,,599.0,0,1,,,1,1
+71,INV-P-000071,Blusa Magenta,blusa-magenta-71,Producto importado desde inventario.,,,,100,,,599.0,0,1,,,1,1
+72,INV-P-000072,Blusa ML,blusa-ml-72,Producto importado desde inventario.,,/products/image67.jpeg,,100,,,599.0,0,1,,52,1,1
+73,INV-P-000073,Blusa Negra Smock,blusa-negra-smock-73,Producto importado desde inventario.,,,,100,,,599.0,0,1,,,1,1
+74,INV-P-000074,Blusa Satin Cruzada,blusa-satin-cruzada-74,Producto importado desde inventario.,,/products/image69.png,,100,,,599.0,0,1,,,1,1
+75,INV-P-000075,Blusa Satin Especial,blusa-satin-especial-75,Producto importado desde inventario.,,,,100,,,499.0,0,1,,,1,1
+76,INV-P-000076,Blusa Satin P Camel,blusa-satin-p-camel-76,Producto importado desde inventario.,,,,100,,,599.0,0,1,,,1,1
+77,INV-P-000077,Blusa Seda,blusa-seda-77,Producto importado desde inventario.,,/products/image73.jpeg,,100,,,749.0,0,1,,50,1,1
+78,INV-C-000078,Blusa Seda,blusa-seda-rosa-78,Producto importado desde inventario.,,/products/image74.jpeg,,100,,,749.0,0,1,77,54,1,1
+79,INV-P-000079,Blusa Tabaco,blusa-tabaco-79,Producto importado desde inventario.,,/products/image76.jpeg,,100,,,599.0,0,1,,,1,1
+80,INV-P-000080,Blusa Verde,blusa-verde-80,Producto importado desde inventario.,,,,100,,,599.0,0,1,,,1,1
+81,INV-P-000081,Blusa Vivos,blusa-vivos-81,Producto importado desde inventario.,,/products/image77.jpeg,,100,,,899.0,0,1,,55,1,1
+82,INV-P-000082,Blusa Tulipan,blusa-tulipan-82,Producto importado desde inventario.,,/products/image79.jpeg,,100,,,399.0,0,1,,57,1,1
+83,INV-C-000083,Blusa Tulipan,blusa-tulipan-shedron-83,Producto importado desde inventario.,,/products/image81.jpeg,,100,,,399.0,0,1,82,58,1,1
+84,INV-C-000084,Blusa Tulipan,blusa-tulipan-negro-84,Producto importado desde inventario.,,,,100,,,399.0,0,1,82,50,1,1
+85,INV-P-000085,Blusa,blusa-85,Producto importado desde inventario.,,/products/image83.jpeg,,100,,,325.0,0,1,,59,1,1
+86,INV-P-000086,Blusa holanes Azul,blusa-holanes-azul-86,Producto importado desde inventario.,,,,100,,,599.0,0,1,,61,1,1
+87,INV-P-000087,Crop top Nudo,crop-top-nudo-87,Producto importado desde inventario.,,/products/image93.png,,100,,,349.8,0,1,,50,1,1
+88,INV-C-000088,Crop top Nudo,crop-top-nudo-blancom-88,Producto importado desde inventario.,,/products/image97.png,,100,,,349.8,0,1,87,67,1,1
+89,INV-P-000089,Blusa Halter List,blusa-halter-list-89,Producto importado desde inventario.,,/products/image94.jpeg,,100,,,327.8,0,1,,50,1,1
+90,INV-P-000090,Blusa Halter Liston,blusa-halter-liston-90,Producto importado desde inventario.,,/products/image94.jpeg,,100,,,327.8,0,1,,50,1,1
+91,INV-P-000091,Blusa HN Mesh,blusa-hn-mesh-91,Producto importado desde inventario.,,/products/image95.jpeg,,100,,,327.8,0,1,,63,1,1
+92,INV-P-000092,Bluson Halter,bluson-halter-92,Producto importado desde inventario.,,/products/image96.jpeg,,100,,,437.8,0,1,,64,1,1
+93,INV-C-000093,Bluson Halter,bluson-halter-satinnegr-93,Producto importado desde inventario.,,/products/image96.jpeg,,100,,,437.8,0,1,92,65,1,1
+94,INV-C-000094,Bluson Halter,bluson-halter-satnegr-94,Producto importado desde inventario.,,/products/image96.jpeg,,100,,,437.8,0,1,92,66,1,1
+95,INV-P-000095,Blusa Espal Cord,blusa-espal-cord-95,Producto importado desde inventario.,,/products/image98.jpeg,,100,,,327.8,0,1,,50,1,1
+96,INV-P-000096,Blusa MGlobo RayasN/B,blusa-mglobo-rayasn-b-96,Producto importado desde inventario.,,/products/image99.jpeg,,100,,,327.8,0,1,,,1,1
+97,INV-P-000097,Blusa Barco,blusa-barco-97,Producto importado desde inventario.,,/products/image100.jpeg,,100,,,327.8,0,1,,68,1,1
+98,INV-P-000098,Blusa Un hombro,blusa-un-hombro-98,Producto importado desde inventario.,,/products/image101.jpeg,,100,,,261.8,0,1,,69,1,1
+99,INV-P-000099,Crop top,crop-top-99,Producto importado desde inventario.,,/products/image102.jpeg,,100,,,327.8,0,1,,70,1,1
+100,INV-P-000100,Pantalon Slim,pantalon-slim-100,Producto importado desde inventario.,,,,100,,,499.0,0,1,,71,1,1
+101,INV-C-000101,Pantalon Slim,pantalon-slim-rosa-101,Producto importado desde inventario.,,,,100,,,399.0,0,1,100,54,1,1
+102,INV-P-000102,Pantalon Brocado Ondas,pantalon-brocado-ondas-102,Producto importado desde inventario.,,,,100,,,1499.0,0,1,,72,1,1
+103,INV-P-000103,Pantalon Brocado Grafitti,pantalon-brocado-grafitti-103,Producto importado desde inventario.,,,,100,,,899.0,0,1,,50,1,1
+104,INV-P-000104,Pantalon Brocado Abstractas,pantalon-brocado-abstractas-104,Producto importado desde inventario.,,,,100,,,1499.0,0,1,,50,1,1
+105,INV-P-000105,Panty Blusa VBotella,panty-blusa-vbotella-105,Producto importado desde inventario.,,,,100,,,599.0,0,1,,,1,1
+106,INV-P-000106,Pantalon Brocado Liturgico,pantalon-brocado-liturgico-106,Producto importado desde inventario.,,,,100,,,1299.0,0,1,,32,1,1
+107,INV-P-000107,Top Halter,top-halter-107,Producto importado desde inventario.,,/products/image104.jpeg,,100,,,258.0,0,1,,30,1,1
+108,INV-P-000108,Top EscV Mesh,top-escv-mesh-108,Producto importado desde inventario.,,/products/image105.jpeg,,100,,,437.8,0,1,,73,1,1
+109,INV-C-000109,Top EscV Mesh,top-escv-mesh-estre-109,Producto importado desde inventario.,,/products/image107.jpeg,,100,,,437.8,0,1,108,76,1,1
+110,INV-P-000110,Top EscV,top-escv-110,Producto importado desde inventario.,,/products/image105.jpeg,,100,,,437.8,0,1,,74,1,1
+111,INV-C-000111,Top EscV,top-escv-meshanim-111,Producto importado desde inventario.,,/products/image106.jpeg,,100,,,437.8,0,1,110,75,1,1
+112,INV-P-000112,Top Rojo Princes,top-rojo-princes-112,Producto importado desde inventario.,,/products/image108.jpeg,,100,,,437.8,0,1,,77,1,1
+113,INV-P-000113,Top Tirantes,top-tirantes-113,Producto importado desde inventario.,,/products/image109.jpeg,,100,,,258.0,0,1,,30,1,1
+114,INV-P-000114,Top Peplum,top-peplum-114,Producto importado desde inventario.,,/products/image110.jpeg,,100,,,283.8,0,1,,78,1,1
+115,INV-P-000115,Bustier con lentejuelas,bustier-con-lentejuelas-115,Producto importado desde inventario.,,,,100,,,299.0,0,1,,,1,2
+116,INV-P-000116,Chamarra RF,chamarra-rf-116,Producto importado desde inventario.,,/products/image111.jpeg,,100,,,598.0,0,1,,79,2,3
+117,INV-P-000117,Chamarra Doux3 L/,chamarra-doux3-l-117,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
+118,INV-P-000118,Chamarra Doux3 M/,chamarra-doux3-m-118,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
+119,INV-P-000119,Chamarra Doux3 S/,chamarra-doux3-s-119,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
+120,INV-P-000120,Chamarra Doux3 XL/,chamarra-doux3-xl-120,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
+121,INV-P-000121,Chamarra Doux4 L/,chamarra-doux4-l-121,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
+122,INV-P-000122,Chamarra Doux4 M/,chamarra-doux4-m-122,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
+123,INV-P-000123,Chamarra Doux4 S/,chamarra-doux4-s-123,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
+124,INV-P-000124,Chamarra Doux4 XL/,chamarra-doux4-xl-124,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
+125,INV-P-000125,Chamarra Doux4 2XL/ 2EG,chamarra-doux4-2xl-2eg-125,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
+126,INV-P-000126,Chamarra Doux4 3XL/ 3EG,chamarra-doux4-3xl-3eg-126,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
+127,INV-P-000127,Blazer OverSize,blazer-oversize-127,Producto importado desde inventario.,,,,100,,,699.0,0,1,,80,1,3
+128,INV-C-000128,Blazer OverSize,blazer-oversize-rojo-128,Producto importado desde inventario.,,/products/image115.jpeg,,100,,,699.0,0,1,127,69,1,3
+129,INV-C-000129,Blazer OverSize,blazer-oversize-fucsia-129,Producto importado desde inventario.,,/products/image116.jpeg,,100,,,699.0,0,1,127,24,1,3
+130,INV-C-000130,Blazer OverSize,blazer-oversize-vaguacate-130,Producto importado desde inventario.,,/products/image117.jpeg,,100,,,699.0,0,1,127,81,1,3
+131,INV-P-000131,Blazer Cuadros,blazer-cuadros-131,Producto importado desde inventario.,,,,100,,,699.0,0,1,,82,1,3
+132,INV-P-000132,Blazer OverSize ARey,blazer-oversize-arey-132,Producto importado desde inventario.,,/products/image118.jpeg,,100,,,699.0,0,1,,,1,3
+133,INV-P-000133,Blazer Tweed Fucsia,blazer-tweed-fucsia-133,Producto importado desde inventario.,,/products/image119.jpeg,,100,,,849.0,0,1,,,1,3
+134,INV-P-000134,Conjunto tactico urbano,conjunto-tactico-urbano-134,Producto importado desde inventario.,,,,100,,,449.0,0,1,,83,1,4
+135,INV-C-000135,Conjunto tactico urbano,conjunto-tactico-urbano-votalla-135,Producto importado desde inventario.,,,,100,,,449.0,0,1,134,84,1,4
+136,INV-C-000136,Conjunto tactico urbano,conjunto-tactico-urbano-vo-136,Producto importado desde inventario.,,,,100,,,449.0,0,1,134,37,1,4
+137,INV-C-000137,Conjunto tactico urbano,conjunto-tactico-urbano-vr-137,Producto importado desde inventario.,,,,100,,,449.0,0,1,134,85,1,4
+138,INV-P-000138,Conjunto top/ falda,conjunto-top-falda-138,Producto importado desde inventario.,,,,100,,,519.9,0,1,,,1,5
+139,INV-P-000139,Falda larga ACla,falda-larga-acla-139,Producto importado desde inventario.,,/products/image120.jpeg,,100,,,657.8,0,1,,86,2,6
+140,INV-P-000140,Falda larga AOsc,falda-larga-aosc-140,Producto importado desde inventario.,,/products/image121.jpeg,,100,,,657.8,0,1,,86,2,6
+141,INV-P-000141,Falda Circ Midi,falda-circ-midi-141,Producto importado desde inventario.,,/products/image122.jpeg,,100,,,338.0,0,1,,87,1,6
+142,INV-P-000142,Falda Mesh,falda-mesh-142,Producto importado desde inventario.,,/products/image123.jpeg,,100,,,499.0,0,1,,88,1,6
+143,INV-P-000143,Falda Mini,falda-mini-143,Producto importado desde inventario.,,/products/image125.jpeg,,100,,,217.8,0,1,,89,1,6
+144,INV-C-000144,Falda Mini,falda-mini-vinilnegrom-144,Producto importado desde inventario.,,/products/image126.png,,100,,,437.8,0,1,143,90,1,6
+145,INV-P-000145,Falda Mini Env Ros/Ivo,falda-mini-env-ros-ivo-145,Producto importado desde inventario.,,/products/image124.jpeg,,100,,,327.8,0,1,,,1,6
+146,INV-P-000146,Falda Mini Rosa/Ivory,falda-mini-rosa-ivory-146,Producto importado desde inventario.,,/products/image125.jpeg,,100,,,327.8,0,1,,,1,6
+147,INV-P-000147,Falda Lapiz,falda-lapiz-147,Producto importado desde inventario.,,/products/image127.jpeg,,100,,,499.0,0,1,,88,1,6
+148,INV-P-000148,Falda Mini Vinil,falda-mini-vinil-148,Producto importado desde inventario.,,/products/image128.jpeg,,100,,,437.8,0,1,,69,1,6
+149,INV-P-000149,Falda short Moca,falda-short-moca-149,Producto importado desde inventario.,,/products/image129.jpeg,,100,,,327.8,0,1,,91,1,6
+150,INV-P-000150,Falda short Negro,falda-short-negro-150,Producto importado desde inventario.,,/products/image130.jpeg,,100,,,327.8,0,1,,91,1,6
+151,INV-P-000151,Falda short Arena,falda-short-arena-151,Producto importado desde inventario.,,/products/image131.jpeg,,100,,,327.8,0,1,,91,1,6
+152,INV-P-000152,Jeans Flare HW,jeans-flare-hw-152,Producto importado desde inventario.,,/products/image132.jpeg,,100,,,330.0,0,1,,92,2,7
+153,INV-P-000153,Jeans Corte Recto,jeans-corte-recto-153,Producto importado desde inventario.,,/products/image135.jpeg,,100,,,399.0,0,1,,50,2,7
+154,INV-C-000154,Jeans Corte Recto,jeans-corte-recto-azulo-154,Producto importado desde inventario.,,/products/image137.jpeg,,100,,,399.0,0,1,153,93,2,7
+155,INV-C-000155,Jeans Corte Recto,jeans-corte-recto-azulc-155,Producto importado desde inventario.,,/products/image139.jpeg,,100,,,399.0,0,1,153,94,2,7
+156,INV-C-000156,Jeans Corte Recto,jeans-corte-recto-griso-156,Producto importado desde inventario.,,/products/image133.jpeg,,100,,,399.0,0,1,153,95,2,7
+157,INV-C-000157,Jeans Corte Recto,jeans-corte-recto-grisc-157,Producto importado desde inventario.,,/products/image133.jpeg,,100,,,399.0,0,1,153,96,2,7
+158,INV-C-000158,Jeans Corte Recto,jeans-corte-recto-grisosc-158,Producto importado desde inventario.,,/products/image133.jpeg,,100,,,399.0,0,1,153,97,2,7
+159,INV-C-000159,Jeans Corte Recto,jeans-corte-recto-griosc-159,Producto importado desde inventario.,,/products/image133.jpeg,,100,,,399.0,0,1,153,98,2,7
+160,INV-P-000160,Jeans BAGGY LR short,jeans-baggy-lr-short-160,Producto importado desde inventario.,,/products/image142.jpeg,,100,,,999.0,0,1,,99,2,7
+161,INV-P-000161,Pantalón WideL,pantalon-widel-161,Producto importado desde inventario.,,/products/image143.jpeg,,100,,,877.8,0,1,,100,2,7
+162,INV-P-000162,Pantalon WideL,pantalon-widel-162,Producto importado desde inventario.,,/products/image143.jpeg,,100,,,877.8,0,1,,100,2,7
+163,INV-C-000163,Pantalon WideL,pantalon-widel-cytrb-163,Producto importado desde inventario.,,/products/image163.jpeg,,100,,,877.8,0,1,162,115,2,7
+164,INV-P-000164,Jeans WideL Azul/Plata,jeans-widel-azul-plata-164,Producto importado desde inventario.,,/products/image144.jpeg,,100,,,987.8,0,1,,,2,7
+165,INV-P-000165,Jeans WideL ACla,jeans-widel-acla-165,Producto importado desde inventario.,,/products/image145.jpeg,,100,,,767.8,0,1,,101,2,7
+166,INV-P-000166,Jeans Cullote,jeans-cullote-166,Producto importado desde inventario.,,/products/image146.jpeg,,100,,,877.8,0,1,,102,2,7
+167,INV-P-000167,Jeans Flare MW,jeans-flare-mw-167,Producto importado desde inventario.,,/products/image147.jpeg,,100,,,657.8,0,1,,103,2,7
+168,INV-P-000168,Jeans Cropped,jeans-cropped-168,Producto importado desde inventario.,,/products/image148.jpeg,,100,,,437.8,0,1,,103,2,7
+169,INV-P-000169,Jeans WideL TIE,jeans-widel-tie-169,Producto importado desde inventario.,,/products/image149.jpeg,,100,,,657.8,0,1,,104,2,7
+170,INV-P-000170,Jeans WideL Cargo,jeans-widel-cargo-170,Producto importado desde inventario.,,/products/image150.jpeg,,100,,,987.8,0,1,,105,2,7
+171,INV-C-000171,Jeans WideL Cargo,jeans-widel-cargo-tyc-171,Producto importado desde inventario.,,/products/image151.jpeg,,100,,,987.8,0,1,170,106,2,7
+172,INV-P-000172,Jogger RW,jogger-rw-172,Producto importado desde inventario.,,/products/image152.jpeg,,100,,,877.8,0,1,,50,2,7
+173,INV-P-000173,Jeans WideL,jeans-widel-173,Producto importado desde inventario.,,/products/image153.jpeg,,100,,,767.8,0,1,,107,2,7
+174,INV-C-000174,Jeans WideL,jeans-widel-estoperoles-174,Producto importado desde inventario.,,/products/image162.jpeg,,100,,,877.8,0,1,173,114,2,7
+175,INV-P-000175,Jeans WideL HW,jeans-widel-hw-175,Producto importado desde inventario.,,/products/image154.jpeg,,100,,,767.8,0,1,,108,2,7
+176,INV-C-000176,Jeans WideL HW,jeans-widel-hw-cyt-176,Producto importado desde inventario.,,/products/image158.jpeg,,100,,,767.8,0,1,175,112,2,7
+177,INV-P-000177,Jeans Cullote HW A,jeans-cullote-hw-a-177,Producto importado desde inventario.,,/products/image155.jpeg,,100,,,767.8,0,1,,109,2,7
+178,INV-P-000178,Jeans Skinny RW A,jeans-skinny-rw-a-178,Producto importado desde inventario.,,/products/image156.jpeg,,100,,,300.0,0,1,,110,2,7
+179,INV-C-000179,Jeans Skinny RW A,jeans-skinny-rw-a-osc-179,Producto importado desde inventario.,,/products/image157.jpeg,,100,,,767.8,0,1,178,111,2,7
+180,INV-P-000180,Jeans WideL RW,jeans-widel-rw-180,Producto importado desde inventario.,,/products/image159.jpeg,,100,,,767.8,0,1,,112,2,7
+181,INV-P-000181,Jeans WideL F,jeans-widel-f-181,Producto importado desde inventario.,,/products/image160.jpeg,,100,,,657.8,0,1,,113,2,7
+182,INV-P-000182,Jeans Wide L Gris/Plata,jeans-wide-l-gris-plata-182,Producto importado desde inventario.,,/products/image161.jpeg,,100,,,987.8,0,1,,,2,7
+183,INV-P-000183,Jeans WideL Gris/Plata,jeans-widel-gris-plata-183,Producto importado desde inventario.,,/products/image161.jpeg,,100,,,987.8,0,1,,,2,7
+184,INV-P-000184,Jeans WideLeg Rosa/Plata,jeans-wideleg-rosa-plata-184,Producto importado desde inventario.,,/products/image164.jpeg,,100,,,987.8,0,1,,,2,7
+185,INV-P-000185,Jeans Skinny,jeans-skinny-185,Producto importado desde inventario.,,/products/image165.jpeg,,100,,,230.0,0,1,,116,2,7
+186,INV-P-000186,Pantalon Cargo DOUX,pantalon-cargo-doux-186,Producto importado desde inventario.,,/products/image167.jpeg,,100,,,499.0,0,1,,50,2,7
+187,INV-P-000187,Jeans Doux1,jeans-doux1-187,Producto importado desde inventario.,,/products/image168.jpeg,,100,,,499.0,0,1,,,2,7
+188,INV-P-000188,Jeans Doux2,jeans-doux2-188,Producto importado desde inventario.,,/products/image170.jpeg,,100,,,599.0,0,1,,,2,7
+189,INV-P-000189,JEANS VIRGIN NEGRO,jeans-virgin-negro-189,Producto importado desde inventario.,,/products/image171.jpeg,,100,,,399.0,0,1,,117,2,7
+190,INV-P-000190,Pantaon WideL CyT,pantaon-widel-cyt-190,Producto importado desde inventario.,,/products/image202.jpeg,,100,,,745.8,0,1,,118,2,7
+191,INV-P-000191,Legging Alforz,legging-alforz-191,Producto importado desde inventario.,,,,100,,,399.0,0,1,,62,1,8
+192,INV-P-000192,Pantalon WL,pantalon-wl-192,Producto importado desde inventario.,,,,100,,,499.0,0,1,,6,1,9
+193,INV-C-000193,Pantalon WL,pantalon-wl-pinzas-193,Producto importado desde inventario.,,,,100,,,499.0,0,1,192,119,1,9
+194,INV-C-000194,Pantalon WL,pantalon-wl-vino-194,Producto importado desde inventario.,,,,100,,,499.0,0,1,192,62,1,9
+195,INV-P-000195,Pantalon holgado,pantalon-holgado-195,Producto importado desde inventario.,,,,100,,,499.0,0,1,,6,1,9
+196,INV-C-000196,Pantalon holgado,pantalon-holgado-corals-196,Producto importado desde inventario.,,,,100,,,499.0,0,1,195,23,1,9
+197,INV-C-000197,Pantalon holgado,pantalon-holgado-fucsia-197,Producto importado desde inventario.,,,,100,,,499.0,0,1,195,24,1,9
+198,INV-C-000198,Pantalon holgado,pantalon-holgado-verdea-198,Producto importado desde inventario.,,,,100,,,499.0,0,1,195,25,1,9
+199,INV-C-000199,Pantalon holgado,pantalon-holgado-verde-199,Producto importado desde inventario.,,,,100,,,499.0,0,1,195,26,1,9
+200,INV-P-000200,Pantalon WL Pinzas,pantalon-wl-pinzas-200,Producto importado desde inventario.,,,,100,,,499.0,0,1,,62,1,9
+201,INV-P-000201,Legging,legging-201,Producto importado desde inventario.,,/products/image172.jpeg,,100,,,499.0,0,1,,120,1,10
+202,INV-P-000202,Legging campana pretina,legging-campana-pretina-202,Producto importado desde inventario.,,,,100,,,437.8,0,1,,121,1,10
+203,INV-P-000203,Legging campana,legging-campana-203,Producto importado desde inventario.,,,,100,,,437.8,0,1,,10,1,10
+204,INV-C-000204,Legging campana,legging-campana-verdel-204,Producto importado desde inventario.,,,,100,,,437.8,0,1,203,125,1,10
+205,INV-C-000205,Legging Campana,legging-campana-tweed-205,Producto importado desde inventario.,,/products/image192.jpeg,,100,,,899.0,0,1,203,133,1,10
+206,INV-P-000206,Legging Alforz,legging-alforz-206,Producto importado desde inventario.,,/products/image173.jpeg,,100,,,399.0,0,1,,50,1,10
+207,INV-C-000207,Legging Alforz,legging-alforz-rosap-207,Producto importado desde inventario.,,/products/image174.jpeg,,100,,,399.0,0,1,206,27,1,10
+208,INV-C-000208,Legging Alforz,legging-alforz-arey-208,Producto importado desde inventario.,,/products/image175.jpeg,,100,,,399.0,0,1,206,122,1,10
+209,INV-C-000209,Legging Alforz,legging-alforz-rojo-209,Producto importado desde inventario.,,/products/image176.jpeg,,100,,,399.0,0,1,206,69,1,10
+210,INV-C-000210,Legging Alforz,legging-alforz-vlima-210,Producto importado desde inventario.,,/products/image178.jpeg,,100,,,399.0,0,1,206,126,1,10
+211,INV-P-000211,Legging Alforzas,legging-alforzas-211,Producto importado desde inventario.,,/products/image173.jpeg,,100,,,399.0,0,1,,50,1,10
+212,INV-C-000212,Legging Alforzas,legging-alforzas-rosap-212,Producto importado desde inventario.,,/products/image174.jpeg,,100,,,399.0,0,1,211,27,1,10
+213,INV-C-000213,Legging Alforzas,legging-alforzas-arey-213,Producto importado desde inventario.,,/products/image175.jpeg,,100,,,399.0,0,1,211,122,1,10
+214,INV-C-000214,Legging Alforzas,legging-alforzas-rojo-214,Producto importado desde inventario.,,/products/image176.jpeg,,100,,,399.0,0,1,211,69,1,10
+215,INV-C-000215,Legging Alforzas,legging-alforzas-vlima-215,Producto importado desde inventario.,,/products/image178.jpeg,,100,,,399.0,0,1,211,126,1,10
+216,INV-P-000216,Legging Alfor,legging-alfor-216,Producto importado desde inventario.,,/products/image174.jpeg,,100,,,399.0,0,1,,27,1,10
+217,INV-P-000217,Legging Asimet,legging-asimet-217,Producto importado desde inventario.,,/products/image177.jpeg,,100,,,437.8,0,1,,123,1,10
+218,INV-P-000218,Legging Asimetr,legging-asimetr-218,Producto importado desde inventario.,,/products/image177.jpeg,,100,,,437.8,0,1,,124,1,10
+219,INV-P-000219,Legging Asimetri,legging-asimetri-219,Producto importado desde inventario.,,/products/image177.jpeg,,100,,,437.8,0,1,,124,1,10
+220,INV-P-000220,Legging Vinipiel,legging-vinipiel-220,Producto importado desde inventario.,,/products/image179.jpeg,,100,,,459.8,0,1,,50,1,10
+221,INV-C-000221,Legging Vinipiel,legging-vinipiel-rosap-221,Producto importado desde inventario.,,/products/image181.jpeg,,100,,,459.8,0,1,220,27,1,10
+222,INV-P-000222,Legging Flare,legging-flare-222,Producto importado desde inventario.,,/products/image180.jpeg,,100,,,525.8,0,1,,127,1,10
+223,INV-C-000223,Legging Flare,legging-flare-vinilneg-223,Producto importado desde inventario.,,/products/image180.jpeg,,100,,,525.8,0,1,222,128,1,10
+224,INV-C-000224,Legging Flare,legging-flare-vinilroj-224,Producto importado desde inventario.,,/products/image182.jpeg,,100,,,525.8,0,1,222,129,1,10
+225,INV-P-000225,Pantalon WL Ivory/Negro,pantalon-wl-ivory-negro-225,Producto importado desde inventario.,,/products/image183.png,,100,,,547.8,0,1,,,1,10
+226,INV-P-000226,Pantalon WL Ivory/Neg,pantalon-wl-ivory-neg-226,Producto importado desde inventario.,,/products/image183.png,,100,,,547.8,0,1,,,1,10
+227,INV-P-000227,Pantalon Brocado Marino Piel T-4,pantalon-brocado-marino-piel-t-4-227,Producto importado desde inventario.,,/products/image184.jpeg,,100,,,750.0,0,1,,,1,10
+228,INV-P-000228,Pantalon Brocado Marino Piel T-6,pantalon-brocado-marino-piel-t-6-228,Producto importado desde inventario.,,/products/image184.jpeg,,100,,,750.0,0,1,,,1,10
+229,INV-P-000229,Pantalon Brocado Marino Piel T-8,pantalon-brocado-marino-piel-t-8-229,Producto importado desde inventario.,,/products/image184.jpeg,,100,,,750.0,0,1,,,1,10
+230,INV-P-000230,Pantalon Brocado Marino Piel T-10,pantalon-brocado-marino-piel-t-10-230,Producto importado desde inventario.,,/products/image184.jpeg,,100,,,750.0,0,1,,,1,10
+231,INV-P-000231,Pantalon WL BROCADO,pantalon-wl-brocado-231,Producto importado desde inventario.,,/products/image185.jpeg,,100,,,1398.0,0,1,,130,1,10
+232,INV-P-000232,Pantalon WL BROC,pantalon-wl-broc-232,Producto importado desde inventario.,,/products/image186.jpeg,,100,,,1197.99,0,1,,131,1,10
+233,INV-P-000233,Pantalon Brocado Oro Gràfico T-4,pantalon-brocado-oro-grafico-t-4-233,Producto importado desde inventario.,,/products/image187.jpeg,,100,,,850.0,0,1,,,1,10
+234,INV-P-000234,Pantalon Brocado Oro Gràfico T-6,pantalon-brocado-oro-grafico-t-6-234,Producto importado desde inventario.,,/products/image187.jpeg,,100,,,850.0,0,1,,,1,10
+235,INV-P-000235,Pantalon Brocado Oro Gràfico T-8,pantalon-brocado-oro-grafico-t-8-235,Producto importado desde inventario.,,/products/image187.jpeg,,100,,,850.0,0,1,,,1,10
+236,INV-P-000236,Pantalon Brocado Oro Gràfico T-10,pantalon-brocado-oro-grafico-t-10-236,Producto importado desde inventario.,,/products/image187.jpeg,,100,,,850.0,0,1,,,1,10
+237,INV-P-000237,Pantalon Brocado Plomo Gràfico T-6,pantalon-brocado-plomo-grafico-t-6-237,Producto importado desde inventario.,,/products/image188.jpeg,,100,,,850.0,0,1,,,1,10
+238,INV-P-000238,Pantalon Brocado RosaP Nevado T-6,pantalon-brocado-rosap-nevado-t-6-238,Producto importado desde inventario.,,/products/image189.jpeg,,100,,,750.0,0,1,,,1,10
+239,INV-P-000239,Pantalon Brocado RosaP Nevado T-8,pantalon-brocado-rosap-nevado-t-8-239,Producto importado desde inventario.,,/products/image189.jpeg,,100,,,750.0,0,1,,,1,10
+240,INV-P-000240,Pantalon Brocado Topacio Azul T-6,pantalon-brocado-topacio-azul-t-6-240,Producto importado desde inventario.,,/products/image190.jpeg,,100,,,850.0,0,1,,,1,10
+241,INV-P-000241,Pantalon Brocado Topacio Azul T-8,pantalon-brocado-topacio-azul-t-8-241,Producto importado desde inventario.,,/products/image190.jpeg,,100,,,850.0,0,1,,,1,10
+242,INV-P-000242,Pantalon cargo,pantalon-cargo-242,Producto importado desde inventario.,,,,100,,,349.0,0,1,,132,1,10
+243,INV-C-000243,Pantalon Cargo,pantalon-cargo-rosap-243,Producto importado desde inventario.,,/products/image197.jpeg,,100,,,549.0,0,1,242,27,1,10
+244,INV-C-000244,Pantalon Cargo,pantalon-cargo-vbotel-244,Producto importado desde inventario.,,/products/image200.jpeg,,100,,,549.0,0,1,242,140,1,10
+245,INV-C-000245,Pantalon Cargo,pantalon-cargo-vbotell-245,Producto importado desde inventario.,,/products/image200.jpeg,,100,,,549.0,0,1,242,141,1,10
+246,INV-C-000246,Pantalon Cargo,pantalon-cargo-vinilne-246,Producto importado desde inventario.,,/products/image205.jpeg,,100,,,657.8,0,1,242,127,1,10
+247,INV-C-000247,Pantalon Cargo,pantalon-cargo-vinilneg-247,Producto importado desde inventario.,,/products/image205.jpeg,,100,,,657.8,0,1,242,128,1,10
+248,INV-C-000248,Pantalon Cargo,pantalon-cargo-vinilrp-248,Producto importado desde inventario.,,/products/image206.jpeg,,100,,,657.8,0,1,242,142,1,10
+249,INV-P-000249,Pantalon Recto Cargo,pantalon-recto-cargo-249,Producto importado desde inventario.,,/products/image191.jpeg,,100,,,799.0,0,1,,118,1,10
+250,INV-P-000250,Pantalon wideL,pantalon-widel-250,Producto importado desde inventario.,,,,100,,,480.0,0,1,,134,1,10
+251,INV-C-000251,Pantalon wideL,pantalon-widel-tartan-251,Producto importado desde inventario.,,,,100,,,600.0,0,1,250,135,1,10
+252,INV-C-000252,Pantalon WideL,pantalon-widel-naranj-252,Producto importado desde inventario.,,/products/image193.jpeg,,100,,,547.8,0,1,250,138,1,10
+253,INV-C-000253,Pantalon WideL,pantalon-widel-negro-253,Producto importado desde inventario.,,/products/image196.jpeg,,100,,,549.0,0,1,250,50,1,10
+254,INV-C-000254,Pantalon WideL,pantalon-widel-arey-254,Producto importado desde inventario.,,/products/image198.jpeg,,100,,,549.0,0,1,250,122,1,10
+255,INV-C-000255,Pantalon WideL,pantalon-widel-rojo-255,Producto importado desde inventario.,,/products/image199.jpeg,,100,,,549.0,0,1,250,69,1,10
+256,INV-C-000256,Pantalon WideL,pantalon-widel-vbotell-256,Producto importado desde inventario.,,/products/image201.jpeg,,100,,,549.0,0,1,250,141,1,10
+257,INV-C-000257,Pantalon WideL,pantalon-widel-vlima-257,Producto importado desde inventario.,,/products/image203.jpeg,,100,,,547.8,0,1,250,126,1,10
+258,INV-P-000258,Pantalon Pata Gallo,pantalon-pata-gallo-258,Producto importado desde inventario.,,,,100,,,599.0,0,1,,26,1,10
+259,INV-P-000259,Pantalón Mesh,pantalon-mesh-259,Producto importado desde inventario.,,,,100,,,600.0,0,1,,136,1,10
+260,INV-P-000260,Pantalon WL,pantalon-wl-260,Producto importado desde inventario.,,/products/image193.jpeg,,100,,,547.8,0,1,,137,1,10
+261,INV-C-000261,Pantalon WL,pantalon-wl-naranja-261,Producto importado desde inventario.,,/products/image193.jpeg,,100,,,547.8,0,1,260,80,1,10
+262,INV-C-000262,Pantalon WL,pantalon-wl-negro-262,Producto importado desde inventario.,,/products/image196.jpeg,,100,,,549.0,0,1,260,50,1,10
+263,INV-C-000263,Pantalon WL,pantalon-wl-arey-263,Producto importado desde inventario.,,/products/image198.jpeg,,100,,,549.0,0,1,260,122,1,10
+264,INV-C-000264,Pantalon WL,pantalon-wl-vbotell-264,Producto importado desde inventario.,,/products/image201.jpeg,,100,,,549.0,0,1,260,141,1,10
+265,INV-C-000265,Pantalon WL,pantalon-wl-vlima-265,Producto importado desde inventario.,,/products/image203.jpeg,,100,,,547.8,0,1,260,126,1,10
+266,INV-C-000266,Pantalon WL,pantalon-wl-azulm-266,Producto importado desde inventario.,,/products/image204.jpeg,,100,,,657.8,0,1,260,41,1,10
+267,INV-P-000267,Pantalon Confort,pantalon-confort-267,Producto importado desde inventario.,,/products/image194.jpeg,,100,,,499.0,0,1,,139,1,10
+268,INV-P-000268,Pantalon Encaje,pantalon-encaje-268,Producto importado desde inventario.,,,,100,,,399.0,0,1,,43,1,10
+269,INV-P-000269,Pantalon Capri,pantalon-capri-269,Producto importado desde inventario.,,/products/image208.jpeg,,100,,,437.8,0,1,,89,1,10
+270,INV-P-000270,Top Mesh,top-mesh-270,Producto importado desde inventario.,,/products/image209.jpeg,,100,,,300.0,0,1,,136,1,10
+271,INV-P-000271,Panty blusa manga,panty-blusa-manga-271,Producto importado desde inventario.,,,,100,,,299.0,0,1,,143,1,11
+272,INV-P-000272,Panty blusa Bordada manga larga,panty-blusa-bordada-manga-larga-272,Producto importado desde inventario.,,/products/image213.jpeg,,100,,,349.0,0,1,,,1,11
+273,INV-P-000273,Playera basica,playera-basica-273,Producto importado desde inventario.,,/products/image215.png,,100,,,220.0,0,1,,22,1,12
+274,INV-C-000274,Playera basica,playera-basica-rojo-274,Producto importado desde inventario.,,/products/image215.png,,100,,,220.0,0,1,273,144,1,12
+275,INV-C-000275,Playera basica,playera-basica-verde-275,Producto importado desde inventario.,,/products/image215.png,,100,,,220.0,0,1,273,15,1,12
+276,INV-P-000276,Short Fucsia roll,short-fucsia-roll-276,Producto importado desde inventario.,,/products/image216.jpeg,,100,,,503.8,0,1,,145,1,13
+277,INV-P-000277,Short Satinado,short-satinado-277,Producto importado desde inventario.,,/products/image217.jpeg,,100,,,327.8,0,1,,146,1,13
+278,INV-C-000278,Short Satinado,short-satinado-vinot-278,Producto importado desde inventario.,,/products/image218.jpeg,,100,,,327.8,0,1,277,147,1,13
+279,INV-C-000279,Short Satinado,short-satinado-negro-279,Producto importado desde inventario.,,/products/image220.jpeg,,100,,,327.8,0,1,277,50,1,13
+280,INV-C-000280,Short Satinado,short-satinado-olivo-280,Producto importado desde inventario.,,/products/image221.jpeg,,100,,,327.8,0,1,277,148,1,13
+281,INV-P-000281,Short NegroB roll,short-negrob-roll-281,Producto importado desde inventario.,,/products/image219.jpeg,,100,,,503.8,0,1,,145,1,13
+282,INV-P-000282,Short RosaP roll,short-rosap-roll-282,Producto importado desde inventario.,,/products/image222.jpeg,,100,,,503.8,0,1,,145,1,13
+283,INV-P-000283,Short RojoB roll,short-rojob-roll-283,Producto importado desde inventario.,,/products/image223.jpeg,,100,,,503.8,0,1,,145,1,13
+284,INV-P-000284,Jumpsuit WL,jumpsuit-wl-284,Producto importado desde inventario.,,/products/image224.jpeg,,100,,,547.8,0,1,,149,1,14
+285,INV-C-000285,Jumpsuit WL,jumpsuit-wl-verbb-285,Producto importado desde inventario.,,/products/image225.jpeg,,100,,,657.8,0,1,284,150,1,14
+286,INV-P-000286,Jumpsuit WL Cruz,jumpsuit-wl-cruz-286,Producto importado desde inventario.,,/products/image225.jpeg,,100,,,657.8,0,1,,150,1,14
+287,INV-P-000287,Vestido calado Amarillo,vestido-calado-amarillo-287,Producto importado desde inventario.,,/products/image226.jpeg,,100,,,349.0,0,1,,151,1,14
+288,INV-P-000288,Vestido perlas,vestido-perlas-288,Producto importado desde inventario.,,/products/image227.jpeg,,100,,,449.0,0,1,,41,1,14
+289,INV-P-000289,Vestido Halter,vestido-halter-289,Producto importado desde inventario.,,/products/image228.jpeg,,100,,,249.0,0,1,,152,1,14
+290,INV-C-000290,Vestido halter,vestido-halter-geometrico-290,Producto importado desde inventario.,,/products/image234.jpeg,,100,,,349.0,0,1,289,155,1,14
+291,INV-P-000291,Vestido holgado,vestido-holgado-291,Producto importado desde inventario.,,/products/image229.jpeg,,100,,,499.0,0,1,,118,1,14
+292,INV-C-000292,Vestido holgado,vestido-holgado-verdelima-292,Producto importado desde inventario.,,/products/image230.jpeg,,100,,,499.0,0,1,291,153,1,14
+293,INV-P-000293,Vestido corte A,vestido-corte-a-293,Producto importado desde inventario.,,/products/image231.jpeg,,100,,,249.0,0,1,,154,1,14
+294,INV-C-000294,Vestido corte A,vestido-corte-a-lunares-294,Producto importado desde inventario.,,/products/image235.jpeg,,100,,,359.0,0,1,293,73,1,14
+295,INV-C-000295,Vestido corte A,vestido-corte-a-rojo-295,Producto importado desde inventario.,,/products/image233.jpeg,,100,,,299.0,0,1,293,69,1,14
+296,INV-C-000296,Vestido corte A,vestido-corte-a-verdeagua-296,Producto importado desde inventario.,,/products/image237.jpeg,,100,,,299.0,0,1,293,157,1,14
+297,INV-P-000297,Vestido corto,vestido-corto-297,Producto importado desde inventario.,,,,100,,,649.0,0,1,,156,1,14
+298,INV-C-000298,Vestido corto,vestido-corto-negrob-298,Producto importado desde inventario.,,,,100,,,799.0,0,1,297,18,1,14
+299,INV-P-000299,Vestido entallado,vestido-entallado-299,Producto importado desde inventario.,,,,100,,,349.0,0,1,,50,1,14
+300,INV-P-000300,Vestido corte A Rojo EGXL,vestido-corte-a-rojo-egxl-300,Producto importado desde inventario.,,/products/image233.jpeg,,100,,,299.0,0,1,,,1,14
+301,INV-P-000301,Vestido Olivo Largo,vestido-olivo-largo-301,Producto importado desde inventario.,,/products/image236.jpeg,,100,,,949.0,0,1,,,1,14
+302,INV-P-000302,Vestido Camp,vestido-camp-302,Producto importado desde inventario.,,/products/image238.jpeg,,100,,,349.0,0,1,,158,1,14
+303,INV-P-000303,Vestido Magenta,vestido-magenta-303,Producto importado desde inventario.,,/products/image239.jpeg,,100,,,399.0,0,1,,159,1,14
+304,INV-P-000304,Vestido Magenta Rec,vestido-magenta-rec-304,Producto importado desde inventario.,,/products/image239.jpeg,,100,,,399.0,0,1,,159,1,14
+305,INV-P-000305,Vestido Negro M3/4,vestido-negro-m3-4-305,Producto importado desde inventario.,,/products/image240.jpeg,,100,,,399.0,0,1,,,1,14
+306,INV-P-000306,Vestido Rojo,vestido-rojo-306,Producto importado desde inventario.,,/products/image241.jpeg,,100,,,349.0,0,1,,160,1,14
+307,INV-C-000307,Vestido Rojo,vestido-rojo-midi-307,Producto importado desde inventario.,,/products/image243.jpeg,,100,,,449.0,0,1,306,161,1,14
+308,INV-P-000308,Vestido VBotella,vestido-vbotella-308,Producto importado desde inventario.,,/products/image242.jpeg,,100,,,399.0,0,1,,162,1,14

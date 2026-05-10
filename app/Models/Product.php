@@ -150,6 +150,7 @@ class Product extends Model
             'products.id',
             'slug',
             'name',
+            'img',
             'thumb',
             'ref',
             'offer',

@@ -42,8 +42,12 @@ const CardProduct = ({ product, productNew = false }) => {
             <div className="h-full flex flex-col">
                 <div className="aspect-square overflow-hidden rounded-md">
                     <img
-                        src={product.thumb}
+                        src={product.thumb || product.img || "/img/placeholder.png"}
                         alt={product.slug}
+                        onError={(e) => {
+                            if (e.currentTarget.src.includes('/img/placeholder.png')) return;
+                            e.currentTarget.src = '/img/placeholder.png';
+                        }}
                         className="w-full h-full object-cover object-top group-hover:rounded-none"
                     />
                 </div>
