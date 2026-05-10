@@ -152,7 +152,6 @@ class Product extends Model
             'name',
             'img',
             'thumb',
-            'img',
             'ref',
             'offer',
             'price',
