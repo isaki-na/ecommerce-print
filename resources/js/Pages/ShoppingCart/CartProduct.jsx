@@ -52,7 +52,15 @@ const ProductsCart = ({ cardProduct }) => {
                     <div className="col-span-5 md:col-span-1">
                         <Link href={route('product', { slug: cardProduct.slug, ref: cardProduct.ref })}>
                             <div className=" flex items-center justify-center h-full">
-                                <img className=" md:max-h-28 lg:max-h-28 max-w-full object-cover" src={cardProduct.thumb} alt={cardProduct.name} />
+                                <img
+                                    className=" md:max-h-28 lg:max-h-28 max-w-full object-cover"
+                                    src={cardProduct.thumb || cardProduct.img || "/img/placeholder.png"}
+                                    alt={cardProduct.name}
+                                    onError={(e) => {
+                                        if (e.currentTarget.src.includes('/img/placeholder.png')) return;
+                                        e.currentTarget.src = '/img/placeholder.png';
+                                    }}
+                                />
                             </div>
                         </Link>
                     </div>

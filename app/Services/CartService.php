@@ -39,7 +39,7 @@ class CartService
         $skuIdQuantity = self::session($cardEnum);
         $skusId = array_keys($skuIdQuantity);
 
-        $selectProduct = ['id', 'name', 'thumb', 'slug', 'ref', 'price', 'offer', 'old_price', 'max_quantity', 'color_id'];
+        $selectProduct = ['id', 'name', 'thumb', 'img', 'slug', 'ref', 'price', 'offer', 'old_price', 'max_quantity', 'color_id'];
 
         $products = Sku::where('stock', '>', 0)
             ->whereIn('id', $skusId)
@@ -59,7 +59,8 @@ class CartService
                     'total' => $sku->product ? round($sku->product->price * $quantity) : 0,
                     'size' => $sku->size?->only(['id', 'name']),
                     'color' => $sku->product?->color?->only(['id', 'name']) ?? null,
-                    'thumb' => $sku->product?->thumb ?? null,
+                    'thumb' => $sku->product?->thumb ?: ($sku->product?->img ?: null),
+                    'img' => $sku->product?->img ?: ($sku->product?->thumb ?: null),
                 ];
             });;
 

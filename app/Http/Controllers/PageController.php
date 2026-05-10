@@ -16,6 +16,7 @@ use App\Models\Page;
 
 use App\Models\Product;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -42,16 +43,50 @@ class PageController extends Controller
             ->limit(10)
             ->get();
 
-        $allProducts = Product::activeInStock()
+        $parentsPaginator = Product::query()
+            ->variant()
+            ->activeInStock()
+            ->select('parent_id')
+            ->distinct()
+            ->orderBy('parent_id', 'desc')
+            ->paginate(12, ['parent_id'])
+            ->withQueryString();
+
+        $parentIds = collect($parentsPaginator->items())
+            ->pluck('parent_id')
+            ->filter()
+            ->values();
+
+        $variantsByParent = Product::query()
             ->variant()
             ->card()
-            ->inRandomOrder()
-            ->limit(20)
-            ->get();
+            ->activeInStock()
+            ->whereIn('parent_id', $parentIds)
+            ->orderBy('id')
+            ->get()
+            ->groupBy('parent_id')
+            ->map(fn($variants) => $variants->first());
+
+        $productsForPage = $parentIds
+            ->map(fn($parentId) => $variantsByParent->get($parentId))
+            ->filter()
+            ->values();
+
+        $allProducts = new LengthAwarePaginator(
+            $productsForPage,
+            $parentsPaginator->total(),
+            $parentsPaginator->perPage(),
+            $parentsPaginator->currentPage(),
+            [
+                'path' => request()->url(),
+                'query' => request()->query(),
+                'pageName' => $parentsPaginator->getPageName(),
+            ],
+        );
 
         $bestSeller = $this->uniqueByParent($bestSeller);
         $newProducts = $this->uniqueByParent($newProducts);
-        $allProducts = $this->uniqueByParent($allProducts);
+        $allProducts->setCollection($this->uniqueByParent($allProducts->getCollection()));
 
         // dd($bestSeller[0]);
         $banners = $page->banners->where('active', 1);
@@ -68,6 +103,7 @@ class PageController extends Controller
             'productsBestSeller' => ProductCardResource::collection($bestSeller),
             'newProducts' => ProductCardResource::collection($newProducts),
             'allProducts' => ProductCardResource::collection($allProducts),
+            'allProductsPaginated' => $allProducts,
             'carouselTop' => ImageResource::collection($carousel_top),
             'bannersTop' => ImageResource::collection($banners_top),
             'bannersMedium' => ImageResource::collection($banners_medium),
@@ -133,16 +169,16 @@ class PageController extends Controller
             ->withSum('skus', 'stock')
             ->firstOrFail();
 
-        $variants = Product::variant()->select('id', 'name', 'thumb', 'ref', 'slug', 'color_id')->with('color')->where('parent_id', $product->parent_id)->active()
+        $variants = Product::variant()->select('id', 'name', 'thumb', 'img', 'ref', 'slug', 'color_id')->with('color')->where('parent_id', $product->parent_id)->active()
             ->withSum('skus', 'stock')->get()->map(function ($item) {
 
                 return [
                     'id' => $item->id,
                     'name' => $item->name,
                     'ref' => $item->ref,
-                    'thumb' => $item->thumb,
+                    'thumb' => $item->thumb ?: ($item->img ?: '/img/placeholder.png'),
                     'slug' => $item->slug,
-                    'color' => new ColorResource($item->color),
+                    'color' => $item->color ? new ColorResource($item->color) : null,
                     'inStock' => boolval($item->skus_sum_stock),
                 ];
             });
@@ -193,5 +229,15 @@ class PageController extends Controller
             ->map(fn($parentId) => $representativesByParent->get($parentId))
             ->filter()
             ->values();
+    }
+
+    private function resolveImageFilePath(string $name): ?string
+    {
+        return null;
+    }
+
+    private function normalizeProductImagePath(?string $path): string
+    {
+        return $path ?: '/img/placeholder.png';
     }
 }

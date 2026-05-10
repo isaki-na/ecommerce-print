@@ -115,16 +115,8 @@ id,ref,name,slug,entry,description,img,thumb,max_quantity,old_price,offer,price,
 114,INV-P-000114,Top Peplum,top-peplum-114,Producto importado desde inventario.,,/products/image110.jpeg,,100,,,283.8,0,1,,78,1,1
 115,INV-P-000115,Bustier con lentejuelas,bustier-con-lentejuelas-115,Producto importado desde inventario.,,,,100,,,299.0,0,1,,,1,2
 116,INV-P-000116,Chamarra RF,chamarra-rf-116,Producto importado desde inventario.,,/products/image111.jpeg,,100,,,598.0,0,1,,79,2,3
-117,INV-P-000117,Chamarra Doux3 L/,chamarra-doux3-l-117,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
-118,INV-P-000118,Chamarra Doux3 M/,chamarra-doux3-m-118,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
-119,INV-P-000119,Chamarra Doux3 S/,chamarra-doux3-s-119,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
-120,INV-P-000120,Chamarra Doux3 XL/,chamarra-doux3-xl-120,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
-121,INV-P-000121,Chamarra Doux4 L/,chamarra-doux4-l-121,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
-122,INV-P-000122,Chamarra Doux4 M/,chamarra-doux4-m-122,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
-123,INV-P-000123,Chamarra Doux4 S/,chamarra-doux4-s-123,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
-124,INV-P-000124,Chamarra Doux4 XL/,chamarra-doux4-xl-124,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
-125,INV-P-000125,Chamarra Doux4 2XL/ 2EG,chamarra-doux4-2xl-2eg-125,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
-126,INV-P-000126,Chamarra Doux4 3XL/ 3EG,chamarra-doux4-3xl-3eg-126,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
+117,INV-P-000117,Chamarra Doux3q,chamarra-doux3-l-117,Producto importado desde inventario.,,/products/image112.jpeg,,100,,,599.0,0,1,,,2,3
+118,INV-P-000121,Chamarra Doux4,chamarra-doux4-l-121,Producto importado desde inventario.,,/products/image113.jpeg,,100,,,649.0,0,1,,,2,3
 127,INV-P-000127,Blazer OverSize,blazer-oversize-127,Producto importado desde inventario.,,,,100,,,699.0,0,1,,80,1,3
 128,INV-C-000128,Blazer OverSize,blazer-oversize-rojo-128,Producto importado desde inventario.,,/products/image115.jpeg,,100,,,699.0,0,1,127,69,1,3
 129,INV-C-000129,Blazer OverSize,blazer-oversize-fucsia-129,Producto importado desde inventario.,,/products/image116.jpeg,,100,,,699.0,0,1,127,24,1,3

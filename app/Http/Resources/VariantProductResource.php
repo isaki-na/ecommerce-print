@@ -14,11 +14,14 @@ class VariantProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $img = $this->img ?: ($this->thumb ?: '/img/placeholder.png');
+        $thumb = $this->thumb ?: ($this->img ?: '/img/placeholder.png');
+
         return [
             'id' => $this->id,
             'ref' => $this->ref,
-            'thumb' => $this->thumb,
-            'img' => $this->img,
+            'thumb' => $thumb,
+            'img' => $img,
             'images' => $this->whenLoaded('images'),
             'old_price' => $this->old_price,
             'offer' => $this->offer,

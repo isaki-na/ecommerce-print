@@ -10,7 +10,15 @@ function OrderItemsList({ order }) {
                 {order.products.map((product, index) => (
                     <article key={index} className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
                         <div className="flex gap-3">
-                            <img className="h-24 w-16 shrink-0 rounded object-cover" src={product.thumb} alt={product.name} />
+                            <img
+                                className="h-24 w-16 shrink-0 rounded object-cover"
+                                src={product.thumb || product.img || "/img/placeholder.png"}
+                                alt={product.name}
+                                onError={(e) => {
+                                    if (e.currentTarget.src.includes('/img/placeholder.png')) return;
+                                    e.currentTarget.src = '/img/placeholder.png';
+                                }}
+                            />
 
                             <div className="min-w-0 flex-1">
                                 <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-gray-900 leading-tight">
@@ -62,7 +70,15 @@ function OrderItemsList({ order }) {
                         {order.products.map((product, index) => (
                             <tr key={index}>
                                 <td className='whitespace-nowrap'>
-                                    <img className="h-16 max-w-full rounded " src={product.thumb} alt={product.name} />
+                                    <img
+                                        className="h-16 max-w-full rounded"
+                                        src={product.thumb || product.img || "/img/placeholder.png"}
+                                        alt={product.name}
+                                        onError={(e) => {
+                                            if (e.currentTarget.src.includes('/img/placeholder.png')) return;
+                                            e.currentTarget.src = '/img/placeholder.png';
+                                        }}
+                                    />
 
                                 </td>
                                 <td className='align-top'>

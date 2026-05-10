@@ -18,7 +18,8 @@ class OrderProductResource extends JsonResource
         return [
             'name' => $this->name,
             'ref' => $this->ref,
-            'thumb' => $this->thumb,
+            'thumb' => $this->thumb ?: ($this->img ?: '/img/placeholder.png'),
+            'img' => $this->img ?: ($this->thumb ?: '/img/placeholder.png'),
             'color' => $this->color,
             'size' => $this->size,
             'old_price' => $this->old_price,

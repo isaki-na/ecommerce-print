@@ -81,7 +81,7 @@ class OrderService
             return [
                 'name' => 'Producto no encontrado',
                 'ref' => 'N/A',
-                'thumb' => null,
+                'thumb' => '/img/placeholder.webp',
                 'old_price' => 0,
                 'offer' => 0,
                 'price' => 0,
@@ -96,17 +96,20 @@ class OrderService
             ];
         }
 
+        $thumb = $product->thumb ?: ($product->img ?: '/img/placeholder.webp');
+        $ref = $product->ref ?: 'N/A';
+
         return [
             ...$product->only([
                 'name',
-                'ref',
-                'thumb',
                 'old_price',
                 'offer',
                 'price',
                 'category_id',
                 'department_id',
             ]),
+            'ref' => $ref,
+            'thumb' => $thumb,
             'color' => $product->color?->name ?? 'N/A',
             'size' => $sku->size?->name ?? 'N/A',
             'total' => round($product->price * $quantity, 2),

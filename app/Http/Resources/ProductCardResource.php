@@ -28,7 +28,7 @@ class ProductCardResource extends JsonResource
             'price' => $this->price,
             'color_id' => $this->color_id,
             // 'color' => new ColorResource($this->color),
-            'colors' => $this->product ? ColorResource::collection($this->product->variants->pluck('color')) : [],
+            'colors' => $this->product ? ColorResource::collection($this->product->variants->pluck('color')->filter()->values()) : [],
 
         ];
     }

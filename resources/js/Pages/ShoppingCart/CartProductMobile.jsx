@@ -63,8 +63,12 @@ const CartProductMobile = ({ cardProduct }) => {
                 >
                     <img
                         className="h-24 w-16 object-cover"
-                        src={cardProduct.thumb}
+                        src={cardProduct.thumb || cardProduct.img || "/img/placeholder.png"}
                         alt={cardProduct.name}
+                        onError={(e) => {
+                            if (e.currentTarget.src.includes('/img/placeholder.png')) return;
+                            e.currentTarget.src = '/img/placeholder.png';
+                        }}
                     />
                 </Link>
 

@@ -225,7 +225,7 @@ class ProductResource extends Resource
     {
         return $table
             ->modifyQueryUsing(function (Builder $query) {
-                return $query->variant()->withSum('skus', 'stock')->with('color');
+                return $query->withSum('skus', 'stock')->with('color');
             })
 
             ->columns([

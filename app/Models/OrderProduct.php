@@ -20,6 +20,17 @@ class OrderProduct extends Model
 
     protected $guarded = [];
 
+    protected static function booted(): void
+    {
+        static::saving(function (self $orderProduct): void {
+            // Guard required DB columns against null values from any write path.
+            $orderProduct->name = $orderProduct->name ?: 'Producto no encontrado';
+            $orderProduct->ref = $orderProduct->ref ?: 'N/A';
+            $orderProduct->thumb = $orderProduct->thumb ?: '/img/placeholder.webp';
+            $orderProduct->color = $orderProduct->color ?: 'N/A';
+        });
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

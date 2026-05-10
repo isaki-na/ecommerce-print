@@ -6,7 +6,15 @@ const CardProductSummary = ({ product }) => {
     return (
         <div className="flex p-5 md:p-6 gap-4" key={product.id}>
             <div className='flex-shrink-0'>
-                <img className="h-20  max-w-full rounded" src={product.thumb} alt={product.name} />
+                <img
+                    className="h-20  max-w-full rounded"
+                    src={product.thumb || product.img || "/img/placeholder.png"}
+                    alt={product.name}
+                    onError={(e) => {
+                        if (e.currentTarget.src.includes('/img/placeholder.png')) return;
+                        e.currentTarget.src = '/img/placeholder.png';
+                    }}
+                />
             </div>
             <div className="grow">
                 <h3>{product.quantity} x {product.name}</h3>
