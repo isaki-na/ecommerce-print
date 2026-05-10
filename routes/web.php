@@ -16,7 +16,6 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Middleware\ProductInSession;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -51,18 +50,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/subscribe', [NewsletterController::class, 'newsletter'])->name('subscribe');
 
-    Route::post('/contact-form', function () {
+    Route::post('/contact-form', [PageController::class, 'contactForm'])->name('contact-form');
 
-        return Redirect::back()->with('success', 'Formulario  completado con exito');
-    })->name('contact-form');
-
-    Route::get('/dashboard', function () {
-        if (auth()->user()->hasAnyRole(['admin', 'operator'])) {
-            return redirect('/admin');
-        }
-
-        return redirect()->route('profile.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 });
 
 // Route::middleware('auth')->group(function () {

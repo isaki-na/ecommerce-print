@@ -231,6 +231,20 @@ class PageController extends Controller
             ->values();
     }
 
+    public function contactForm()
+    {
+        return redirect()->back()->with('success', 'Formulario  completado con exito');
+    }
+
+    public function dashboard()
+    {
+        if (auth()->user()->hasAnyRole(['admin', 'operator'])) {
+            return redirect('/admin');
+        }
+
+        return redirect()->route('profile.index');
+    }
+
     private function resolveImageFilePath(string $name): ?string
     {
         return null;
