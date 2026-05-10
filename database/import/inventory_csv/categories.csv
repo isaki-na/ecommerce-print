@@ -1,0 +1,15 @@
+id,name,slug,img,entry,active,in_home,type
+1,BLUSAS | CAMISAS,blusas-camisas,,,1,1,product
+2,BUSTIER,bustier,,,1,1,product
+3,CHAMARRAS | ABRIGOS,chamarras-abrigos,,,1,1,product
+4,CONJUNTO,conjunto,,,1,1,product
+5,CONJUNTOS,conjuntos,,,1,1,product
+6,FALDAS,faldas,,,1,1,product
+7,JEANS,jeans,,,1,1,product
+8,LEGGINGS,leggings,,,1,1,product
+9,PANTALONES,pantalones,,,1,1,product
+10,PANTALONES | LEGGINGS,pantalones-leggings,,,1,1,product
+11,PANTY BLUSA,panty-blusa,,,1,1,product
+12,PLAYERAS,playeras,,,1,1,product
+13,SHORTS,shorts,,,1,1,product
+14,VESTIDOS | JUMPSUITS,vestidos-jumpsuits,,,1,1,product
